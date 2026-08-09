@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dmbpgcqfgkjdl" path="res://Code/customer_spawn_area.gd" id="1_yrq0x"]
 
-[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("exit_point")]
+[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("exit_area")]
 script = ExtResource("1_yrq0x")
-exit_point = NodePath("Exit area")
+exit_area = NodePath("Exit area")
 
 [node name="Exit area" type="Node2D" parent="." unique_id=1215220250]
 position = Vector2(0, 280)
