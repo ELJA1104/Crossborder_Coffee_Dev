@@ -16,12 +16,6 @@ position = Vector2(398, 214)
 script = ExtResource("1_ngukw")
 metadata/_edit_horizontal_guides_ = [-56.0]
 
-[node name="grinding" type="Timer" parent="." unique_id=153467162]
-wait_time = 45.0
-
-[node name="input_time" type="Timer" parent="." unique_id=828962474]
-wait_time = 0.75
-
 [node name="Grinder2" type="Sprite2D" parent="." unique_id=1782314385]
 position = Vector2(-5.25, -26.999983)
 scale = Vector2(0.22060186, 0.22361112)
@@ -86,8 +80,6 @@ offset_bottom = 25.0
 scale = Vector2(0.83, 1)
 text = "Extract"
 
-[connection signal="timeout" from="grinding" to="." method="_on_grinding_timeout"]
-[connection signal="timeout" from="input_time" to="." method="_on_input_time_timeout"]
 [connection signal="pressed" from="Grinder2/opening_button" to="." method="_on_opening_button_pressed"]
 [connection signal="pressed" from="Grinder1/closing_button" to="." method="_on_closing_button_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
