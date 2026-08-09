@@ -1,19 +1,21 @@
 extends CharacterBody2D
 class_name Cup_node
 var ice_cube
+var milk
+var sugar
 var when_is_grab_cup : bool = false
 var mouse_inside_cup : bool = false
 var can_add_things : bool = false
+var not_in_the_spwaner : bool = true
 @export var Progress_Bar_cup : ProgressBar
 @export var Text_label : Label
 var flavour : String
 var temp : String
 var ran_ice  = 0
 var ran_drink = 0
-
+var _ingredians = 0
 
 func _ready():
-	add_to_group("cup")
 	$Area2D.body_entered.connect(_on_area_2d_body_entered)
 	$Area2D.body_exited.connect(_on_area_2d_body_exited)
 	mouse_entered.connect(_on_mouse_entered)
@@ -32,7 +34,7 @@ func _process(_delta):
 		global_position = lerp(global_position,_mouse_pos,0.2)
 		return
 
-	if can_add_things and Progress_Bar_cup.visible:
+	if can_add_things and Progress_Bar_cup.visible and not_in_the_spwaner:
 		if Progress_Bar_cup.value < Progress_Bar_cup.max_value:
 			Progress_Bar_cup.value += 0.5
 		else:
@@ -44,6 +46,20 @@ func _process(_delta):
 				ran_ice += 1
 				hot_or_iced()
 				ice_cube.tp_to_spwaner()
+			if _ingredians == 2:
+				print('milk')
+				Progress_Bar_cup.hide()
+				Progress_Bar_cup.value = 0
+				can_add_things = false 
+				ingredians_milk += 1
+				milk.tp_to_spwaner()
+			if _ingredians == 3:
+				print('sugar')
+				Progress_Bar_cup.hide()
+				Progress_Bar_cup.value = 0
+				can_add_things = false 
+				ingredians_sugar += 1
+				sugar.tp_to_spwaner()
 
 
 
@@ -83,28 +99,38 @@ func cup_return_to_zero():
 	Progress_Bar_cup.value = 0
 	pass
 #=================================================================================================================================================================
-var _ingredians 
+#_ingredians :
 #ice cube = 1
+#milk = 2
+#sugar = 3
 func _on_area_2d_body_entered(body):
 	can_add_things = true
 	Progress_Bar_cup.show()
 	print(body.name)
-	if body.is_in_group("ice cube"):
-		_ingredians = 1
 	if body is Ice_cube_node:
 		ice_cube = body
+		_ingredians = 1
+	if body is Milk_node:
+		milk = body
+		_ingredians = 2
+	if body is Sugar_node:
+		sugar = body
+		_ingredians = 3
 
 func _on_area_2d_body_exited(body):
 	can_add_things = false
 	Progress_Bar_cup.hide()
 	Progress_Bar_cup.value = 0
-	print(body.name)
-	print('is go out')
+	print(body.name + 'is go out')
 
+func is_in_spwaner():
+	not_in_the_spwaner = false
 
-
+func is_not_in_spwaner():
+	not_in_the_spwaner = true
 #======================================================================
-var adding_milk
+var ingredians_milk = 0
+var ingredians_sugar = 0
 func drink_select():
 	if ran_drink == 0:
 		flavour = "Water"
@@ -124,13 +150,13 @@ func drink_select():
 
 func hot_or_iced():
 	if ran_ice == 0:
-		print('hot')
+		print('hot temp')
 		temp = "Hot "
 	elif ran_ice == 1:
-		print('normal')
+		print('normal temp')
 		temp = "Warm "
 	elif ran_ice == 2:
-		print('cold')
+		print('cold temp')
 		temp = "Cold "
 
 	if temp == "Cold " and flavour == "Water":
@@ -157,14 +183,4 @@ func text_to_be_displayed(text : String):
 
 
 
-
-
-#signal tcup(global_position: Vector2)
-
-#func tp_cup():
-	#tcup.emit(global_position)
-	#cup.tp_tcup()
-
-	
-	
 	

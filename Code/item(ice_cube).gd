@@ -1,12 +1,14 @@
 extends CharacterBody2D
 class_name Ice_cube_node
+var cup
 var when_is_grab_ice : bool = false
 var mouse_inside_ice : bool = false
 
 func _ready():
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	add_to_group("ice cube")
+	$"../spwaner(ice cube)/Area2D".body_entered.connect(_on_area_2d_body_entered)
+	$"../spwaner(ice cube)/Area2D".body_exited.connect(_on_area_2d_body_exited)
 
 func _process(_delta):
 	if when_is_grab_ice:
@@ -31,3 +33,15 @@ func tp_to_spwaner():
 	var _spwaner = $"../spwaner(ice cube)" 
 	if _spwaner:
 		global_position = _spwaner.global_position
+
+func _on_area_2d_body_entered(body):
+	print(body.name + 'is in the ice cube spwaner')
+	if body is Cup_node:
+		cup = body
+		cup.is_in_spwaner()
+
+func _on_area_2d_body_exited(body):
+	print(body.name + 'is go out to the ice cube spwaner')
+	if body is Cup_node:
+		cup = body
+		cup.is_not_in_spwaner()

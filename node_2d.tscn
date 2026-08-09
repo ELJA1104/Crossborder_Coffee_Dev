@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cmfg28dff2vr7" path="res://Scenes/ice_cube.tscn" id="2_0e48y"]
 [ext_resource type="PackedScene" uid="uid://cgqjx1k2rpcd4" path="res://Scenes/cup.tscn" id="2_0hol4"]
+[ext_resource type="PackedScene" uid="uid://cmitv4ele86py" path="res://Scenes/milk.tscn" id="3_epypp"]
+[ext_resource type="PackedScene" uid="uid://d2ck4um7l27gx" path="res://Scenes/sugar.tscn" id="4_0hol4"]
 
 [node name="Node2D" type="Node2D" unique_id=187560298]
 
@@ -11,5 +13,8 @@ position = Vector2(853.7501, 217.50003)
 [node name="cup" parent="." unique_id=1073076532 instance=ExtResource("2_0hol4")]
 position = Vector2(466, 289)
 
-[node name="ice cube2" parent="." unique_id=118571491 instance=ExtResource("2_0e48y")]
-position = Vector2(268, 492)
+[node name="milk" parent="." unique_id=798909664 instance=ExtResource("3_epypp")]
+position = Vector2(120, 316)
+
+[node name="sugar" parent="." unique_id=1604224224 instance=ExtResource("4_0hol4")]
+position = Vector2(485, 491)

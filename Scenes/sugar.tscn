@@ -1,25 +1,35 @@
-[gd_scene format=3 uid="uid://ci7c6riru6aal"]
+[gd_scene format=3 uid="uid://d2ck4um7l27gx"]
 
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="1_pfnow"]
-[ext_resource type="Script" uid="uid://35a6amt3kl4r" path="res://Code/sugar.gd" id="1_xng1b"]
-[ext_resource type="Script" uid="uid://ilxuxpqrng1k" path="res://Code/item(sugar).gd" id="2_wljrl"]
+[ext_resource type="Script" uid="uid://djr1rfm5rk87q" path="res://Code/item(sugar).gd" id="1_n4k3a"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_6lna5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
-size = Vector2(131, 125)
+size = Vector2(38, 39)
 
-[node name="sugar" type="Node2D" unique_id=328394952]
-script = ExtResource("1_xng1b")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0v5d"]
+size = Vector2(71, 60)
 
-[node name="item(sugar)" type="CharacterBody2D" parent="." unique_id=1837839553]
+[node name="sugar" type="Node2D" unique_id=1604224224]
+
+[node name="item(sugar)" type="CharacterBody2D" parent="." unique_id=1019901390]
 disable_mode = 2
 collision_layer = 17
 collision_mask = 17
 input_pickable = true
-script = ExtResource("2_wljrl")
+script = ExtResource("1_n4k3a")
 
-[node name="Sprite2D" type="Sprite2D" parent="item(sugar)" unique_id=1724941856]
-texture = ExtResource("1_pfnow")
+[node name="Sprite2D" type="Sprite2D" parent="item(sugar)" unique_id=1164953062]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("2_6lna5")
 
-[node name="draw" type="CollisionShape2D" parent="item(sugar)" unique_id=352353609]
-position = Vector2(0.5, 2.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item(sugar)" unique_id=250819]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_2m13f")
+
+[node name="spwaner(sugar)" type="Node2D" parent="." unique_id=1742127762]
+
+[node name="Area2D" type="Area2D" parent="spwaner(sugar)" unique_id=1021377354]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(sugar)/Area2D" unique_id=132520141]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_t0v5d")

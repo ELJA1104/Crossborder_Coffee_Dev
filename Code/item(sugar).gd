@@ -1,13 +1,15 @@
 extends CharacterBody2D
-
+class_name Sugar_node
+var cup
 var when_is_grab_sugar : bool = false
 var mouse_inside_sugar : bool = false
 
 func _ready():
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	add_to_group("sugar")
-	
+	$"../spwaner(sugar)/Area2D".body_entered.connect(_on_area_2d_body_entered)
+	$"../spwaner(sugar)/Area2D".body_exited.connect(_on_area_2d_body_exited)
+
 func _process(_delta):
 	if when_is_grab_sugar:
 		var _mouse_pos = get_global_mouse_position()
@@ -20,48 +22,26 @@ func _input(event: InputEvent) -> void:
 			when_is_grab_sugar = true
 		else:
 			when_is_grab_sugar = false
-			
+
 func _on_mouse_entered():
 	mouse_inside_sugar = true
 
 func _on_mouse_exited():
 	mouse_inside_sugar = false
-#========================================================================================
 
+func tp_to_spwaner():
+	var _spwaner = $"../spwaner(sugar)" 
+	if _spwaner:
+		global_position = _spwaner.global_position
 
-func tp_tsugar(tsugar):
-	global_position = tsugar
-#=============================================================
-#signal tsugar(global_position: Vector2)
+func _on_area_2d_body_entered(body):
+	print(body.name + 'is in the sugar spwaner')
+	if body is Cup_node:
+		cup = body
+		cup.is_in_spwaner()
 
-#func 放ready():
-	#tsugar.emit(global_position)
-	
-#sugar.tp_tsugar()
-	
-
-
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
+func _on_area_2d_body_exited(body):
+	print(body.name + 'is go out to the sugar spwaner')
+	if body is Cup_node:
+		cup = body
+		cup.is_not_in_spwaner()
