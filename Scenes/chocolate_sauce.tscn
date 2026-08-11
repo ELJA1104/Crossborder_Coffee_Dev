@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dmgk3tw6xh61k"]
+
+[ext_resource type="Script" uid="uid://dk44d7xn1pwr5" path="res://Code/item(chocolate_sauce).gd" id="1_q3550"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_3367f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
+size = Vector2(129, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0v5d"]
+size = Vector2(158, 155)
+
+[node name="chocolate sauce" type="Node2D" unique_id=1143585655]
+
+[node name="item(chocolate sauce)" type="CharacterBody2D" parent="." unique_id=1610154934]
+disable_mode = 2
+collision_layer = 17
+collision_mask = 17
+input_pickable = true
+script = ExtResource("1_q3550")
+
+[node name="Sprite2D" type="Sprite2D" parent="item(chocolate sauce)" unique_id=1430750686]
+texture = ExtResource("2_3367f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item(chocolate sauce)" unique_id=1970142377]
+position = Vector2(-1.5, 1.5)
+shape = SubResource("RectangleShape2D_2m13f")
+
+[node name="spwaner(chocolate sauce)" type="Node2D" parent="." unique_id=344941255]
+
+[node name="Area2D" type="Area2D" parent="spwaner(chocolate sauce)" unique_id=1750896920]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(chocolate sauce)/Area2D" unique_id=13866613]
+position = Vector2(-3, 0.5)
+shape = SubResource("RectangleShape2D_t0v5d")
