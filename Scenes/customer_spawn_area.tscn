@@ -1,21 +1,82 @@
 [gd_scene format=3 uid="uid://ddnfm0u6u1a4r"]
 
 [ext_resource type="Script" uid="uid://dmbpgcqfgkjdl" path="res://Code/customer_spawn_area.gd" id="1_yrq0x"]
+[ext_resource type="PackedScene" uid="uid://bgvgfdqjxu03f" path="res://Scenes/game_protag.tscn" id="2_3qsvk"]
 
-[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("exit_area")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uda5m"]
+size = Vector2(540, 652)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73a26"]
+size = Vector2(40, 656)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xyps"]
+size = Vector2(196, 200)
+
+[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "has_fnshd_drnk_btn", "spawn_area", "ordering_area", "exit_area")]
 script = ExtResource("1_yrq0x")
+customer_spwn_btn = NodePath("Button")
+has_fnshd_drnk_btn = NodePath("Button2")
+spawn_area = NodePath("Spawn area")
+ordering_area = NodePath("Ordering area")
 exit_area = NodePath("Exit area")
 
-[node name="Exit area" type="Node2D" parent="." unique_id=1215220250]
-position = Vector2(0, 280)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1762353885]
+zoom = Vector2(0.75, 0.75)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1105757998]
+[node name="Protag_Area" type="Area2D" parent="." unique_id=366573637]
+position = Vector2(-56, 0)
 
-[node name="Button" type="Button" parent="." unique_id=1153950875]
-offset_left = 136.0
-offset_top = 8.0
-offset_right = 360.0
-offset_bottom = 48.0
-text = "Buton 1"
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Protag_Area" unique_id=1111418479]
+position = Vector2(366, -2)
+shape = SubResource("RectangleShape2D_uda5m")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1923497707]
+offset_top = -328.0
+offset_right = 40.0
+offset_bottom = 328.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Game_Protag" parent="." unique_id=228707419 instance=ExtResource("2_3qsvk")]
+position = Vector2(288, 0)
+
+[node name="Static_Body" type="StaticBody2D" parent="." unique_id=118681107]
+collision_layer = 3
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Static_Body" unique_id=1176976599]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_73a26")
+
+[node name="Spawn area" type="Node2D" parent="." unique_id=518000225]
+position = Vector2(-96, -424)
+
+[node name="Ordering area" type="Node2D" parent="." unique_id=1234334588]
+position = Vector2(-96, 0)
+
+[node name="Exit area" type="Node2D" parent="." unique_id=1139010735]
+position = Vector2(-96, 384)
+
+[node name="Button" type="Button" parent="." unique_id=1028141521]
+offset_left = 120.0
+offset_top = -296.0
+offset_right = 304.0
+offset_bottom = -265.0
+text = "Spawn customer"
+
+[node name="Button2" type="Button" parent="." unique_id=1021837110]
+offset_left = 312.0
+offset_top = -296.0
+offset_right = 504.0
+offset_bottom = -265.0
+text = "Has finished drink"
+
+[node name="Customer_detec_area" type="Area2D" parent="." unique_id=473748165]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer_detec_area" unique_id=968245867]
+position = Vector2(-96, 0)
+shape = SubResource("RectangleShape2D_6xyps")
+
+[connection signal="body_entered" from="Protag_Area" to="." method="_on_protag_area_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_customer_spawn_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_has_finished_drink_button_pressed"]
+[connection signal="body_entered" from="Customer_detec_area" to="." method="_on_customer_detec_area_body_entered"]
+[connection signal="body_exited" from="Customer_detec_area" to="." method="_on_customer_detec_area_body_exited"]
