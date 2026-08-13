@@ -16,3 +16,9 @@ texture = ExtResource("2_ictgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1329611371]
 shape = SubResource("RectangleShape2D_etm2j")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1225922699]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1635525904]
+shape = SubResource("RectangleShape2D_etm2j")

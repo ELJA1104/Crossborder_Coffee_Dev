@@ -1,60 +1,46 @@
 extends Node2D
+@export var customer_spwn_btn : Button
+@export var has_fnshd_drnk_btn : Button
+@export var spawn_area : Node2D
+@export var ordering_area : Node2D
 @export var exit_area : Node2D
-#@export var exit_point = exit_area.global_position
+@onready var spawnpoint = spawn_area.global_position
+@onready var ordering_point = ordering_area.global_position
+@onready var exit_point = exit_area.global_position
 var customer_scene
 var customer
-var ran_drink : int
-var flavour
-var ran_ice : int
-var temp
+var Game_protag
+var customer_node
 
 func _ready() -> void:
 	customer_scene = preload("res://Scenes/customers.tscn")
-	print(exit_area)
-	#print(exit_point)
-	drink_select()
-	drink_temp()
-	print(temp + flavour)
 
 func _process(delta: float) -> void:
-	pass
-
-func _on_button_pressed() -> void:	
 	customer = customer_scene.instantiate()
+	
+func _on_customer_spawn_button_pressed() -> void:
+	customer.global_position = spawnpoint
 	get_tree().root.add_child(customer)
-	customer.global_position = self.global_position
-	#customer.target = exit_point
+	customer.target = ordering_point
+	customer.velocity = position.direction_to(ordering_point) * customer.speed
 
 
 
-func drink_select():
-	ran_drink = randi_range(0, 6)
-	if ran_drink == 0:
-		flavour = "Water"
-	elif ran_drink == 1:
-		flavour = "Americano"
-	elif ran_drink == 2:
-		flavour = "Cappuccino"
-	elif ran_drink == 3:
-		flavour = "Espresso"
-	elif ran_drink == 4:
-		flavour = "Macchiato"
-	elif ran_drink == 5:
-		flavour = "Mocha"
-	elif ran_drink == 6:
-		flavour = "Latte"
+func _on_has_finished_drink_button_pressed() -> void:
+	Game_protag.has_finished_drink = true
 
 
-func drink_temp():
-	ran_ice = randi_range(0, 2)
-	if ran_ice == 0:
-		temp = "Hot "
-	elif ran_ice == 1:
-		temp = "Warm "
-	elif ran_ice == 2:
-		temp = "Cold "
+func _on_protag_area_body_entered(body: Node2D) -> void:
+	Game_protag = body
 
-	if temp == "Cold " and flavour == "Water":
-		temp = "Cold  "
-	if temp == "Hot " and flavour == "Water":
-		temp = "Hot  "
+
+func _on_customer_detec_area_body_entered(body: Node2D) -> void:
+	print(body)
+	if body is Cust0mers:
+		customer_node = body
+		print(customer_node.temp + customer_node.flavour)
+
+
+func _on_customer_detec_area_body_exited(body: Node2D) -> void:
+	if body is Cust0mers:
+		customer_node = null	
