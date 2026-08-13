@@ -8,13 +8,17 @@ var flavour
 var ran_ice : int
 var temp
 var target: Vector2
+@onready var target_point : Vector2
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
-	if position.distance_to(target) > 10.0:
-		velocity = position.direction_to(target) * speed
-	else:
-		velocity = velocity
+	if target_point != null:
+		velocity = position.direction_to(target_point) * speed
+		if position.distance_to(target) > 10:
+			move_and_slide()
+	if target_point == null:
+		pass
+	
 		
 func drink_select():
 	ran_drink = randi_range(0, 6)

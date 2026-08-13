@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b1fpa1ev0581y"]
+
+[ext_resource type="Script" uid="uid://c30wj0on668lm" path="res://Code/item(matcha_powder).gd" id="1_cu0ix"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_alqoh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
+size = Vector2(124, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0v5d"]
+size = Vector2(160, 151)
+
+[node name="matcha powder" type="Node2D" unique_id=1009611989]
+
+[node name="item(matcha powder)" type="CharacterBody2D" parent="." unique_id=475088705]
+disable_mode = 2
+collision_layer = 17
+collision_mask = 17
+input_pickable = true
+script = ExtResource("1_cu0ix")
+
+[node name="Sprite2D" type="Sprite2D" parent="item(matcha powder)" unique_id=1545712862]
+texture = ExtResource("2_alqoh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item(matcha powder)" unique_id=960485426]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_2m13f")
+
+[node name="spwaner(matcha powder)" type="Node2D" parent="." unique_id=239146153]
+
+[node name="Area2D" type="Area2D" parent="spwaner(matcha powder)" unique_id=825729110]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(matcha powder)/Area2D" unique_id=2033700653]
+position = Vector2(5, -0.5)
+shape = SubResource("RectangleShape2D_t0v5d")
