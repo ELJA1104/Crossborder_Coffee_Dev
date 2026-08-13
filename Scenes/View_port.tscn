@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://q77wkc85o1kw"]
+
+[ext_resource type="Script" uid="uid://bdfifmu0ott38" path="res://Code/view.gd" id="1_iwd0u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wan7g"]
+
+[node name="Node2D" type="Node2D" unique_id=262402964]
+
+[node name="shop" type="Sprite2D" parent="." unique_id=1431306014]
+
+[node name="player" type="CharacterBody2D" parent="shop" unique_id=1059090117]
+script = ExtResource("1_iwd0u")
+
+[node name="player\'s_view" type="Camera2D" parent="shop/player" unique_id=418772882]
+ignore_rotation = false
+zoom = Vector2(0.565, 0.565)
+limit_left = -1050
+limit_top = -600
+limit_right = 1050
+limit_bottom = 600
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shop/player" unique_id=348479673]
+shape = SubResource("CircleShape2D_wan7g")
+
+[node name="pvz" type="Sprite2D" parent="." unique_id=1246031512]
+position = Vector2(2234, 0)
+
+[node name="player" type="CharacterBody2D" parent="pvz" unique_id=1613805578]
+
+[node name="player\'s_view" type="Camera2D" parent="pvz/player" unique_id=2063422262]
+ignore_rotation = false
+zoom = Vector2(0.565, 0.565)
+limit_left = 1190
+limit_top = -600
+limit_right = 3280
+limit_bottom = 600
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pvz/player" unique_id=1387826012]
+shape = SubResource("CircleShape2D_wan7g")
+
+[node name="cus" type="Sprite2D" parent="." unique_id=143641748]
+
+[node name="player" type="CharacterBody2D" parent="cus" unique_id=651314923]
+
+[node name="player\'s_view" type="Camera2D" parent="cus/player" unique_id=708169389]
+ignore_rotation = false
+zoom = Vector2(0.565, 0.565)
+limit_left = -1050
+limit_top = -600
+limit_right = 1050
+limit_bottom = 600
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cus/player" unique_id=713809839]
+shape = SubResource("CircleShape2D_wan7g")
