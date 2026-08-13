@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dpmkcwcbx0c35"]
+
+[ext_resource type="Script" uid="uid://cxer2fye2s71r" path="res://Code/item(cinnamon_powder).gd" id="1_nso1s"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_aqiwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
+size = Vector2(120, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0v5d"]
+
+[node name="cinnamon powder" type="Node2D" unique_id=480502823]
+
+[node name="item(cinnamon powder)" type="CharacterBody2D" parent="." unique_id=882582037]
+disable_mode = 2
+collision_layer = 17
+collision_mask = 17
+input_pickable = true
+script = ExtResource("1_nso1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="item(cinnamon powder)" unique_id=1491402978]
+texture = ExtResource("2_aqiwt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item(cinnamon powder)" unique_id=449007510]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2m13f")
+
+[node name="spwaner(cinnamon powder)" type="Node2D" parent="." unique_id=849249406]
+
+[node name="Area2D" type="Area2D" parent="spwaner(cinnamon powder)" unique_id=1483435465]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(cinnamon powder)/Area2D" unique_id=1164244545]
+shape = SubResource("RectangleShape2D_t0v5d")
