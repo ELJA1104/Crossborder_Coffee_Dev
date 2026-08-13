@@ -107,7 +107,7 @@ func _on_opening_button_pressed() -> void:
 
 func _on_extract_area_body_entered(body:CharacterBody2D) -> void:
 	if body is Ethan_Puck:
-		puck = Ethan_Puck
+		puck = body
 		puck_entered = true
 
 
