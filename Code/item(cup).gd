@@ -20,6 +20,7 @@ var ran_ice  = 0
 var ran_drink = 0
 var _ingredians = 0
 var nothing_loading : bool = true
+var loading 
 
 func _ready():
 	$Area2D.body_entered.connect(_on_area_2d_body_entered)
@@ -165,33 +166,46 @@ func _on_area_2d_body_entered(body):
 		if body is Ice_cube_node:
 			ice_cube = body
 			_ingredians = 1
+			loading = body
 		if body is Milk_node:
 			milk = body
 			_ingredians = 2
+			loading = body
 		if body is Sugar_node:
 			sugar = body
 			_ingredians = 3
+			loading = body
 		if body is Milk_foam_node:
 			milk_foam = body
 			_ingredians = 4
+			loading = body
 		if body is Cocoa_powder_node:
 			cocoa_powder = body
 			_ingredians = 5
+			loading = body
 		if body is Chocolate_sauce_node:
 			chocolate_sauce = body
 			_ingredians = 6
+			loading = body
 		if body is Matcha_powder_node:
 			matcha_powder = body
 			_ingredians = 7
+			loading = body
 		if body is Cinnamon_powder_node:
 			cinnamon_powder = body
 			_ingredians = 8
+			loading = body
+
 
 func _on_area_2d_body_exited(body):
-	can_add_things = false
-	Progress_Bar_cup.hide()
-	Progress_Bar_cup.value = 0
-	print(body.name + 'is go out')
+	if body == loading:
+		can_add_things = false
+		Progress_Bar_cup.hide()
+		Progress_Bar_cup.value = 0
+		print(body.name + 'is go out')
+	else:
+		pass
+
 
 func is_in_spwaner():
 	not_in_the_spwaner = false
@@ -210,6 +224,8 @@ var ingredians_cinnamon_powder = 0
 func drink_select():
 	if ran_drink == 0:
 		flavour = "Water"
+	elif ran_drink == -1:
+			flavour = "Unidentified liquid (potentially toxic)"
 	elif ran_drink == 1:
 			flavour = "Ground Brew Coffee"
 	elif ran_drink == 2:

@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d2ck4um7l27gx" path="res://Scenes/sugar.tscn" id="4_0hol4"]
 [ext_resource type="PackedScene" uid="uid://bivjxhuwrjr0c" path="res://Scenes/milk_foam.tscn" id="5_kdubu"]
 [ext_resource type="PackedScene" uid="uid://cuig2p66f576w" path="res://Scenes/cocoa_powder.tscn" id="6_d21ai"]
+[ext_resource type="PackedScene" uid="uid://b1fpa1ev0581y" path="res://Scenes/matcha_powder.tscn" id="7_4d7sh"]
+[ext_resource type="PackedScene" uid="uid://dpmkcwcbx0c35" path="res://Scenes/cinnamon_powder.tscn" id="8_ir8iy"]
+[ext_resource type="PackedScene" uid="uid://dmgk3tw6xh61k" path="res://Scenes/chocolate_sauce.tscn" id="9_hqns4"]
 
 [node name="Node2D" type="Node2D" unique_id=187560298]
 
@@ -26,3 +29,12 @@ position = Vector2(100, 344)
 
 [node name="cocoa powder" parent="." unique_id=944126049 instance=ExtResource("6_d21ai")]
 position = Vector2(90, 520)
+
+[node name="matcha powder" parent="." unique_id=1009611989 instance=ExtResource("7_4d7sh")]
+position = Vector2(314, 531)
+
+[node name="cinnamon powder" parent="." unique_id=480502823 instance=ExtResource("8_ir8iy")]
+position = Vector2(491, 546)
+
+[node name="chocolate sauce" parent="." unique_id=1143585655 instance=ExtResource("9_hqns4")]
+position = Vector2(670, 553)
