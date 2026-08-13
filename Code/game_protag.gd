@@ -1,8 +1,15 @@
 extends CharacterBody2D
+<<<<<<< Updated upstream
 
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+=======
+const Speed = 1500
+var health : int = 100
+var has_finished_drink : bool = false
+var is_at_counter : bool = false
+>>>>>>> Stashed changes
 
 
 func _physics_process(delta: float) -> void:
