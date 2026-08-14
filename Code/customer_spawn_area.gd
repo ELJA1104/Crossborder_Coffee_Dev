@@ -72,7 +72,10 @@ func _on_ordering_area_2d_body_entered(body: Node2D) -> void:
 			body.has_ordered = true
 		if body.has_ordered == true:
 			print("kjhb")
+			print("body.has_recieved_order")
+			print(body.has_recieved_order)
 			if body.has_recieved_order == false and self.has_finished_drink == true:
+				print("ba")
 				print("Play drink has been made dialogue")
 				body.has_recieved_order = true
 			if body.has_recieved_order == true and has_finished_drink == true:

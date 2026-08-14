@@ -51,3 +51,16 @@ func drink_temp():
 func _ready() -> void:
 	drink_select()
 	drink_temp()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is Cup_node:
+		if body.flavour == self.flavour:
+			if body.temp == self.temp:
+				print("yay")
+			elif body.temp != self.temp:
+				print("Wrong temp")
+		elif body.flavour != self.flavour:
+			print("Wrong drink man")
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	body = null
