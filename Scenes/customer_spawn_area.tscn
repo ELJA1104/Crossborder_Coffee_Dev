@@ -4,19 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bgvgfdqjxu03f" path="res://Scenes/game_protag.tscn" id="2_3qsvk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_etm2j"]
-size = Vector2(584, 656)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_73a26"]
-size = Vector2(40, 656)
+size = Vector2(201, 206.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ac70p"]
 size = Vector2(194, 101)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xyps"]
-size = Vector2(196, 420)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fwwm"]
-size = Vector2(120, 656)
 
 [node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "has_fnshd_drnk_btn", "spawn_area", "ordering_area", "exit_area", "text_lable", "ok_btn")]
 script = ExtResource("1_yrq0x")
@@ -30,69 +21,36 @@ ok_btn = NodePath("Ok_btn")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1762353885]
 
-[node name="Protag_Area" type="Area2D" parent="." unique_id=366573637]
-position = Vector2(-56, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Protag_Area" unique_id=651117827]
-position = Vector2(396, 0)
-shape = SubResource("RectangleShape2D_etm2j")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1923497707]
-offset_top = -328.0
-offset_right = 40.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1524820358]
+offset_left = -576.0
+offset_right = 576.0
 offset_bottom = 328.0
-metadata/_edit_use_anchors_ = true
+color = Color(0.5449743, 0.54497427, 0.54497427, 1)
 
 [node name="Game_Protag" parent="." unique_id=228707419 instance=ExtResource("2_3qsvk")]
-position = Vector2(288, 0)
-
-[node name="Static_Body" type="StaticBody2D" parent="." unique_id=118681107]
-collision_layer = 3
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Static_Body" unique_id=1176976599]
-position = Vector2(20, 0)
-shape = SubResource("RectangleShape2D_73a26")
+position = Vector2(688, 199.99998)
 
 [node name="Spawn area" type="Node2D" parent="." unique_id=518000225]
-position = Vector2(-96, -424)
+position = Vector2(832, 40)
 
 [node name="Ordering area" type="Node2D" parent="." unique_id=1234334588]
-position = Vector2(-96, 0)
+position = Vector2(0, 40)
+
+[node name="OrderingArea2D" type="Area2D" parent="Ordering area" unique_id=1926444724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ordering area/OrderingArea2D" unique_id=1637491735]
+visible = false
+shape = SubResource("RectangleShape2D_etm2j")
 
 [node name="Exit area" type="Node2D" parent="." unique_id=1139010735]
-position = Vector2(-96, 496)
+position = Vector2(-744, 40)
 
 [node name="Area2D" type="Area2D" parent="Exit area" unique_id=1385675424]
+position = Vector2(0, 40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit area/Area2D" unique_id=425816441]
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_ac70p")
-
-[node name="Spwn_customer" type="Button" parent="." unique_id=1028141521]
-offset_left = 120.0
-offset_top = -296.0
-offset_right = 304.0
-offset_bottom = -265.0
-text = "Spawn customer"
-
-[node name="Has_fnshd_drnk_btn" type="Button" parent="." unique_id=1021837110]
-offset_left = 312.0
-offset_top = -296.0
-offset_right = 504.0
-offset_bottom = -265.0
-text = "Has finished drink"
-
-[node name="Customer_detec_area" type="Area2D" parent="." unique_id=473748165]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer_detec_area" unique_id=968245867]
-position = Vector2(-96, 110)
-shape = SubResource("RectangleShape2D_6xyps")
-
-[node name="Serve_Area" type="Area2D" parent="." unique_id=159214573]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Serve_Area" unique_id=1070945637]
-position = Vector2(112, 0)
-shape = SubResource("RectangleShape2D_5fwwm")
 
 [node name="Label" type="Label" parent="." unique_id=754652632]
 offset_left = -256.0
@@ -112,12 +70,23 @@ offset_bottom = 280.0
 theme_override_font_sizes/font_size = 20
 text = "Okay"
 
-[connection signal="body_entered" from="Protag_Area" to="." method="_on_protag_area_body_entered"]
+[node name="Spwn_customer" type="Button" parent="." unique_id=1028141521]
+offset_left = 144.0
+offset_top = 56.0
+offset_right = 328.0
+offset_bottom = 87.0
+text = "Spawn customer"
+
+[node name="Has_fnshd_drnk_btn" type="Button" parent="." unique_id=1021837110]
+offset_left = 336.0
+offset_top = 56.0
+offset_right = 528.0
+offset_bottom = 87.0
+text = "Has finished drink"
+
+[connection signal="body_entered" from="Ordering area/OrderingArea2D" to="." method="_on_ordering_area_2d_body_entered"]
+[connection signal="body_exited" from="Ordering area/OrderingArea2D" to="." method="_on_ordering_area_2d_body_exited"]
 [connection signal="body_entered" from="Exit area/Area2D" to="." method="_on_exit_area_2d_body_entered"]
+[connection signal="pressed" from="Ok_btn" to="." method="_on_ok_btn_pressed"]
 [connection signal="pressed" from="Spwn_customer" to="." method="_on_customer_spawn_button_pressed"]
 [connection signal="pressed" from="Has_fnshd_drnk_btn" to="." method="_on_has_finished_drink_button_pressed"]
-[connection signal="body_entered" from="Customer_detec_area" to="." method="_on_customer_detec_area_body_entered"]
-[connection signal="body_exited" from="Customer_detec_area" to="." method="_on_customer_detec_area_body_exited"]
-[connection signal="body_entered" from="Serve_Area" to="." method="_on_serve_area_body_entered"]
-[connection signal="body_exited" from="Serve_Area" to="." method="_on_serve_area_body_exited"]
-[connection signal="pressed" from="Ok_btn" to="." method="_on_ok_btn_pressed"]

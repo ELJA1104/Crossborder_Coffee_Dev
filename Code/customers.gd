@@ -7,19 +7,18 @@ var ran_drink : int
 var flavour
 var ran_ice : int
 var temp
-var target: Vector2
+var strt_conver : bool = false
+var mouse_inside : bool = false
 @onready var target_point : Vector2
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if target_point != null:
 		velocity = position.direction_to(target_point) * speed
-		if position.distance_to(target) > 10:
-			move_and_slide()
+		move_and_slide()
 	if target_point == null:
 		pass
-	
-		
+
 func drink_select():
 	ran_drink = randi_range(0, 6)
 	if ran_drink == 0:
@@ -54,3 +53,17 @@ func drink_temp():
 func _ready() -> void:
 	drink_select()
 	drink_temp()
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed and mouse_inside == true:
+			strt_conver = true
+			print(strt_conver)
+		else:
+			strt_conver = false
+			print("g")
+
+func _on_area_2d_mouse_entered() -> void:
+	mouse_inside = true
+func _on_area_2d_mouse_exited() -> void:
+	mouse_inside = false

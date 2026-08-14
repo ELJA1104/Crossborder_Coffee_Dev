@@ -14,6 +14,7 @@ var customer_scene
 var customer
 var Game_protag
 var customer_node
+var has_finished_drink : bool = false
 
 func _ready() -> void:
 	customer_scene = preload("res://Scenes/customers.tscn")
@@ -30,52 +31,7 @@ func _on_customer_spawn_button_pressed() -> void:
 	print(customer.target_point)
 
 func _on_has_finished_drink_button_pressed() -> void:
-	Game_protag.has_finished_drink = true
-
-
-func _on_protag_area_body_entered(body: Node2D) -> void:
-	if body is Game_Protagonist:
-		Game_protag = body
-		print(Game_protag)
-
-
-func _on_customer_detec_area_body_entered(body: Node2D) -> void:
-	print(body)
-	if body is Cust0mers:
-		customer_node = body
-		print(customer_node.temp + customer_node.flavour)
-
-
-func _on_customer_detec_area_body_exited(body: Node2D) -> void:
-	ok_btn.hide()
-	text_lable.hide()
-	text_lable.text = ""
-	if body is Cust0mers:
-		customer_node = null
-	customer.has_ordered = false
-	customer.has_recieved_order = false
-	Game_protag.has_finished_drink = false
-func _on_serve_area_body_entered(body: Node2D) -> void:
-	if customer_node == null:
-		pass
-	elif customer_node is Cust0mers:
-		if customer.has_ordered == false:
-			text_lable.show()
-			text_to_be_displayed("I want a " + customer_node.temp + customer_node.flavour + " please.")
-			ok_btn.show()
-			customer.has_ordered = true
-		if customer.has_ordered == true:
-			if customer.has_recieved_order == false and Game_protag.has_finished_drink == true:
-				print("Play drink has been made dialogue")
-				customer.has_recieved_order = true
-			if customer.has_recieved_order == true:
-				text_to_be_displayed("Thanks!")
-				await get_tree().create_timer(3).timeout
-				customer_node.target_point = exit_point
-
-
-func _on_serve_area_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	has_finished_drink = true
 
 func _on_ok_btn_pressed() -> void:
 	text_to_be_displayed("")
@@ -92,3 +48,36 @@ func text_to_be_displayed(text : String):
 
 func _on_exit_area_2d_body_entered(body: Node2D) -> void:
 	get_tree().root.remove_child(body)
+	customer_node = null
+	customer.has_ordered = false
+	customer.has_recieved_order = false
+	Game_protag.has_finished_drink = false
+
+func _on_ordering_area_2d_body_entered(body: Node2D) -> void:
+	if body == null:
+		pass
+	elif body is Cust0mers:
+		if customer.has_ordered == false:
+			text_lable.show()
+			text_to_be_displayed("I want a " + body.temp + body.flavour + " please.")
+			ok_btn.show()
+			body.has_ordered = true
+		if body.has_ordered == true:
+			if body.has_recieved_order == false and has_finished_drink == true:
+				print("Play drink has been made dialogue")
+				body.has_recieved_order = true
+			if body.has_recieved_order == true:
+				text_to_be_displayed("Thanks!")
+				await get_tree().create_timer(3).timeout
+				customer_node.target_point = exit_point
+
+func _on_ordering_area_2d_body_exited(body: Node2D) -> void:
+	customer.has_ordered = false
+	customer.has_recieved_order = false
+	has_finished_drink = false
+	
+func start_conversation():
+	if customer.strt_conver == true:
+		print("start conversation")
+	elif customer.strt_conver == false:
+		print("kjbho")
