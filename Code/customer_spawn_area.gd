@@ -6,6 +6,9 @@ extends Node2D
 @export var exit_area : Node2D
 @export var text_lable : Label
 @export var  ok_btn : Button
+@export var animplyr: AnimationPlayer
+@export var protag_sprite : Sprite2D
+@export var cstmr_sprite : Sprite2D
 @onready var spawnpoint = spawn_area.global_position
 @onready var ordering_point = ordering_area.global_position
 @onready var exit_point = exit_area.global_position
@@ -32,15 +35,19 @@ func _on_customer_spawn_button_pressed() -> void:
 
 func _on_has_finished_drink_button_pressed() -> void:
 	has_finished_drink = true
-
+	print(has_finished_drink)
+	
 func _on_ok_btn_pressed() -> void:
 	text_to_be_displayed("")
+	animplyr.play("conver_end")
+	await get_tree().create_timer(1).timeout
+	ok_btn.hide()
 	
 func displaying_text():
 	text_lable.visible_characters= 0
 	for i in text_lable.text.length():
 		text_lable.visible_characters += 1
-		await get_tree().create_timer(0.03).timeout
+		await get_tree().create_timer(0.04).timeout
 		
 func text_to_be_displayed(text : String):
 	text_lable.text = text
@@ -59,13 +66,17 @@ func _on_ordering_area_2d_body_entered(body: Node2D) -> void:
 	elif body is Cust0mers:
 		if customer.has_ordered == false:
 			text_lable.show()
+			animplyr.play("conver_start")
 			text_to_be_displayed("I want a " + body.temp + body.flavour + " please.")
 			ok_btn.show()
 			body.has_ordered = true
 		if body.has_ordered == true:
-			if body.has_recieved_order == false and has_finished_drink == true:
+			print("kjhb")
+			if body.has_recieved_order == false and self.has_finished_drink == true:
 				print("Play drink has been made dialogue")
 				body.has_recieved_order = true
+			if body.has_recieved_order == true and has_finished_drink == true:
+				print("ihb")
 			if body.has_recieved_order == true:
 				text_to_be_displayed("Thanks!")
 				await get_tree().create_timer(3).timeout
@@ -75,9 +86,3 @@ func _on_ordering_area_2d_body_exited(body: Node2D) -> void:
 	customer.has_ordered = false
 	customer.has_recieved_order = false
 	has_finished_drink = false
-	
-func start_conversation():
-	if customer.strt_conver == true:
-		print("start conversation")
-	elif customer.strt_conver == false:
-		print("kjbho")
