@@ -1,14 +1,13 @@
 extends CharacterBody2D
 class_name Coffee_bean_node
-var cup
+var grinder
 var when_is_grab_coffee_bean : bool = false
 var mouse_inside_coffee_bean : bool = false
 
 func _ready():
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
-	$"../spwaner(coffee bean)/Area2D".body_entered.connect(_on_area_2d_body_entered)
-	$"../spwaner(coffee bean)/Area2D".body_exited.connect(_on_area_2d_body_exited)
+
 
 func _process(_delta):
 	if when_is_grab_coffee_bean:
@@ -33,15 +32,3 @@ func tp_to_spwaner():
 	var _spwaner = $"../spwaner(coffee bean)" 
 	if _spwaner:
 		global_position = _spwaner.global_position
-
-func _on_area_2d_body_entered(body):
-	print(body.name + 'is in the coffee bean spwaner')
-	if body is Grinder:
-		cup = body
-		cup.is_in_spwaner()
-
-func _on_area_2d_body_exited(body):
-	print(body.name + 'is go out to the coffee bean spwaner')
-	if body is Grinder:
-		cup = body
-		cup.is_not_in_spwaner()
