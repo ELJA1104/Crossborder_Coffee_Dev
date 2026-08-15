@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export var speed = 100
-@onready var left : StaticBody2D = $lft
-@onready var right :StaticBody2D = $rght
+@onready var left : Button = $lft_but
+@onready var right :Button = $rght_but
 @onready var view = self
 var cursor = load("res://Assets/PNG/just_dot.png")
 
@@ -19,8 +19,14 @@ func movement_lerp(delta):
 	var wishvel = dir * delta
 	view.global_position = lerp(view.global_position,wishvel,1)
 
-
-
-
 func _on_lft_mouse_entered() -> void:
-	pass # Replace with function body.
+	left.show()
+
+func _on_lft_mouse_exited() -> void:
+	left.hide()
+
+func _on_rght_mouse_entered() -> void:
+	right.show()
+
+func _on_rght_mouse_exited() -> void:
+	right.hide()
