@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dhdaeam4eh13p"]
-
-[ext_resource type="PackedScene" uid="uid://o6bbeve4pbn1" path="res://Scenes/coffe_bean.tscn" id="1_qo42f"]
-
-[node name="coffe bean" unique_id=204909395 instance=ExtResource("1_qo42f")]

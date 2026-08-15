@@ -1,8 +1,6 @@
 class_name Grinder
 extends Node2D
 
-
-
 var time:int = 60
 #bool===========================================================================
 
@@ -46,7 +44,7 @@ func a():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("coffee bean"):
+	if body.is_in_group("coffee_bean"):
 		coffee_entered = true
 		if grinder_closing_act ==true:
 			label.visible_characters = 0
@@ -60,7 +58,7 @@ grinder"
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("coffee bean"):
+	if body.is_in_group("coffee_bean"):
 		coffee_entered = false
 		a()
 	if can:

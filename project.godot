@@ -26,8 +26,8 @@ window/stretch/aspect="expand"
 
 [global_group]
 
-"coffee bean"=""
 puck=""
+coffee_bean=""
 
 [input]
 
