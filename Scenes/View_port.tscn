@@ -1,17 +1,40 @@
 [gd_scene format=3 uid="uid://q77wkc85o1kw"]
 
+[ext_resource type="Script" uid="uid://bqrny7ehcbkc0" path="res://Scenes/view_port.gd" id="1_hbaj7"]
 [ext_resource type="Script" uid="uid://bdfifmu0ott38" path="res://Code/view.gd" id="1_iwd0u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wan7g"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wan7g"]
+size = Vector2(168, 304)
+
 [node name="Node2D" type="Node2D" unique_id=262402964]
+script = ExtResource("1_hbaj7")
+
+[node name="Label" type="Label" parent="." unique_id=755822336]
+offset_left = -2480.0
+offset_top = -104.0
+offset_right = -2094.0
+offset_bottom = 104.0
+text = "cus centre"
+
+[node name="Label2" type="Label" parent="." unique_id=528576746]
+offset_left = -208.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = 87.0
+text = "shop centre
+"
 
 [node name="shop" type="Sprite2D" parent="." unique_id=1431306014]
 
-[node name="player" type="CharacterBody2D" parent="shop" unique_id=1059090117]
+[node name="pvz" type="Sprite2D" parent="." unique_id=1352405350]
+position = Vector2(-2408, 0)
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=1059090117]
 script = ExtResource("1_iwd0u")
 
-[node name="player\'s_view" type="Camera2D" parent="shop/player" unique_id=418772882]
+[node name="player\'s_view" type="Camera2D" parent="player" unique_id=418772882]
 ignore_rotation = false
 zoom = Vector2(0.565, 0.565)
 limit_left = -1050
@@ -19,36 +42,41 @@ limit_top = -600
 limit_right = 1050
 limit_bottom = 600
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="shop/player" unique_id=348479673]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=348479673]
 shape = SubResource("CircleShape2D_wan7g")
 
-[node name="pvz" type="Sprite2D" parent="." unique_id=1246031512]
-position = Vector2(2234, 0)
+[node name="lft" type="Area2D" parent="player" unique_id=1293018123]
+position = Vector2(-912, -3)
+collision_layer = 15
 
-[node name="player" type="CharacterBody2D" parent="pvz" unique_id=1613805578]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/lft" unique_id=376001763]
+position = Vector2(-4, 3)
+shape = SubResource("RectangleShape2D_wan7g")
 
-[node name="player\'s_view" type="Camera2D" parent="pvz/player" unique_id=2063422262]
-ignore_rotation = false
-zoom = Vector2(0.565, 0.565)
-limit_left = 1190
-limit_top = -600
-limit_right = 3280
-limit_bottom = 600
+[node name="rght" type="Area2D" parent="player" unique_id=319119916]
+position = Vector2(920, -3)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pvz/player" unique_id=1387826012]
-shape = SubResource("CircleShape2D_wan7g")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/rght" unique_id=1508928153]
+position = Vector2(-4, 3)
+shape = SubResource("RectangleShape2D_wan7g")
 
-[node name="cus" type="Sprite2D" parent="." unique_id=143641748]
+[node name="lft_but" type="Button" parent="player" unique_id=440374570]
+offset_left = -1000.0
+offset_top = -152.0
+offset_right = -832.0
+offset_bottom = 152.0
+theme_override_font_sizes/font_size = 100
+text = "←"
 
-[node name="player" type="CharacterBody2D" parent="cus" unique_id=651314923]
+[node name="rght_but" type="Button" parent="player" unique_id=1848902837]
+offset_left = 832.0
+offset_top = -152.0
+offset_right = 1000.0
+offset_bottom = 152.0
+theme_override_font_sizes/font_size = 100
+text = "→"
 
-[node name="player\'s_view" type="Camera2D" parent="cus/player" unique_id=708169389]
-ignore_rotation = false
-zoom = Vector2(0.565, 0.565)
-limit_left = -1050
-limit_top = -600
-limit_right = 1050
-limit_bottom = 600
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cus/player" unique_id=713809839]
-shape = SubResource("CircleShape2D_wan7g")
+[connection signal="mouse_entered" from="player/lft" to="player" method="_on_lft_mouse_entered"]
+[connection signal="mouse_exited" from="player/lft" to="player" method="_on_lft_mouse_exited"]
+[connection signal="mouse_entered" from="player/rght" to="player" method="_on_rght_mouse_entered"]
+[connection signal="mouse_exited" from="player/rght" to="player" method="_on_rght_mouse_exited"]

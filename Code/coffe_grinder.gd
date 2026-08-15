@@ -1,4 +1,6 @@
+class_name Grinder
 extends Node2D
+
 
 
 var time:int = 60

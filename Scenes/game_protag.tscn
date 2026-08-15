@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://bgvgfdqjxu03f"]
-
-[ext_resource type="Texture2D" uid="uid://bo5num3d6yvfa" path="res://Assets/PNG/Game_Protag.png" id="2_ictgy"]
-
-[node name="GameProtag" type="Sprite2D" unique_id=1645828974]
-rotation = 1.5707964
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("2_ictgy")
