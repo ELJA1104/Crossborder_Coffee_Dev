@@ -55,6 +55,7 @@ func _process(_delta):
 				hot_or_iced()
 				ice_cube.tp_to_spwaner()
 				nothing_loading = true
+				menu_in_coffe()
 			if _ingredians == 2:
 				print('milk done')
 				Progress_Bar_cup.hide()
@@ -63,6 +64,7 @@ func _process(_delta):
 				ingredians_milk += 1
 				milk.tp_to_spwaner()
 				nothing_loading = true
+				menu_in_coffe()
 			if _ingredians == 3:
 				print('sugar done')
 				Progress_Bar_cup.hide()
@@ -71,6 +73,7 @@ func _process(_delta):
 				ingredians_sugar += 1
 				sugar.tp_to_spwaner()
 				nothing_loading = true
+				menu_in_coffe()
 			if _ingredians == 4:
 				print('milk foam done')
 				Progress_Bar_cup.hide()
@@ -79,6 +82,7 @@ func _process(_delta):
 				ingredians_milk_foam += 1
 				milk_foam.tp_to_spwaner()
 				nothing_loading = true
+				menu_in_coffe()
 			if _ingredians == 5:
 				print('cocoa powder done')
 				Progress_Bar_cup.hide()
@@ -87,6 +91,7 @@ func _process(_delta):
 				ingredians_cocoa_powder += 1
 				cocoa_powder.tp_to_spwaner()
 				nothing_loading = true
+				menu_in_coffe()
 			if _ingredians == 6:
 				print('chocolate sauce done')
 				Progress_Bar_cup.hide()
@@ -95,6 +100,7 @@ func _process(_delta):
 				ingredians_chocolate_sauce += 1
 				chocolate_sauce.tp_to_spwaner()
 				nothing_loading = true
+				menu_in_coffe()
 			if _ingredians == 7:
 				print('matcha powder done')
 				Progress_Bar_cup.hide()
@@ -103,6 +109,7 @@ func _process(_delta):
 				ingredians_matcha_powder += 1
 				matcha_powder.tp_to_spwaner()
 				nothing_loading = true
+				menu_in_coffe()
 			if _ingredians == 8:
 				print('cinnamon powder done')
 				Progress_Bar_cup.hide()
@@ -111,6 +118,7 @@ func _process(_delta):
 				ingredians_cinnamon_powder += 1
 				cinnamon_powder.tp_to_spwaner()
 				nothing_loading = true
+				menu_in_coffe()
 
 
 
@@ -151,6 +159,7 @@ func cup_return_to_zero():
 
 func add_coffee():
 	coffee += 1
+	menu_in_coffe()
 #=================================================================================================================================================================
 #_ingredians :
 #ice cube = 1
@@ -224,7 +233,7 @@ var ingredians_cocoa_powder = 0
 var ingredians_chocolate_sauce = 0
 var ingredians_matcha_powder = 0
 var ingredians_cinnamon_powder = 0
-func menu_if_coffe():
+func menu_in_coffe():
 	if coffee == 0 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 0
 		drink_select()
@@ -297,7 +306,7 @@ func menu_if_coffe():
 	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 1 :
 		ran_drink = 23
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 1 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 1	 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 24
 		drink_select()
 
