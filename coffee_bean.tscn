@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://7e4jqldc7kfk"]
+
+[ext_resource type="Script" uid="uid://cpapvvtut3mc1" path="res://item(coffee_bean).gd" id="1_8q1jg"]
+[ext_resource type="Texture2D" uid="uid://db7crvinlosk3" path="res://Assets/PNG/Coffee_Bean.png" id="1_yq3m0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
+size = Vector2(40.5, 39.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0v5d"]
+size = Vector2(56, 49)
+
+[node name="coffee bean" type="Node2D" unique_id=59556315]
+
+[node name="item(coffee bean)" type="CharacterBody2D" parent="." unique_id=1703821365]
+disable_mode = 2
+collision_layer = 17
+collision_mask = 17
+input_pickable = true
+script = ExtResource("1_8q1jg")
+
+[node name="CoffeeBean" type="Sprite2D" parent="item(coffee bean)" unique_id=1643450424]
+position = Vector2(0, 1.0000002)
+scale = Vector2(0.01777778, 0.01685185)
+texture = ExtResource("1_yq3m0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="item(coffee bean)" unique_id=1855782718]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_2m13f")
+
+[node name="spwaner(coffee bean)" type="Node2D" parent="." unique_id=818758722]
+
+[node name="Area2D" type="Area2D" parent="spwaner(coffee bean)" unique_id=613668304]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(coffee bean)/Area2D" unique_id=713831543]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_t0v5d")
