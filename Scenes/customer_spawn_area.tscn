@@ -2,81 +2,190 @@
 
 [ext_resource type="Script" uid="uid://dmbpgcqfgkjdl" path="res://Code/customer_spawn_area.gd" id="1_yrq0x"]
 [ext_resource type="PackedScene" uid="uid://bgvgfdqjxu03f" path="res://Scenes/game_protag.tscn" id="2_3qsvk"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="3_6xyps"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uda5m"]
-size = Vector2(540, 652)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etm2j"]
+size = Vector2(201, 206.25)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_73a26"]
-size = Vector2(40, 656)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ac70p"]
+size = Vector2(194, 101)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xyps"]
-size = Vector2(196, 200)
+[sub_resource type="Animation" id="Animation_uda5m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-688, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Game_Protag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(688, 199.99998)]
+}
 
-[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "has_fnshd_drnk_btn", "spawn_area", "ordering_area", "exit_area")]
+[sub_resource type="Animation" id="Animation_3qsvk"]
+resource_name = "conver_end"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-448, 200), Vector2(-688, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Game_Protag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(448, 208), Vector2(688, 207.99998)]
+}
+
+[sub_resource type="Animation" id="Animation_73a26"]
+resource_name = "conver_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Customer_sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-688, 200), Vector2(-448, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Game_Protag:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(688, 199.99998), Vector2(448, 208)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6xyps"]
+_data = {
+&"RESET": SubResource("Animation_uda5m"),
+&"conver_end": SubResource("Animation_3qsvk"),
+&"conver_start": SubResource("Animation_73a26")
+}
+
+[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "has_fnshd_drnk_btn", "spawn_area", "ordering_area", "exit_area", "text_lable", "ok_btn", "animplyr", "protag_sprite", "cstmr_sprite")]
 script = ExtResource("1_yrq0x")
-customer_spwn_btn = NodePath("Button")
-has_fnshd_drnk_btn = NodePath("Button2")
+customer_spwn_btn = NodePath("Spwn_customer")
+has_fnshd_drnk_btn = NodePath("Has_fnshd_drnk_btn")
 spawn_area = NodePath("Spawn area")
 ordering_area = NodePath("Ordering area")
 exit_area = NodePath("Exit area")
+text_lable = NodePath("Label")
+ok_btn = NodePath("Ok_btn")
+animplyr = NodePath("AnimationPlayer")
+protag_sprite = NodePath("Game_Protag")
+cstmr_sprite = NodePath("Customer_sprite")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1762353885]
-zoom = Vector2(0.75, 0.75)
 
-[node name="Protag_Area" type="Area2D" parent="." unique_id=366573637]
-position = Vector2(-56, 0)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Protag_Area" unique_id=1111418479]
-position = Vector2(366, -2)
-shape = SubResource("RectangleShape2D_uda5m")
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1923497707]
-offset_top = -328.0
-offset_right = 40.0
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1524820358]
+offset_left = -576.0
+offset_right = 576.0
 offset_bottom = 328.0
-metadata/_edit_use_anchors_ = true
+color = Color(0.5449743, 0.54497427, 0.54497427, 1)
 
 [node name="Game_Protag" parent="." unique_id=228707419 instance=ExtResource("2_3qsvk")]
-position = Vector2(288, 0)
+position = Vector2(688, 199.99998)
 
-[node name="Static_Body" type="StaticBody2D" parent="." unique_id=118681107]
-collision_layer = 3
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Static_Body" unique_id=1176976599]
-position = Vector2(20, 0)
-shape = SubResource("RectangleShape2D_73a26")
+[node name="Customer_sprite" type="Sprite2D" parent="." unique_id=1737464914]
+position = Vector2(-688, 200)
+texture = ExtResource("3_6xyps")
 
 [node name="Spawn area" type="Node2D" parent="." unique_id=518000225]
-position = Vector2(-96, -424)
+position = Vector2(832, 40)
 
 [node name="Ordering area" type="Node2D" parent="." unique_id=1234334588]
-position = Vector2(-96, 0)
+position = Vector2(0, 40)
+
+[node name="OrderingArea2D" type="Area2D" parent="Ordering area" unique_id=1926444724]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ordering area/OrderingArea2D" unique_id=1637491735]
+visible = false
+shape = SubResource("RectangleShape2D_etm2j")
 
 [node name="Exit area" type="Node2D" parent="." unique_id=1139010735]
-position = Vector2(-96, 384)
+position = Vector2(-744, 40)
 
-[node name="Button" type="Button" parent="." unique_id=1028141521]
-offset_left = 120.0
-offset_top = -296.0
-offset_right = 304.0
-offset_bottom = -265.0
+[node name="Area2D" type="Area2D" parent="Exit area" unique_id=1385675424]
+position = Vector2(0, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit area/Area2D" unique_id=425816441]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_ac70p")
+
+[node name="Label" type="Label" parent="." unique_id=754652632]
+offset_left = -256.0
+offset_top = 200.0
+offset_right = 272.0
+offset_bottom = 280.0
+theme_override_font_sizes/font_size = 32
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ok_btn" type="Button" parent="." unique_id=1712776374]
+offset_left = 272.0
+offset_top = 200.0
+offset_right = 360.0
+offset_bottom = 280.0
+theme_override_font_sizes/font_size = 20
+text = "Okay"
+
+[node name="Spwn_customer" type="Button" parent="." unique_id=1028141521]
+offset_left = 144.0
+offset_top = 56.0
+offset_right = 328.0
+offset_bottom = 87.0
 text = "Spawn customer"
 
-[node name="Button2" type="Button" parent="." unique_id=1021837110]
-offset_left = 312.0
-offset_top = -296.0
-offset_right = 504.0
-offset_bottom = -265.0
+[node name="Has_fnshd_drnk_btn" type="Button" parent="." unique_id=1021837110]
+offset_left = 336.0
+offset_top = 56.0
+offset_right = 528.0
+offset_bottom = 87.0
 text = "Has finished drink"
 
-[node name="Customer_detec_area" type="Area2D" parent="." unique_id=473748165]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=906685229]
+libraries/ = SubResource("AnimationLibrary_6xyps")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Customer_detec_area" unique_id=968245867]
-position = Vector2(-96, 0)
-shape = SubResource("RectangleShape2D_6xyps")
-
-[connection signal="body_entered" from="Protag_Area" to="." method="_on_protag_area_body_entered"]
-[connection signal="pressed" from="Button" to="." method="_on_customer_spawn_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_has_finished_drink_button_pressed"]
-[connection signal="body_entered" from="Customer_detec_area" to="." method="_on_customer_detec_area_body_entered"]
-[connection signal="body_exited" from="Customer_detec_area" to="." method="_on_customer_detec_area_body_exited"]
+[connection signal="body_entered" from="Ordering area/OrderingArea2D" to="." method="_on_ordering_area_2d_body_entered"]
+[connection signal="body_exited" from="Ordering area/OrderingArea2D" to="." method="_on_ordering_area_2d_body_exited"]
+[connection signal="body_entered" from="Exit area/Area2D" to="." method="_on_exit_area_2d_body_entered"]
+[connection signal="pressed" from="Ok_btn" to="." method="_on_ok_btn_pressed"]
+[connection signal="pressed" from="Spwn_customer" to="." method="_on_customer_spawn_button_pressed"]
+[connection signal="pressed" from="Has_fnshd_drnk_btn" to="." method="_on_has_finished_drink_button_pressed"]

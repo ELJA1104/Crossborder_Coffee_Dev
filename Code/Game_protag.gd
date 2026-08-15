@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Game_Protagonist
 const Speed = 1500
 var health : int = 100
 var has_finished_drink : bool = false
