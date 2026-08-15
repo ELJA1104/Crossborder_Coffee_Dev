@@ -15,8 +15,8 @@ extends Node2D
 var btn_times_pressed : int = 0
 var customer_scene
 var customer
-var Game_protag
 var customer_node
+var Game_protag
 var has_finished_drink : bool = false
 
 func _ready() -> void:
@@ -32,10 +32,11 @@ func _on_customer_spawn_button_pressed() -> void:
 	get_tree().root.add_child(customer)
 	customer.target_point = ordering_point
 	print(customer.target_point)
-
+	
+ #this function will eventyally be replaced by the cup
 func _on_has_finished_drink_button_pressed() -> void:
-	has_finished_drink = true
-	print(has_finished_drink)
+	customer_node.correct_drink = true
+	print(customer_node.correct_drink)
 	
 func _on_ok_btn_pressed() -> void:
 	text_to_be_displayed("")
@@ -55,37 +56,31 @@ func text_to_be_displayed(text : String):
 
 func _on_exit_area_2d_body_entered(body: Node2D) -> void:
 	get_tree().root.remove_child(body)
-	customer_node = null
+	#customer_node = null
 	customer.has_ordered = false
-	customer.has_recieved_order = false
 	Game_protag.has_finished_drink = false
 
 func _on_ordering_area_2d_body_entered(body: Node2D) -> void:
 	if body == null:
 		pass
 	elif body is Cust0mers:
-		if customer.has_ordered == false:
+		print(body)
+		customer_node = body
+		if customer_node.has_ordered == false:
 			text_lable.show()
 			animplyr.play("conver_start")
 			text_to_be_displayed("I want a " + body.temp + body.flavour + " please.")
 			ok_btn.show()
-			body.has_ordered = true
-		if body.has_ordered == true:
-			print("kjhb")
-			print("body.has_recieved_order")
-			print(body.has_recieved_order)
-			if body.has_recieved_order == false and self.has_finished_drink == true:
-				print("ba")
+			customer_node.has_ordered = true
+			print(customer_node.has_ordered)
+			print(customer_node.correct_drink)
+			if customer_node.correct_drink == true:
+				print(customer_node.correct_drink)
 				print("Play drink has been made dialogue")
-				body.has_recieved_order = true
-			if body.has_recieved_order == true and has_finished_drink == true:
-				print("ihb")
-			if body.has_recieved_order == true:
 				text_to_be_displayed("Thanks!")
-				await get_tree().create_timer(3).timeout
-				customer_node.target_point = exit_point
+				await get_tree().create_timer(2).timeout
+				customer.target_point = exit_point
 
 func _on_ordering_area_2d_body_exited(body: Node2D) -> void:
 	customer.has_ordered = false
-	customer.has_recieved_order = false
 	has_finished_drink = false
