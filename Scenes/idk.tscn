@@ -11,7 +11,7 @@ height = 96.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqtub"]
 size = Vector2(61, 76)
 
-[node name="Grinder" type="Node2D" unique_id=985036243]
+[node name="Grinder" type="Node2D" unique_id=985036243 groups=["coffee_bean"]]
 position = Vector2(398, 214)
 script = ExtResource("1_ngukw")
 metadata/_edit_horizontal_guides_ = [-56.0]
