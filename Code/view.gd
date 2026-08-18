@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 @export var speed = 100
-@onready var left : Button = $lft_but
-@onready var right :Button = $rght_but
+@onready var left : Button = $lft/lft_but
+@onready var right :Button = $rght/rght_but
 @onready var limit : Camera2D = $"player's_view"
 @onready var view = self
 var cursor = load("res://Assets/PNG/just_dot.png")

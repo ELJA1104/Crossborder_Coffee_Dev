@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://d030l51eoqsom"]
+
+[ext_resource type="Script" uid="uid://bdfifmu0ott38" path="res://Code/view.gd" id="1_vo0hl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wan7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqtub"]
+size = Vector2(130, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42pvx"]
+size = Vector2(131, 225)
+
+[node name="view" type="CharacterBody2D" unique_id=496351714]
+script = ExtResource("1_vo0hl")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1269074334]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130680590]
+shape = SubResource("RectangleShape2D_wan7g")
+
+[node name="lft" type="Area2D" parent="." unique_id=738881940]
+
+[node name="lft_but" type="Button" parent="lft" unique_id=757997755]
+offset_left = -552.0
+offset_top = -113.0
+offset_right = -421.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 100
+text = "←"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lft" unique_id=171507230]
+position = Vector2(-486, 0)
+shape = SubResource("RectangleShape2D_sqtub")
+
+[node name="rght" type="Area2D" parent="." unique_id=835090054]
+
+[node name="rght_but" type="Button" parent="rght" unique_id=2088877656]
+offset_left = 411.0
+offset_top = -113.0
+offset_right = 542.0
+offset_bottom = 113.0
+theme_override_font_sizes/font_size = 100
+text = "→"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rght" unique_id=2031917750]
+position = Vector2(476.5, 0.5)
+shape = SubResource("RectangleShape2D_42pvx")
+
+[connection signal="mouse_entered" from="lft" to="." method="_on_lft_mouse_entered"]
+[connection signal="mouse_exited" from="lft" to="." method="_on_lft_mouse_exited"]
+[connection signal="mouse_entered" from="rght" to="." method="_on_rght_mouse_entered"]
+[connection signal="mouse_exited" from="rght" to="." method="_on_rght_mouse_exited"]
