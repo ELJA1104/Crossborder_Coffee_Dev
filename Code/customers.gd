@@ -1,21 +1,23 @@
-extends CharacterBody2D
+extends Node2D
 class_name  Cust0mers
-var speed = 300.0
-var has_ordered : bool = false
+@export var text_lable : Label
+@export var anim_plyr : AnimationPlayer
 var ran_drink : int
 var flavour
-var ran_ice : int
-var temp
 var correct_drink : bool = false
-@onready var target_point : Vector2
+var customer_dialogue
+var start_conver : bool = false
+var cup
 
-func _physics_process(delta: float) -> void:
-	move_and_slide()
-	if target_point != null:
-		velocity = position.direction_to(target_point) * speed
-		move_and_slide()
-	if target_point == null:
-		pass
+func displaying_text():
+	text_lable.visible_characters= 0
+	for i in text_lable.text.length():
+		text_lable.visible_characters += 1
+		await get_tree().create_timer(0.04).timeout
+		
+func text_to_be_displayed(text : String):
+	text_lable.text = text
+	displaying_text()
 
 func drink_select():
 	ran_drink = randi_range(0, 6)
@@ -33,34 +35,30 @@ func drink_select():
 		flavour = "Mocha"
 	elif ran_drink == 6:
 		flavour = "Latte"
-
-func drink_temp():
-	ran_ice = randi_range(0, 2)
-	if ran_ice == 0:
-		temp = "Hot "
-	elif ran_ice == 1:
-		temp = "Warm "
-	elif ran_ice == 2:
-		temp = "Cold "
-
-	if temp == "Cold " and flavour == "Water":
-		temp = "Cold  "
-	if temp == "Hot " and flavour == "Water":
-		temp = "Hot  "
-
+		
 func _ready() -> void:
 	drink_select()
-	drink_temp()
+	customer_conver()
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Cup_node:
-		if body.flavour == self.flavour:
-			if body.temp == self.temp:
-				print("yay")
-#				correct_drink = true
-			elif body.temp != self.temp:
-				print("Wrong temp")
-		elif body.flavour != self.flavour:
+		cup = body
+		if body.flavour == flavour:
+			print("yay")
+			print("Play drink has been made dialogue")
+			await get_tree().create_timer(0.04).timeout
+			anim_plyr.play("customer_exit")
+			#correct_drink = true
+		elif body.flavour != flavour:
 			print("Wrong drink man")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	body = null
+	
+func customer_conver():
+	customer_dialogue = "I want a " + flavour + " please."
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "customer_sld_in":
+		text_to_be_displayed(customer_dialogue)
+	elif anim_name == "customer_exit":
+		queue_free()
