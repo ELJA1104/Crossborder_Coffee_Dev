@@ -306,8 +306,23 @@ func menu_in_coffe():
 	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 1 :
 		ran_drink = 23
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 1	 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 1 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 24
+		drink_select()
+	elif coffee == 2 and ingredians_milk == 1 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 1 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+		ran_drink = 25
+		drink_select()
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 1 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 1 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+		ran_drink = 26
+		drink_select()
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 1 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 1 and ingredians_cinnamon_powder == 0 :
+		ran_drink = 27
+		drink_select()
+	elif coffee == 0 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+		ran_drink = 28
+		drink_select()
+	elif coffee == 0 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+		ran_drink = 29
 		drink_select()
 
 func drink_select():
