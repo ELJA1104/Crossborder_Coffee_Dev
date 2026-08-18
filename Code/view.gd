@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var limit : Camera2D = $"player's_view"
 @onready var view = self
 var cursor = load("res://Assets/PNG/just_dot.png")
+var cus = preload("res://Scenes/customer_spawn_area.tscn")
 
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor)
@@ -31,3 +32,8 @@ func _on_rght_mouse_entered() -> void:
 
 func _on_rght_mouse_exited() -> void:
 	right.hide()
+
+func tp():
+	var cus_2 = cus.instantiate()
+	if left.pressed:
+		view.position = cus_2
