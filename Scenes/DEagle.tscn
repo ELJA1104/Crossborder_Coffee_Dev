@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dj28r47go3e10"]
+
+[ext_resource type="Script" uid="uid://cpdgvv7vf5ud4" path="res://Code/d_eagle.gd" id="1_f5lty"]
+[ext_resource type="Texture2D" uid="uid://bmsq06euhof45" path="res://Assets/PNG/Gun.png" id="1_kquef"]
+
+[node name="DEagle" type="Node2D" unique_id=20916695 node_paths=PackedStringArray("bullet_spawn", "barrel_end")]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_f5lty")
+bullet_spawn = NodePath("Bullete_Spawn")
+barrel_end = NodePath("Barrel_end")
+
+[node name="Gun2" type="Sprite2D" parent="." unique_id=1678368294]
+rotation = 0.5009095
+texture = ExtResource("1_kquef")
+
+[node name="Barrel_end" type="Node2D" parent="." unique_id=2025318314]
+position = Vector2(1072, -344)
+
+[node name="Bullete_Spawn" type="Node2D" parent="." unique_id=1903803075]
+position = Vector2(-144, -344)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=53536815]
+zoom = Vector2(0.25, 0.25)
