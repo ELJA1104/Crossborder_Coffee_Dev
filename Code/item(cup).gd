@@ -8,7 +8,6 @@ var cocoa_powder
 var matcha_powder
 var cinnamon_powder
 var when_is_grab_cup : bool = false
-var mouse_inside_cup : bool = false
 var can_add_things : bool = false
 var not_in_the_spwaner : bool = true
 @export var Progress_Bar_cup : ProgressBar
@@ -19,20 +18,26 @@ var ran_ice  = 0
 var ran_drink = 0
 var _ingredians = 0
 var nothing_loading : bool = true
+var target_ingredient_type = 0
 var loading 
+var coffee = 0
+var ingredians_milk = 0
+var ingredians_sugar = 0
+var ingredians_milk_foam = 0
+var ingredians_cocoa_powder = 0
+var ingredians_matcha_powder = 0
+var ingredians_cinnamon_powder = 0
+@export var other_cup_detect_radius: float = 100
 
 func _ready():
+	input_pickable = true
+	input_event.connect(_on_input_event)
 	$Area2D.body_entered.connect(_on_area_2d_body_entered)
 	$Area2D.body_exited.connect(_on_area_2d_body_exited)
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
 	Progress_Bar_cup.hide()
 	drink_select()
 	hot_or_iced()
-	text_to_be_displayed(temp + flavour )
-	
-
-
+	text_to_be_displayed(temp + flavour)
 
 func _process(_delta):
 	if when_is_grab_cup:
@@ -45,14 +50,15 @@ func _process(_delta):
 		if Progress_Bar_cup.value < Progress_Bar_cup.max_value:
 			Progress_Bar_cup.value += 0.5
 		else:
-			if _ingredians == 1 :
+			if _ingredians == 1:
 				print('ice done')
 				Progress_Bar_cup.hide()
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ran_ice += 1
 				hot_or_iced()
-				ice_cube.tp_to_spwaner()
+				if ice_cube: 
+					ice_cube.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 2:
@@ -61,7 +67,8 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_milk += 1
-				milk.tp_to_spwaner()
+				if milk: 
+					milk.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 3:
@@ -70,7 +77,8 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_sugar += 1
-				sugar.tp_to_spwaner()
+				if sugar: 
+					sugar.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 4:
@@ -79,7 +87,8 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_milk_foam += 1
-				milk_foam.tp_to_spwaner()
+				if milk_foam: 
+					milk_foam.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 5:
@@ -88,7 +97,8 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_cocoa_powder += 1
-				cocoa_powder.tp_to_spwaner()
+				if cocoa_powder: 
+					cocoa_powder.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 6:
@@ -97,7 +107,8 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_matcha_powder += 1
-				matcha_powder.tp_to_spwaner()
+				if matcha_powder: 
+					matcha_powder.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 7:
@@ -106,102 +117,112 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_cinnamon_powder += 1
-				cinnamon_powder.tp_to_spwaner()
+				if cinnamon_powder: 
+					cinnamon_powder.tp_to_spwaner()
 				nothing_loading = true
-				menu_in_coffe()
+				menu_in_coffe() 
 
-
-
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			when_is_grab_cup = true
+			get_viewport().set_input_as_handled()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and mouse_inside_cup:
-			when_is_grab_cup = true
-		else:
+		if not event.pressed and when_is_grab_cup:
 			when_is_grab_cup = false
-			
-func _on_mouse_entered():
-	mouse_inside_cup = true
-	
+			move_to_front() 
+			if not_in_the_spwaner and not is_other_cup_nearby():
+				tp_to_spwaner()
 
-func _on_mouse_exited():
-	mouse_inside_cup = false
-	
-	
+func is_other_cup_nearby() -> bool:
+	var all_cups = get_tree().get_nodes_in_group("cups")
+	for cupss in all_cups:
+		if cupss != self and is_instance_valid(cupss):
+			if global_position.distance_to(cupss.global_position) <= other_cup_detect_radius:
+				return true
+	return false
 
+func tp_to_spwaner():
+	var _spwaner = $"../spwaner(cup)" 
+	if _spwaner:
+		global_position = _spwaner.global_position
 
 #========================================================================================
 
 func cup_fill():
 	Progress_Bar_cup.show()
 	Progress_Bar_cup.value += 0.5
-	pass
-	
+
 func cup_stop_fill():
 	Progress_Bar_cup.show()
 	Progress_Bar_cup.value += 0
-	pass
-	
+
 func cup_return_to_zero():
 	Progress_Bar_cup.hide()
 	Progress_Bar_cup.value = 0
-	pass
 
 func add_coffee():
 	coffee += 1
 	menu_in_coffe()
-#=================================================================================================================================================================
-#_ingredians :
-#ice cube = 1
-#milk = 2
-#sugar = 3
-#milk foam = 4
-#cocoa powder = 5
-#matcha powder = 6
-#cinnamon_powder = 7
+
+#========================================================================================
+#target_ingredient_type :
+#ice=1
+#milk=2
+#sugar=3
+#cream=4
+#coco=5
+#matcha=6
+#cinimond=7
 func _on_area_2d_body_entered(body):
-	can_add_things = true
-	Progress_Bar_cup.show()
 	print(body.name)
 	if nothing_loading:
-		if body is Ice_cube_node:
-			ice_cube = body
-			_ingredians = 1
+		if body is Ice_cube_node: 
+			target_ingredient_type = 1
+		elif body is Milk_node: 
+			target_ingredient_type = 2
+		elif body is Sugar_node: 
+			target_ingredient_type = 3
+		elif body is Milk_foam_node: 
+			target_ingredient_type = 4
+		elif body is Cocoa_powder_node:
+			target_ingredient_type = 5
+		elif body is Matcha_powder_node: 
+			target_ingredient_type = 6
+		elif body is Cinnamon_powder_node: 
+			target_ingredient_type = 7
+		
+		if target_ingredient_type != 0:
+			can_add_things = true
+			Progress_Bar_cup.show()
+			_ingredians = target_ingredient_type
 			loading = body
-		if body is Milk_node:
-			milk = body
-			_ingredians = 2
-			loading = body
-		if body is Sugar_node:
-			sugar = body
-			_ingredians = 3
-			loading = body
-		if body is Milk_foam_node:
-			milk_foam = body
-			_ingredians = 4
-			loading = body
-		if body is Cocoa_powder_node:
-			cocoa_powder = body
-			_ingredians = 5
-			loading = body
-		if body is Matcha_powder_node:
-			matcha_powder = body
-			_ingredians = 6
-			loading = body
-		if body is Cinnamon_powder_node:
-			cinnamon_powder = body
-			_ingredians = 7
-			loading = body
-
+			if target_ingredient_type == 1: 
+				ice_cube = body
+			elif target_ingredient_type == 2: 
+				milk = body
+			elif target_ingredient_type == 3: 
+				sugar = body
+			elif target_ingredient_type == 4: 
+				milk_foam = body
+			elif target_ingredient_type == 5: 
+				cocoa_powder = body
+			elif target_ingredient_type == 6: 
+				matcha_powder = body
+			elif target_ingredient_type == 7: 
+				cinnamon_powder = body
 
 func _on_area_2d_body_exited(body):
 	if body == loading:
 		can_add_things = false
 		Progress_Bar_cup.hide()
 		Progress_Bar_cup.value = 0
+		nothing_loading = true
+		loading = null
 		print(body.name + 'is go out')
-	else:
-		pass
+
 
 
 func is_in_spwaner():
@@ -209,16 +230,11 @@ func is_in_spwaner():
 
 func is_not_in_spwaner():
 	not_in_the_spwaner = true
+
 #======================================================================
-var coffee = 0
-var ingredians_milk = 0
-var ingredians_sugar = 0
-var ingredians_milk_foam = 0
-var ingredians_cocoa_powder = 0
-var ingredians_matcha_powder = 0
-var ingredians_cinnamon_powder = 0
+
 func menu_in_coffe():
-	if coffee == 0 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	if coffee == 0 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0:
 		ran_drink = 0
 		drink_select()
 	elif coffee == 1 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
@@ -276,7 +292,6 @@ func menu_in_coffe():
 		ran_drink = -1
 		drink_select()
 
-
 func drink_select():
 	if ran_drink == 0:
 		flavour = "Water"
@@ -317,40 +332,31 @@ func drink_select():
 	elif ran_drink == 17:
 		flavour = "???"
 
+func update_drink_recipe():
+	menu_in_coffe()
+	hot_or_iced()
 
 func hot_or_iced():
 	if ran_ice == 0:
 		print('hot temp')
-		temp = "Hot "
+		temp = "Hot"
 	elif ran_ice == 1:
 		print('normal temp')
-		temp = "Warm "
+		temp = "Warm"
 	elif ran_ice == 2:
 		print('cold temp')
-		temp = "Cold "
+		temp = "Cold"
+	else:
+		temp = "Cold"
+	text_to_be_displayed(temp + " " + flavour)
 
-	if temp == "Cold " and flavour == "Water":
-		temp = "Cold  "
-	if temp == "Hot " and flavour == "Water":
-		temp = "Hot  "
-	text_to_be_displayed(temp + flavour )
-	
+
 func displaying_text():
-	Text_label.visible_characters= 0
+	Text_label.visible_characters = 0
 	for i in Text_label.text.length():
 		Text_label.visible_characters += 1
 		await get_tree().create_timer(0.03).timeout
-		
+	
 func text_to_be_displayed(text : String):
 	Text_label.text = text
 	displaying_text()
-
-#=============================================================
-
-
-
-
-
-
-
-	

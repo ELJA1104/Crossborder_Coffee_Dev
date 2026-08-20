@@ -34,3 +34,9 @@ position = Vector2(314, 531)
 
 [node name="cinnamon powder" parent="." unique_id=480502823 instance=ExtResource("8_ir8iy")]
 position = Vector2(491, 546)
+
+[node name="cup2" parent="." unique_id=1579416620 instance=ExtResource("2_0hol4")]
+position = Vector2(1013, 308)
+
+[node name="cup3" parent="." unique_id=577414236 instance=ExtResource("2_0hol4")]
+position = Vector2(706, 214)

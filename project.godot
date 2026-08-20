@@ -15,10 +15,6 @@ run/main_scene="uid://qqpnfwanee66"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Noel_sEvent="*uid://2a4kxl8vau2c"
-
 [display]
 
 window/stretch/mode="canvas_items"
