@@ -154,6 +154,9 @@ func tp_to_spwaner():
 func cup_fill():
 	Progress_Bar_cup.show()
 	Progress_Bar_cup.value += 0.5
+	if Progress_Bar_cup.value == 100:
+		add_coffee()
+		cup_return_to_zero()
 
 func cup_stop_fill():
 	Progress_Bar_cup.show()
@@ -234,6 +237,7 @@ func is_not_in_spwaner():
 #======================================================================
 
 func menu_in_coffe():
+	print("coffee in menu")
 	if coffee == 0 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0:
 		ran_drink = 0
 		drink_select()
@@ -331,6 +335,7 @@ func drink_select():
 		flavour = "Sweet Foam Latte"
 	elif ran_drink == 17:
 		flavour = "???"
+	text_to_be_displayed(temp + flavour)
 
 func update_drink_recipe():
 	menu_in_coffe()
@@ -339,16 +344,16 @@ func update_drink_recipe():
 func hot_or_iced():
 	if ran_ice == 0:
 		print('hot temp')
-		temp = "Hot"
+		temp = "Hot "
 	elif ran_ice == 1:
 		print('normal temp')
-		temp = "Warm"
+		temp = "Warm "
 	elif ran_ice == 2:
 		print('cold temp')
-		temp = "Cold"
+		temp = "Cold "
 	else:
-		temp = "Cold"
-	text_to_be_displayed(temp + " " + flavour)
+		temp = "Cold "
+	text_to_be_displayed(temp + flavour)
 
 
 func displaying_text():
