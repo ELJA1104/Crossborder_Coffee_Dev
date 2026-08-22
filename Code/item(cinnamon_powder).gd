@@ -8,7 +8,6 @@ func _ready():
 	input_pickable = true
 	input_event.connect(_on_input_event)
 	$"../spwaner(cinnamon powder)/Area2D".body_entered.connect(_on_area_2d_body_entered)
-	$"../spwaner(cinnamon powder)/Area2D".body_exited.connect(_on_area_2d_body_exited)
 
 func _process(_delta):
 	if when_is_grab_cinnamon_powder:
@@ -35,8 +34,4 @@ func tp_to_spwaner():
 
 func _on_area_2d_body_entered(body):
 	if body is Cup_node:
-		is_in_cup_area = true 
-
-func _on_area_2d_body_exited(body):
-	if body is Cup_node:
-		is_in_cup_area = false
+		body.cup_is_in_spwaner()

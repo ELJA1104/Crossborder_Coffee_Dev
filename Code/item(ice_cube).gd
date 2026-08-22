@@ -7,7 +7,7 @@ func _ready():
 	input_pickable = true
 	input_event.connect(_on_input_event)
 	$"../spwaner(ice cube)/Area2D".body_entered.connect(_on_area_2d_body_entered)
-	$"../spwaner(ice cube)/Area2D".body_exited.connect(_on_area_2d_body_exited)
+
 
 func _process(_delta):
 	if when_is_grab_ice_cube:
@@ -24,8 +24,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 func _on_release_ingredient():
 	when_is_grab_ice_cube = false
 	move_to_front() 
-	if not is_in_cup_area:
-		tp_to_spwaner()
+	tp_to_spwaner()
 
 func tp_to_spwaner():
 	if $"../spwaner(ice cube)":
@@ -34,8 +33,4 @@ func tp_to_spwaner():
 
 func _on_area_2d_body_entered(body):
 	if body is Cup_node:
-		is_in_cup_area = true 
-
-func _on_area_2d_body_exited(body):
-	if body is Cup_node:
-		is_in_cup_area = false
+		body.cup_is_in_spwaner()

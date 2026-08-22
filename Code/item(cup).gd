@@ -10,6 +10,7 @@ var cinnamon_powder
 var when_is_grab_cup : bool = false
 var can_add_things : bool = false
 var not_in_the_spwaner : bool = true
+var not_in_other_spwaner : bool = true
 @export var Progress_Bar_cup : ProgressBar
 @export var Text_label : Label
 var flavour : String
@@ -145,7 +146,7 @@ func is_other_cup_nearby() -> bool:
 	return false
 
 func tp_to_spwaner():
-	var _spwaner = $"../spwaner(cup)" 
+	var _spwaner = $"../spwaner(cup）"
 	if _spwaner:
 		global_position = _spwaner.global_position
 
@@ -226,13 +227,16 @@ func _on_area_2d_body_exited(body):
 		loading = null
 		print(body.name + 'is go out')
 
-
-
-func is_in_spwaner():
-	not_in_the_spwaner = false
-
-func is_not_in_spwaner():
-	not_in_the_spwaner = true
+func cup_is_in_spwaner():
+	nothing_loading = false
+	ran_drink = 0
+	ran_ice = 0
+	text_to_be_displayed('AwA')
+	await get_tree().create_timer(3).timeout
+	when_is_grab_cup = false
+	tp_to_spwaner()
+	hot_or_iced()
+	drink_select()
 
 #======================================================================
 

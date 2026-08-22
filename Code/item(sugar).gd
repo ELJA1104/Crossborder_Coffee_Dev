@@ -8,8 +8,6 @@ func _ready():
 	input_pickable = true
 	input_event.connect(_on_input_event)
 	$"../spwaner(sugar)/Area2D".body_entered.connect(_on_area_2d_body_entered)
-	$"../spwaner(sugar)/Area2D".body_exited.connect(_on_area_2d_body_exited)
-
 func _process(_delta):
 	if when_is_grab_sugar:
 		global_position = lerp(global_position, get_global_mouse_position(), 0.2)
@@ -35,8 +33,4 @@ func tp_to_spwaner():
 
 func _on_area_2d_body_entered(body):
 	if body is Cup_node:
-		is_in_cup_area = true 
-
-func _on_area_2d_body_exited(body):
-	if body is Cup_node:
-		is_in_cup_area = false
+		body.cup_is_in_spwaner()
