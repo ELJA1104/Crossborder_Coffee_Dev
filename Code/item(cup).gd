@@ -231,7 +231,7 @@ func cup_is_in_spwaner():
 	nothing_loading = false
 	ran_drink = 0
 	ran_ice = 0
-	text_to_be_displayed('AwA')
+	text_to_be_displayed('awa')
 	await get_tree().create_timer(3).timeout
 	when_is_grab_cup = false
 	tp_to_spwaner()
