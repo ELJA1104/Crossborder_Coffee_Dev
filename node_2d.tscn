@@ -11,11 +11,14 @@
 
 [node name="Node2D" type="Node2D" unique_id=187560298]
 
-[node name="ice cube" parent="." unique_id=522084715 instance=ExtResource("2_0e48y")]
-position = Vector2(39, 158)
-
 [node name="cup" parent="." unique_id=1073076532 instance=ExtResource("2_0hol4")]
 position = Vector2(466, 289)
+
+[node name="cup2" parent="." unique_id=1579416620 instance=ExtResource("2_0hol4")]
+position = Vector2(1013, 308)
+
+[node name="cup3" parent="." unique_id=577414236 instance=ExtResource("2_0hol4")]
+position = Vector2(706, 214)
 
 [node name="milk" parent="." unique_id=798909664 instance=ExtResource("3_epypp")]
 position = Vector2(50, 51)
@@ -35,8 +38,5 @@ position = Vector2(314, 531)
 [node name="cinnamon powder" parent="." unique_id=480502823 instance=ExtResource("8_ir8iy")]
 position = Vector2(491, 546)
 
-[node name="cup2" parent="." unique_id=1579416620 instance=ExtResource("2_0hol4")]
-position = Vector2(1013, 308)
-
-[node name="cup3" parent="." unique_id=577414236 instance=ExtResource("2_0hol4")]
-position = Vector2(706, 214)
+[node name="ice cube" parent="." unique_id=522084715 instance=ExtResource("2_0e48y")]
+position = Vector2(39, 158)
