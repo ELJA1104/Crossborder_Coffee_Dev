@@ -134,8 +134,6 @@ func _input(event: InputEvent) -> void:
 		if not event.pressed and when_is_grab_cup:
 			when_is_grab_cup = false
 			move_to_front() 
-			if not_in_the_spwaner and not is_other_cup_nearby():
-				tp_to_spwaner()
 
 func is_other_cup_nearby() -> bool:
 	var all_cups = get_tree().get_nodes_in_group("cups")
