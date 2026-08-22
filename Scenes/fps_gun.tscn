@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dpd7fqf5jci1a"]
+
+[ext_resource type="Script" uid="uid://cs0dy4s1vk6ea" path="res://Code/fps_gun.gd" id="1_8o5ay"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="1_cxi84"]
+
+[node name="FPS_gun" type="Node2D" unique_id=1345789586]
+script = ExtResource("1_8o5ay")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=776753402]
+rotation = 1.5707964
+texture = ExtResource("1_cxi84")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1206821170]
+position = Vector2(128, 0)
+rotation = 1.5707964
+scale = Vector2(0.5, 1)
+texture = ExtResource("1_cxi84")

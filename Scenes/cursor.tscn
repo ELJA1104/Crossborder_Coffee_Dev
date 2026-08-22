@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://pq22bk8wvxcl"]
+
+[ext_resource type="Script" uid="uid://c5dxwnx6ymdif" path="res://Code/cursor.gd" id="1_8pp82"]
+
+[node name="Crosshair" type="Node2D" unique_id=989418816]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_8pp82")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1300099247]
+offset_left = 24.0
+offset_top = -8.0
+offset_right = 144.0
+offset_bottom = 8.0
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=201176081]
+offset_left = -144.0
+offset_top = -8.0
+offset_right = -24.0
+offset_bottom = 8.0
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=560011202]
+offset_left = -8.0
+offset_top = 24.0
+offset_right = 8.0
+offset_bottom = 128.0
