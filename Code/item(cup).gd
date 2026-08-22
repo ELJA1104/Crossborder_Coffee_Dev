@@ -230,8 +230,7 @@ func cup_is_in_spwaner():
 	ran_drink = 0
 	ran_ice = 0
 	text_to_be_displayed('awa')
-	await get_tree().create_timer(3).timeout
-	when_is_grab_cup = false
+	await get_tree().create_timer(0.5).timeout
 	tp_to_spwaner()
 	hot_or_iced()
 	drink_select()
