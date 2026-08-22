@@ -12,31 +12,34 @@
 [node name="Node2D" type="Node2D" unique_id=187560298]
 
 [node name="cup" parent="." unique_id=1073076532 instance=ExtResource("2_0hol4")]
-position = Vector2(466, 289)
+position = Vector2(1010, 291)
 
 [node name="cup2" parent="." unique_id=1579416620 instance=ExtResource("2_0hol4")]
-position = Vector2(1013, 308)
+position = Vector2(941, 290)
 
 [node name="cup3" parent="." unique_id=577414236 instance=ExtResource("2_0hol4")]
-position = Vector2(545, 221)
+position = Vector2(871, 289)
+
+[node name="cup4" parent="." unique_id=273554571 instance=ExtResource("2_0hol4")]
+position = Vector2(803, 291)
 
 [node name="milk" parent="." unique_id=798909664 instance=ExtResource("3_epypp")]
-position = Vector2(50, 51)
+position = Vector2(541, 579)
 
 [node name="sugar" parent="." unique_id=1604224224 instance=ExtResource("4_0hol4")]
-position = Vector2(39, 231)
+position = Vector2(628, 617)
 
 [node name="milk foam" parent="." unique_id=886890274 instance=ExtResource("5_kdubu")]
-position = Vector2(100, 344)
+position = Vector2(764, 565)
 
 [node name="cocoa powder" parent="." unique_id=944126049 instance=ExtResource("6_d21ai")]
-position = Vector2(90, 520)
+position = Vector2(92, 557)
 
 [node name="matcha powder" parent="." unique_id=1009611989 instance=ExtResource("7_4d7sh")]
-position = Vector2(314, 531)
+position = Vector2(255, 569)
 
 [node name="cinnamon powder" parent="." unique_id=480502823 instance=ExtResource("8_ir8iy")]
-position = Vector2(491, 546)
+position = Vector2(415, 571)
 
 [node name="ice cube" parent="." unique_id=522084715 instance=ExtResource("2_0e48y")]
-position = Vector2(39, 158)
+position = Vector2(1010, 523)
