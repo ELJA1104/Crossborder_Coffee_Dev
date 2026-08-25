@@ -9,6 +9,9 @@ size = Vector2(50.5, 71)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(42, 57)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsoho"]
+size = Vector2(63, 86)
+
 [node name="cup" type="Node2D" unique_id=1073076532]
 
 [node name="item(cup)" type="CharacterBody2D" parent="." unique_id=969784243 node_paths=PackedStringArray("Progress_Bar_cup", "Text_label")]
@@ -51,3 +54,11 @@ visibility_layer = 16
 position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_2m13f")
 debug_color = Color(0.6763681, 0.5055194, 0.05922377, 0.41960785)
+
+[node name="spwaner(cup）" type="Node2D" parent="." unique_id=1667219429]
+
+[node name="Area2D" type="Area2D" parent="spwaner(cup）" unique_id=1258232296]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(cup）/Area2D" unique_id=1958821387]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_nsoho")

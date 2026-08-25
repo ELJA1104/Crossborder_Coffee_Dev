@@ -24,17 +24,37 @@ func drink_select():
 	if ran_drink == 0:
 		flavour = "Water"
 	elif ran_drink == 1:
-		flavour = "Americano"
+		flavour = "Plain Coffee"
 	elif ran_drink == 2:
-		flavour = "Cappuccino"
-	elif ran_drink == 3:
 		flavour = "Espresso"
+	elif ran_drink == 3:
+		flavour = "Double Espresso"
 	elif ran_drink == 4:
-		flavour = "Macchiato"
+		flavour = "Caffè Latte"
 	elif ran_drink == 5:
-		flavour = "Mocha"
+		flavour = "Cappuccino"
 	elif ran_drink == 6:
-		flavour = "Latte"
+		flavour = "Mocha"
+	elif ran_drink == 7:
+		flavour = "Caramel Macchiato"
+	elif ran_drink == 8:
+		flavour = "Vanilla Latte"
+	elif ran_drink == 9:
+		flavour = "Hazelnut Latte"
+	elif ran_drink == 10:
+		flavour = "Vietnamese Coffee"
+	elif ran_drink == 11:
+		flavour = "Hong Kong–Style Milk Coffee"
+	elif ran_drink == 12:
+		flavour = "Matcha Coffee"
+	elif ran_drink == 13:
+		flavour = "Cinnamon Coffee"
+	elif ran_drink == 14:
+		flavour = "Caramel Foam Coffee"
+	elif ran_drink == 15:
+		flavour = "Chocolate Cream Coffee"
+	elif ran_drink == 16:
+		flavour = "Sweet Foam Latte"
 		
 func _ready() -> void:
 	drink_select()

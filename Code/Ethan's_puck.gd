@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 	if dragged == true:
 		self.global_position = lerp(global_position, get_global_mouse_position(), 0.5) - Offset
 	if is_empty == true:
-		Text_label.text = "The puck needs coffee grounds"
-	if used_once == true:
-		Text_label.text = "This puck has been used"
+		if used_once == false:
+			Text_label.text = "The puck needs coffee grounds"
+	elif is_empty == false:
+		Text_label.text = "Puck is Filled"
+		if used_once == true:
+			Text_label.text = "This puck has been used"

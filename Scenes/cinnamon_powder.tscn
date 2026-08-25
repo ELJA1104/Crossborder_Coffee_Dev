@@ -7,6 +7,7 @@
 size = Vector2(120, 113)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0v5d"]
+size = Vector2(148, 150)
 
 [node name="cinnamon powder" type="Node2D" unique_id=480502823]
 
@@ -29,4 +30,5 @@ shape = SubResource("RectangleShape2D_2m13f")
 [node name="Area2D" type="Area2D" parent="spwaner(cinnamon powder)" unique_id=1483435465]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(cinnamon powder)/Area2D" unique_id=1164244545]
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_t0v5d")

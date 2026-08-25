@@ -5,13 +5,12 @@ var milk
 var sugar
 var milk_foam
 var cocoa_powder
-var chocolate_sauce
 var matcha_powder
 var cinnamon_powder
 var when_is_grab_cup : bool = false
-var mouse_inside_cup : bool = false
 var can_add_things : bool = false
 var not_in_the_spwaner : bool = true
+var not_in_other_spwaner : bool = true
 @export var Progress_Bar_cup : ProgressBar
 @export var Text_label : Label
 var flavour : String
@@ -20,20 +19,26 @@ var ran_ice  = 0
 var ran_drink = 0
 var _ingredians = 0
 var nothing_loading : bool = true
+var target_ingredient_type = 0
 var loading 
+var coffee = 0
+var ingredians_milk = 0
+var ingredians_sugar = 0
+var ingredians_milk_foam = 0
+var ingredians_cocoa_powder = 0
+var ingredians_matcha_powder = 0
+var ingredians_cinnamon_powder = 0
+@export var other_cup_detect_radius: float = 100
 
 func _ready():
+	input_pickable = true
+	input_event.connect(_on_input_event)
 	$Area2D.body_entered.connect(_on_area_2d_body_entered)
 	$Area2D.body_exited.connect(_on_area_2d_body_exited)
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
 	Progress_Bar_cup.hide()
 	drink_select()
 	hot_or_iced()
-	text_to_be_displayed(temp + flavour )
-	
-
-
+	text_to_be_displayed(temp + flavour)
 
 func _process(_delta):
 	if when_is_grab_cup:
@@ -46,14 +51,15 @@ func _process(_delta):
 		if Progress_Bar_cup.value < Progress_Bar_cup.max_value:
 			Progress_Bar_cup.value += 0.5
 		else:
-			if _ingredians == 1 :
+			if _ingredians == 1:
 				print('ice done')
 				Progress_Bar_cup.hide()
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ran_ice += 1
 				hot_or_iced()
-				ice_cube.tp_to_spwaner()
+				if ice_cube: 
+					ice_cube.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 2:
@@ -62,7 +68,8 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_milk += 1
-				milk.tp_to_spwaner()
+				if milk: 
+					milk.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 3:
@@ -71,7 +78,8 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_sugar += 1
-				sugar.tp_to_spwaner()
+				if sugar: 
+					sugar.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 4:
@@ -80,7 +88,8 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_milk_foam += 1
-				milk_foam.tp_to_spwaner()
+				if milk_foam: 
+					milk_foam.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 5:
@@ -89,352 +98,250 @@ func _process(_delta):
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_cocoa_powder += 1
-				cocoa_powder.tp_to_spwaner()
+				if cocoa_powder: 
+					cocoa_powder.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
 			if _ingredians == 6:
-				print('chocolate sauce done')
-				Progress_Bar_cup.hide()
-				Progress_Bar_cup.value = 0
-				can_add_things = false 
-				ingredians_chocolate_sauce += 1
-				chocolate_sauce.tp_to_spwaner()
-				nothing_loading = true
-				menu_in_coffe()
-			if _ingredians == 7:
 				print('matcha powder done')
 				Progress_Bar_cup.hide()
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_matcha_powder += 1
-				matcha_powder.tp_to_spwaner()
+				if matcha_powder: 
+					matcha_powder.tp_to_spwaner()
 				nothing_loading = true
 				menu_in_coffe()
-			if _ingredians == 8:
+			if _ingredians == 7:
 				print('cinnamon powder done')
 				Progress_Bar_cup.hide()
 				Progress_Bar_cup.value = 0
 				can_add_things = false 
 				ingredians_cinnamon_powder += 1
-				cinnamon_powder.tp_to_spwaner()
+				if cinnamon_powder: 
+					cinnamon_powder.tp_to_spwaner()
 				nothing_loading = true
-				menu_in_coffe()
+				menu_in_coffe() 
 
-
-
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			when_is_grab_cup = true
+			get_viewport().set_input_as_handled()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and mouse_inside_cup:
-			when_is_grab_cup = true
-		else:
+		if not event.pressed and when_is_grab_cup:
 			when_is_grab_cup = false
-			
-func _on_mouse_entered():
-	mouse_inside_cup = true
-	
+			move_to_front() 
 
-func _on_mouse_exited():
-	mouse_inside_cup = false
-	
-	
+func is_other_cup_nearby() -> bool:
+	var all_cups = get_tree().get_nodes_in_group("cups")
+	for cupss in all_cups:
+		if cupss != self and is_instance_valid(cupss):
+			if global_position.distance_to(cupss.global_position) <= other_cup_detect_radius:
+				return true
+	return false
 
+func tp_to_spwaner():
+	var _spwaner = $"../spwaner(cup）"
+	if _spwaner:
+		global_position = _spwaner.global_position
 
 #========================================================================================
 
 func cup_fill():
 	Progress_Bar_cup.show()
 	Progress_Bar_cup.value += 0.5
-	pass
-	
+	if Progress_Bar_cup.value == 100:
+		add_coffee()
+		cup_return_to_zero()
+
 func cup_stop_fill():
 	Progress_Bar_cup.show()
 	Progress_Bar_cup.value += 0
-	pass
-	
+
 func cup_return_to_zero():
 	Progress_Bar_cup.hide()
 	Progress_Bar_cup.value = 0
-	pass
 
 func add_coffee():
 	coffee += 1
 	menu_in_coffe()
-#=================================================================================================================================================================
-#_ingredians :
-#ice cube = 1
-#milk = 2
-#sugar = 3
-#milk foam = 4
-#cocoa powder = 5
-#chocolate sauce = 6
-#matcha powder = 7
-#cinnamon_powder = 8
+
+#========================================================================================
+#target_ingredient_type :
+#ice=1
+#milk=2
+#sugar=3
+#cream=4
+#coco=5
+#matcha=6
+#cinimond=7
 func _on_area_2d_body_entered(body):
-	can_add_things = true
-	Progress_Bar_cup.show()
 	print(body.name)
 	if nothing_loading:
-		if body is Ice_cube_node:
-			ice_cube = body
-			_ingredians = 1
+		if body is Ice_cube_node: 
+			target_ingredient_type = 1
+		elif body is Milk_node: 
+			target_ingredient_type = 2
+		elif body is Sugar_node: 
+			target_ingredient_type = 3
+		elif body is Milk_foam_node: 
+			target_ingredient_type = 4
+		elif body is Cocoa_powder_node:
+			target_ingredient_type = 5
+		elif body is Matcha_powder_node: 
+			target_ingredient_type = 6
+		elif body is Cinnamon_powder_node: 
+			target_ingredient_type = 7
+		
+		if target_ingredient_type != 0:
+			can_add_things = true
+			Progress_Bar_cup.show()
+			_ingredians = target_ingredient_type
 			loading = body
-		if body is Milk_node:
-			milk = body
-			_ingredians = 2
-			loading = body
-		if body is Sugar_node:
-			sugar = body
-			_ingredians = 3
-			loading = body
-		if body is Milk_foam_node:
-			milk_foam = body
-			_ingredians = 4
-			loading = body
-		if body is Cocoa_powder_node:
-			cocoa_powder = body
-			_ingredians = 5
-			loading = body
-		if body is Chocolate_sauce_node:
-			chocolate_sauce = body
-			_ingredians = 6
-			loading = body
-		if body is Matcha_powder_node:
-			matcha_powder = body
-			_ingredians = 7
-			loading = body
-		if body is Cinnamon_powder_node:
-			cinnamon_powder = body
-			_ingredians = 8
-			loading = body
-
+			if target_ingredient_type == 1: 
+				ice_cube = body
+			elif target_ingredient_type == 2: 
+				milk = body
+			elif target_ingredient_type == 3: 
+				sugar = body
+			elif target_ingredient_type == 4: 
+				milk_foam = body
+			elif target_ingredient_type == 5: 
+				cocoa_powder = body
+			elif target_ingredient_type == 6: 
+				matcha_powder = body
+			elif target_ingredient_type == 7: 
+				cinnamon_powder = body
 
 func _on_area_2d_body_exited(body):
 	if body == loading:
 		can_add_things = false
 		Progress_Bar_cup.hide()
 		Progress_Bar_cup.value = 0
+		nothing_loading = true
+		loading = null
 		print(body.name + 'is go out')
-	else:
-		pass
 
+func cup_is_in_spwaner():
+	nothing_loading = false
+	ran_drink = 0
+	ran_ice = 0
+	text_to_be_displayed('awa')
+	await get_tree().create_timer(0.5).timeout
+	tp_to_spwaner()
+	hot_or_iced()
+	drink_select()
 
-func is_in_spwaner():
-	not_in_the_spwaner = false
-
-func is_not_in_spwaner():
-	not_in_the_spwaner = true
 #======================================================================
-var coffee = 0
-var ingredians_milk = 0
-var ingredians_sugar = 0
-var ingredians_milk_foam = 0
-var ingredians_cocoa_powder = 0
-var ingredians_chocolate_sauce = 0
-var ingredians_matcha_powder = 0
-var ingredians_cinnamon_powder = 0
+
 func menu_in_coffe():
-	if coffee == 0 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	print("coffee in menu")
+	if coffee == 0 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0:
 		ran_drink = 0
 		drink_select()
-	elif coffee == 1 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 1 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 1
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 2
 		drink_select()
-	elif coffee == 3 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 3 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 3
 		drink_select()
-	elif coffee == 1 and ingredians_milk == 0 and ingredians_sugar == 1 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 4
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 0 and ingredians_sugar == 1 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 1 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 5
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 0 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 1 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 1 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 6
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 1 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 4 and ingredians_milk_foam == 1 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 7
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 3 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 8
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 0 and ingredians_sugar == 2 and ingredians_milk_foam == 1 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 5 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 9
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 0 and ingredians_sugar == 3 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 1 and ingredians_milk == 3 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 10
 		drink_select()
-	elif coffee == 3 and ingredians_milk == 1 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 1 and ingredians_milk == 1 and ingredians_sugar == 1 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 11
 		drink_select()
-	elif coffee == 3 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 1 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 12
 		drink_select()
-	elif coffee == 3 and ingredians_milk == 0 and ingredians_sugar == 2 and ingredians_milk_foam == 1 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 1 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 1 :
 		ran_drink = 13
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 1 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 4 and ingredians_milk_foam == 2 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 14
 		drink_select()
-	elif coffee == 1 and ingredians_milk == 2 and ingredians_sugar == 2 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 3 and ingredians_cocoa_powder == 1 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 15
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 3 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 2 and ingredians_milk_foam == 1 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
 		ran_drink = 16
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 1 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 1 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
+	elif coffee == 3 and ingredians_milk == 1 and ingredians_sugar == 5 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 1 :
 		ran_drink = 17
 		drink_select()
-	elif coffee == 2 and ingredians_milk == 1 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 1 and ingredians_cinnamon_powder == 0 :
-		ran_drink = 18
-		drink_select()
-	elif coffee == 2 and ingredians_milk == 1 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 1 :
-		ran_drink = 19
-		drink_select()
-	elif coffee == 2 and ingredians_milk == 0 and ingredians_sugar == 4 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
-		ran_drink = 20
-		drink_select()
-	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 2 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
-		ran_drink = 21
-		drink_select()
-	elif coffee == 3 and ingredians_milk == 1 and ingredians_sugar == 2 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
-		ran_drink = 22
-		drink_select()
-	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 0 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 1 :
-		ran_drink = 23
-		drink_select()
-	elif coffee == 2 and ingredians_milk == 2 and ingredians_sugar == 0 and ingredians_milk_foam == 0 and ingredians_cocoa_powder == 0 and ingredians_chocolate_sauce == 1	 and ingredians_matcha_powder == 0 and ingredians_cinnamon_powder == 0 :
-		ran_drink = 24
+	else:
+		ran_drink = -1
 		drink_select()
 
 func drink_select():
 	if ran_drink == 0:
 		flavour = "Water"
 	elif ran_drink == -1:
-			flavour = "Unidentified liquid (potentially toxic)"
+		flavour = "Unidentified liquid (potentially toxic)"
 	elif ran_drink == 1:
-			flavour = "Ground Brew Coffee"
+		flavour = "Plain Coffee"
 	elif ran_drink == 2:
-		flavour = "Americano"
+		flavour = "Espresso"
 	elif ran_drink == 3:
-		flavour = "Double Americano"
+		flavour = "Double Espresso"
 	elif ran_drink == 4:
-		flavour = "Sweet Ground Brew"
-	elif ran_drink == 5:
-		flavour = "Sweet Americano"
-	elif ran_drink == 6:
-		flavour = "Cinnamon Americano"
-	elif ran_drink == 7:
-		flavour = "Aqua Milk Latte"
-	elif ran_drink == 8:
 		flavour = "Caffè Latte"
-	elif ran_drink == 9:
-		flavour = "Smooth Cream Coffee"
-	elif ran_drink == 10:
-		flavour = "Vanilla Americano"
-	elif ran_drink == 11:
-		flavour = "Double Aqua Milk"
-	elif ran_drink == 12:
-		flavour = "Double Espresso Latte"
-	elif ran_drink == 13:
-		flavour = "Double Cream Coffee"
-	elif ran_drink == 14:
-		flavour = "Aqua Sweet Latte"
-	elif ran_drink == 15:
-		flavour = "Evaporated Aqua Coffee"
-	elif ran_drink == 16:
-		flavour = "Condensed Latte"
-	elif ran_drink == 17:
-		flavour = "Aqua Cocoa Coffee"
-	elif ran_drink == 18:
-		flavour = "Aqua Matcha Coffee"
-	elif ran_drink == 19:
-		flavour = "Aqua Cinnamon Latte"
-	elif ran_drink == 20:
-		flavour = "Caramel Americano"
-	elif ran_drink == 21:
-		flavour = "Sweet Latte"
-	elif ran_drink == 22:
-		flavour = "Evaporated Double Americano"
-	elif ran_drink == 23:
-		flavour = "Evaporated Americano"
-	elif ran_drink == 24:
-		flavour = "Cinnamon Latte"
-	elif ran_drink == 25:
-		flavour = "Caffè Mocha"
-	elif ran_drink == 26:
-		flavour = "Cocoa Latte"
-	elif ran_drink == 27:
-		flavour = "Matcha Latte"
-	elif ran_drink == 28:
+	elif ran_drink == 5:
 		flavour = "Cappuccino"
-	elif ran_drink == 29:
-		flavour = "Hazelnut Americano"
-	elif ran_drink == 30:
+	elif ran_drink == 6:
+		flavour = "Mocha"
+	elif ran_drink == 7:
+		flavour = "Caramel Macchiato"
+	elif ran_drink == 8:
 		flavour = "Vanilla Latte"
-	elif ran_drink == 31:
-		flavour = "Aqua Vanilla Latte"
-	elif ran_drink == 32:
-		flavour = "Spanish Coffee"
-	elif ran_drink == 33:
-		flavour = "Thick Foam Latte"
-	elif ran_drink == 34:
-		flavour = "Double Vanilla Latte"
-	elif ran_drink == 35:
-		flavour = "Caramel Latte"
-	elif ran_drink == 36:
-		flavour = "Aqua Caramel Latte"
-	elif ran_drink == 37:
-		flavour = "Vanilla Evaporated Coffee"
-	elif ran_drink == 38:
-		flavour = "Vanilla Condensed Coffee"
-	elif ran_drink == 39:
-		flavour = "Flat White"
-	elif ran_drink == 40:
-		flavour = " Hazelnut Latte"
-	elif ran_drink == 41:
-		flavour = "Aqua Hazelnut Latte"
-	elif ran_drink == 42:
-		flavour = "Double Caramel Latte"
-	elif ran_drink == 43:
-		flavour = "Caramel Evaporated Coffee"
-	elif ran_drink == 44:
-		flavour = "Caramel Condensed Coffee"
-	elif ran_drink == 45:
-		flavour = "Vanilla Chocolate Aqua Fusion"
-	elif ran_drink == 46:
-		flavour = "Cream Foam Mocha"
-	elif ran_drink == 47:
-		flavour = "Matcha Cocoa Fusion"
-	elif ran_drink == 48:
-		flavour = "Double Hazelnut Latte"
-	elif ran_drink == 49:
-		flavour = "Hazelnut Evaporated Coffee"
-	elif ran_drink == 50:
-		flavour = "Hazelnut Condensed Coffee"
-	elif ran_drink == 51:
-		flavour = "Caramel Cinnamon Thick Coffee"
-	elif ran_drink == 52:
-		flavour = "Evaporated Chocolate Fusion"
-	elif ran_drink == 53:
-		flavour = "Deluxe Caramel Mocha"
-	elif ran_drink == 54:
-		flavour = "The Ultimate Aqua Espresso"
-	elif ran_drink == 55:
-		flavour = "Condensed Matcha Coffee"
-	elif ran_drink == 56:
-		flavour = "Cream Hazelnut Cocoa"
-	elif ran_drink == 57:
-		flavour = "Double Cinnamon Mocha"
-	elif ran_drink == 58:
-		flavour = "Smooth Foam Iced Frappe "
-	elif ran_drink == 59:
-		flavour = "Polar Blue Iced Americano"
-	elif ran_drink == 60:
-		flavour = "Lava Winter Hot Mocha"
+	elif ran_drink == 9:
+		flavour = "Hazelnut Latte"
+	elif ran_drink == 10:
+		flavour = "Vietnamese Coffee"
+	elif ran_drink == 11:
+		flavour = "Hong Kong–Style Milk Coffee"
+	elif ran_drink == 12:
+		flavour = "Matcha Coffee"
+	elif ran_drink == 13:
+		flavour = "Cinnamon Coffee"
+	elif ran_drink == 14:
+		flavour = "Caramel Foam Coffee"
+	elif ran_drink == 15:
+		flavour = "Chocolate Cream Coffee"
+	elif ran_drink == 16:
+		flavour = "Sweet Foam Latte"
+	elif ran_drink == 17:
+		flavour = "???"
+	text_to_be_displayed(temp + flavour)
+
+func update_drink_recipe():
+	menu_in_coffe()
+	hot_or_iced()
+
 func hot_or_iced():
 	if ran_ice == 0:
 		print('hot temp')
@@ -445,29 +352,17 @@ func hot_or_iced():
 	elif ran_ice == 2:
 		print('cold temp')
 		temp = "Cold "
+	else:
+		temp = "Cold "
+	text_to_be_displayed(temp + flavour)
 
-	if temp == "Cold " and flavour == "Water":
-		temp = "Cold  "
-	if temp == "Hot " and flavour == "Water":
-		temp = "Hot  "
-	text_to_be_displayed(temp + flavour )
-	
+
 func displaying_text():
-	Text_label.visible_characters= 0
+	Text_label.visible_characters = 0
 	for i in Text_label.text.length():
 		Text_label.visible_characters += 1
 		await get_tree().create_timer(0.03).timeout
-		
+	
 func text_to_be_displayed(text : String):
 	Text_label.text = text
 	displaying_text()
-
-#=============================================================
-
-
-
-
-
-
-
-	

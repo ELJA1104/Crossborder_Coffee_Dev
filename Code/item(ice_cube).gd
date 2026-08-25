@@ -1,47 +1,36 @@
 extends CharacterBody2D
 class_name Ice_cube_node
-var cup
-var when_is_grab_ice : bool = false
-var mouse_inside_ice : bool = false
+var when_is_grab_ice_cube : bool = false
+var is_in_cup_area : bool = false 
 
 func _ready():
-	mouse_entered.connect(_on_mouse_entered)
-	mouse_exited.connect(_on_mouse_exited)
+	input_pickable = true
+	input_event.connect(_on_input_event)
 	$"../spwaner(ice cube)/Area2D".body_entered.connect(_on_area_2d_body_entered)
-	$"../spwaner(ice cube)/Area2D".body_exited.connect(_on_area_2d_body_exited)
+
 
 func _process(_delta):
-	if when_is_grab_ice:
-		var _mouse_pos = get_global_mouse_position()
-		global_position = lerp(global_position,_mouse_pos,0.2)
-		return
+	if when_is_grab_ice_cube:
+		global_position = lerp(global_position, get_global_mouse_position(), 0.2)
+		if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			_on_release_ingredient()
 
-func _input(event: InputEvent) -> void:
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed and mouse_inside_ice:
-			when_is_grab_ice = true
-		else:
-			when_is_grab_ice = false
+		if event.pressed:
+			when_is_grab_ice_cube = true
+			get_viewport().set_input_as_handled() 
 
-func _on_mouse_entered():
-	mouse_inside_ice = true
-
-func _on_mouse_exited():
-	mouse_inside_ice = false
+func _on_release_ingredient():
+	when_is_grab_ice_cube = false
+	move_to_front() 
+	tp_to_spwaner()
 
 func tp_to_spwaner():
-	var _spwaner = $"../spwaner(ice cube)" 
-	if _spwaner:
-		global_position = _spwaner.global_position
+	if $"../spwaner(ice cube)":
+		when_is_grab_ice_cube = false
+		global_position = $"../spwaner(ice cube)".global_position
 
 func _on_area_2d_body_entered(body):
-	print(body.name + 'is in the ice cube spwaner')
 	if body is Cup_node:
-		cup = body
-		cup.is_in_spwaner()
-
-func _on_area_2d_body_exited(body):
-	print(body.name + 'is go out to the ice cube spwaner')
-	if body is Cup_node:
-		cup = body
-		cup.is_not_in_spwaner()
+		body.cup_is_in_spwaner()

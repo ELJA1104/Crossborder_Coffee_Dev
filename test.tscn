@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://8hseqckm3myk"]
+
+[ext_resource type="PackedScene" uid="uid://pq22bk8wvxcl" path="res://Scenes/cursor.tscn" id="1_37kl0"]
+[ext_resource type="PackedScene" uid="uid://dpd7fqf5jci1a" path="res://Scenes/fps_gun.tscn" id="2_8uh7m"]
+
+[node name="Node2D" type="Node2D" unique_id=1092168843]
+
+[node name="Crosshair" parent="." unique_id=989418816 instance=ExtResource("1_37kl0")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1581583787]
+
+[node name="FPS_gun" parent="." unique_id=1345789586 instance=ExtResource("2_8uh7m")]
+position = Vector2(0, 320)

@@ -22,10 +22,7 @@ func _physics_process(delta: float) -> void:
 			cup.cup_stop_fill()
 			
 		if cup.Progress_Bar_cup.value >= 99:
-			if cup.hot_water_protocol == false:
-				text_to_be_displayed("Your " + req_temp + "cup of " + coffee_flavour + " has been brewed")
-			elif cup.hot_water_protocol == true:
-				text_to_be_displayed("Your cup of hot water has been brewed")
+			cup.menu_in_coffe()
 			if Puck_detec == true:
 				puck.used_once = true
 			elif Puck_detec == false:
@@ -40,18 +37,13 @@ func _on_start_button_pressed() -> void:
 		if puck.is_empty == true:
 			text_to_be_displayed("You need  to fill the puck with coffee grounds")
 		elif puck.is_empty == false:
-			if cup.hot_water_protocol == false and Puck_detec == false:
-				text_to_be_displayed("This drink requires a Puck")
-			elif cup.hot_water_protocol == true and Puck_detec == true:
-				text_to_be_displayed("This drink does not require a puck")
-			else:
-				if Cup_detection_value == 1:
-					print("start button is pressed")
-					is_filling = true	
-					text_to_be_displayed("Filling process has started")
-				elif Cup_detection_value== 0:
-					print("Something is missing!")
-					text_to_be_displayed("Cup has not been detected")
+			if Cup_detection_value == 1:
+				print("start button is pressed")
+				is_filling = true	
+				text_to_be_displayed("Filling process has started")
+			elif Cup_detection_value== 0:
+				print("Something is missing!")
+				text_to_be_displayed("Cup has not been detected")
 
 
 func _on_stop_button_pressed() -> void:
