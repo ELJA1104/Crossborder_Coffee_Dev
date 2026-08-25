@@ -11,7 +11,8 @@ func _ready() -> void:
 	customer = customer_scene.instantiate()
 	
 func _on_customer_spawn_button_pressed() -> void:
-	get_tree().spwn_node.add_child(customer)
+	#spwn_node.add_child(customer)
+	add_child(customer)
 	customer.anim_plyr.play("customer_sld_in")
 	
  #this function will eventyally be replaced by the cup
