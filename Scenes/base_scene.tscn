@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bd267dnu2okq3" path="res://Scenes/idk.tscn" id="5_kvnw2"]
 [ext_resource type="PackedScene" uid="uid://cty03jb2sdxnc" path="res://Scenes/Ethan's_Puck.tscn" id="6_cg6vo"]
 [ext_resource type="PackedScene" uid="uid://cmitv4ele86py" path="res://Scenes/milk.tscn" id="7_6xwkn"]
-[ext_resource type="PackedScene" uid="uid://bp0pcatmwiqoy" path="res://Scenes/ice.tscn" id="8_pw8rc"]
+[ext_resource type="PackedScene" uid="uid://d5tdykglykeu" path="res://Scenes/coffee_residue_disposal.tscn" id="9_6xwkn"]
 [ext_resource type="PackedScene" uid="uid://d2ck4um7l27gx" path="res://Scenes/sugar.tscn" id="9_16yq7"]
 
 [node name="Node2D" type="Node2D" unique_id=800427921]
@@ -39,6 +39,9 @@ position = Vector2(-447, 0)
 [node name="cup5" parent="." unique_id=1524834150 instance=ExtResource("3_6t8sk")]
 position = Vector2(-410, 238)
 
+[node name="Coffee_Residue_Disposal" parent="." unique_id=721591295 instance=ExtResource("9_6xwkn")]
+position = Vector2(480, 200)
+
 [node name="Ethan\'s Puck" parent="." unique_id=1396477318 instance=ExtResource("6_cg6vo")]
 position = Vector2(152, -104)
 
@@ -57,7 +60,7 @@ position = Vector2(168, -224)
 [node name="milk" parent="." unique_id=1519699551 instance=ExtResource("7_6xwkn")]
 position = Vector2(701, 275)
 
-[node name="ice" parent="." unique_id=1647408933 instance=ExtResource("8_pw8rc")]
+[node name="ice" parent="." unique_id=1647408933]
 position = Vector2(798, 88)
 
 [node name="sugar" parent="." unique_id=328394952 instance=ExtResource("9_16yq7")]

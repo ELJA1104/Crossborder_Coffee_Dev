@@ -48,8 +48,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		coffee_entered = true
 		if grinder_closing_act ==true:
 			label.visible_characters = 0
-			label.text = "Please close the
-grinder"
+			label.text = "Please close the 
+			grinder"
 			for i in range(0,100):
 				label.visible_characters += 1
 				await get_tree().create_timer(0.05).timeout
@@ -66,11 +66,16 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _on_button_pressed() -> void:
-	if coffee_entered and two and can:
+	if coffee_entered and two and can and puck_entered == true:
 		grinder_close = false
-		await get_tree().create_timer(0.1).timeout
+		label.text = "Please wait"
+		for i in range(0,10):
+			label.visible_characters += 1
+			await get_tree().create_timer(0.05).timeout
+		await get_tree().create_timer(10).timeout
 		only_congrat()
 		done = true
+		puck.is_empty = false
 
 
 func reset_two():
@@ -79,7 +84,7 @@ func reset_two():
 
 func only_congrat():
 	label.visible_characters = 0
-	label.text = "Done。"
+	label.text = "Done"
 	for i in range(0,10):
 		label.visible_characters += 1
 		await get_tree().create_timer(0.05).timeout
@@ -109,6 +114,9 @@ func _on_extract_area_body_entered(body:CharacterBody2D) -> void:
 	if body is Ethan_Puck:
 		puck = body
 		puck_entered = true
+		puck.is_empty = true
+		puck.used_once = false
+		
 
 
 func _on_extract_area_body_exited(body:CharacterBody2D) -> void:
@@ -117,8 +125,10 @@ func _on_extract_area_body_exited(body:CharacterBody2D) -> void:
 
 
 func _on_button_2_pressed() -> void:
-	if puck_entered and done:
+	pass
+"	if puck_entered and done:
 		if puck: 
 			puck.is_empty = false
 		else:
 			puck.is_empty = true
+"
