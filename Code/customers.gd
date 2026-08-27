@@ -59,17 +59,19 @@ func drink_select():
 func _ready() -> void:
 	drink_select()
 	customer_conver()
+	print(flavour)
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Cup_node:
 		cup = body
 		if body.flavour == flavour:
 			print("yay")
-			print("Play drink has been made dialogue")
-			await get_tree().create_timer(0.04).timeout
+			body.queue_free()
+			text_to_be_displayed("Thank you!")
+			await get_tree().create_timer(2).timeout
 			anim_plyr.play("customer_exit")
-			#correct_drink = true
+			text_to_be_displayed("")
 		elif body.flavour != flavour:
-			print("Wrong drink man")
+			text_to_be_displayed("Wrong drink man")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	body = null

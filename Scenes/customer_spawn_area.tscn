@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dmbpgcqfgkjdl" path="res://Code/customer_spawn_area.gd" id="1_yrq0x"]
 
-[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "has_fnshd_drnk_btn", "ok_btn", "spwn_node")]
+[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "spwn_node")]
 script = ExtResource("1_yrq0x")
 customer_spwn_btn = NodePath("Spwn_customer")
-has_fnshd_drnk_btn = NodePath("Has_fnshd_drnk_btn")
-ok_btn = NodePath("Ok_btn")
 spwn_node = NodePath("Customer spawn node")
 
 [node name="Customer spawn node" type="Node2D" parent="." unique_id=1225865526]
@@ -19,14 +17,6 @@ offset_right = 576.0
 offset_bottom = 328.0
 color = Color(0.5449743, 0.54497427, 0.54497427, 1)
 
-[node name="Ok_btn" type="Button" parent="." unique_id=1712776374]
-offset_left = 272.0
-offset_top = 200.0
-offset_right = 360.0
-offset_bottom = 280.0
-theme_override_font_sizes/font_size = 20
-text = "Okay"
-
 [node name="Spwn_customer" type="Button" parent="." unique_id=1028141521]
 offset_left = 144.0
 offset_top = 56.0
@@ -34,13 +24,4 @@ offset_right = 328.0
 offset_bottom = 87.0
 text = "Spawn customer"
 
-[node name="Has_fnshd_drnk_btn" type="Button" parent="." unique_id=1021837110]
-offset_left = 336.0
-offset_top = 56.0
-offset_right = 528.0
-offset_bottom = 87.0
-text = "Has finished drink"
-
-[connection signal="pressed" from="Ok_btn" to="." method="_on_ok_btn_pressed"]
 [connection signal="pressed" from="Spwn_customer" to="." method="_on_customer_spawn_button_pressed"]
-[connection signal="pressed" from="Has_fnshd_drnk_btn" to="." method="_on_has_finished_drink_button_pressed"]
