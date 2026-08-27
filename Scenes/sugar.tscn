@@ -10,6 +10,7 @@ size = Vector2(38, 39)
 size = Vector2(71, 60)
 
 [node name="sugar" type="Node2D" unique_id=1604224224]
+position = Vector2(478, 326)
 
 [node name="item(sugar)" type="CharacterBody2D" parent="." unique_id=1019901390]
 disable_mode = 2
@@ -26,6 +27,12 @@ texture = ExtResource("2_6lna5")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_2m13f")
 
+[node name="Label" type="Label" parent="item(sugar)" unique_id=1598085376]
+offset_left = -19.0
+offset_top = -48.0
+offset_right = 72.0
+offset_bottom = -25.0
+
 [node name="spwaner(sugar)" type="Node2D" parent="." unique_id=1742127762]
 
 [node name="Area2D" type="Area2D" parent="spwaner(sugar)" unique_id=1021377354]
@@ -33,3 +40,6 @@ shape = SubResource("RectangleShape2D_2m13f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(sugar)/Area2D" unique_id=132520141]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_t0v5d")
+
+[connection signal="mouse_entered" from="item(sugar)" to="item(sugar)" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="item(sugar)" to="item(sugar)" method="_on_mouse_exited"]

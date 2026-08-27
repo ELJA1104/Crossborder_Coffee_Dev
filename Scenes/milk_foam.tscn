@@ -25,6 +25,12 @@ texture = ExtResource("2_2kd3c")
 position = Vector2(-1.5, -3.5)
 shape = SubResource("RectangleShape2D_2m13f")
 
+[node name="Label" type="Label" parent="item(milk foam)" unique_id=125007524]
+offset_left = -48.0
+offset_top = -86.0
+offset_right = 154.0
+offset_bottom = -63.0
+
 [node name="spwaner(milk foam)" type="Node2D" parent="." unique_id=176465266]
 
 [node name="Area2D" type="Area2D" parent="spwaner(milk foam)" unique_id=1112879528]
@@ -32,3 +38,6 @@ shape = SubResource("RectangleShape2D_2m13f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(milk foam)/Area2D" unique_id=1667337475]
 position = Vector2(-9, -2)
 shape = SubResource("RectangleShape2D_t0v5d")
+
+[connection signal="mouse_entered" from="item(milk foam)" to="item(milk foam)" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="item(milk foam)" to="item(milk foam)" method="_on_mouse_exited"]

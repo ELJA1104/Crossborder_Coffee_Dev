@@ -1,8 +1,6 @@
 extends CharacterBody2D
 class_name Cinnamon_powder_node
-
 var when_is_grab_cinnamon_powder : bool = false
-var is_in_cup_area : bool = false 
 
 func _ready():
 	input_pickable = true
@@ -20,18 +18,47 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 		if event.pressed:
 			when_is_grab_cinnamon_powder = true
 			get_viewport().set_input_as_handled() 
+			piking = true
 
 func _on_release_ingredient():
 	when_is_grab_cinnamon_powder = false
 	move_to_front() 
-	if not is_in_cup_area:
-		tp_to_spwaner()
+	tp_to_spwaner()
 
 func tp_to_spwaner():
 	if $"../spwaner(cinnamon powder)":
 		when_is_grab_cinnamon_powder = false
 		global_position = $"../spwaner(cinnamon powder)".global_position
+		piking = false
+		Text_label.visible_characters = 0
+		ui = ""
+		text_to_be_displayed(ui)
 
 func _on_area_2d_body_entered(body):
 	if body is Cup_node:
 		body.cup_is_in_spwaner()
+
+@onready var Text_label = $Label
+var ui : String
+var piking : bool = false
+
+func displaying_text():
+	Text_label.visible_characters = 0
+	for i in range(Text_label.text.length()):
+		Text_label.visible_characters += 1
+		await get_tree().create_timer(0.03).timeout
+
+func text_to_be_displayed(text : String):
+	Text_label.text = text
+	displaying_text()
+
+func _on_mouse_entered():
+	if piking == false :
+		ui = "Cinnamon Powder"
+		text_to_be_displayed(ui)
+
+func _on_mouse_exited():
+	if piking == false :
+		Text_label.visible_characters = 0
+		ui = ""
+		text_to_be_displayed(ui)

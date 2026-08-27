@@ -10,6 +10,7 @@ size = Vector2(55, 87)
 size = Vector2(99, 114)
 
 [node name="milk" type="Node2D" unique_id=798909664]
+position = Vector2(245, 155)
 
 [node name="item(milk)" type="CharacterBody2D" parent="." unique_id=1977121294]
 disable_mode = 2
@@ -29,6 +30,13 @@ visibility_layer = 17
 position = Vector2(-1, 8.5)
 shape = SubResource("RectangleShape2D_2m13f")
 
+[node name="Label" type="Label" parent="item(milk)" unique_id=390006354]
+offset_left = -18.0
+offset_top = -59.0
+offset_right = 47.0
+offset_bottom = -36.0
+metadata/_edit_use_anchors_ = true
+
 [node name="spwaner(milk)" type="Node2D" parent="." unique_id=1797848673]
 
 [node name="Area2D" type="Area2D" parent="spwaner(milk)" unique_id=939098140]
@@ -36,3 +44,6 @@ shape = SubResource("RectangleShape2D_2m13f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(milk)/Area2D" unique_id=1708037291]
 position = Vector2(0.5, 9)
 shape = SubResource("RectangleShape2D_t0v5d")
+
+[connection signal="mouse_entered" from="item(milk)" to="item(milk)" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="item(milk)" to="item(milk)" method="_on_mouse_exited"]

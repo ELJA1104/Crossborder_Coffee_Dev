@@ -25,6 +25,12 @@ texture = ExtResource("2_alqoh")
 position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_2m13f")
 
+[node name="Label" type="Label" parent="item(matcha powder)" unique_id=649990121]
+offset_left = -98.0
+offset_top = -85.0
+offset_right = 94.0
+offset_bottom = -62.0
+
 [node name="spwaner(matcha powder)" type="Node2D" parent="." unique_id=239146153]
 
 [node name="Area2D" type="Area2D" parent="spwaner(matcha powder)" unique_id=825729110]
@@ -32,3 +38,6 @@ shape = SubResource("RectangleShape2D_2m13f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(matcha powder)/Area2D" unique_id=2033700653]
 position = Vector2(5, -0.5)
 shape = SubResource("RectangleShape2D_t0v5d")
+
+[connection signal="mouse_entered" from="item(matcha powder)" to="item(matcha powder)" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="item(matcha powder)" to="item(matcha powder)" method="_on_mouse_exited"]

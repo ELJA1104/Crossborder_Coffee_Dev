@@ -25,6 +25,12 @@ texture = ExtResource("2_o0qtg")
 position = Vector2(-2, -2.5)
 shape = SubResource("RectangleShape2D_2m13f")
 
+[node name="Label" type="Label" parent="item(cocoa powder)" unique_id=1651259125]
+offset_left = -61.0
+offset_top = -93.0
+offset_right = 157.0
+offset_bottom = -67.0
+
 [node name="spwaner(cocoa powder)" type="Node2D" parent="." unique_id=445117158]
 
 [node name="Area2D" type="Area2D" parent="spwaner(cocoa powder)" unique_id=1499411710]
@@ -32,3 +38,6 @@ shape = SubResource("RectangleShape2D_2m13f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(cocoa powder)/Area2D" unique_id=1953698845]
 position = Vector2(-1.5, -2)
 shape = SubResource("RectangleShape2D_t0v5d")
+
+[connection signal="mouse_entered" from="item(cocoa powder)" to="item(cocoa powder)" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="item(cocoa powder)" to="item(cocoa powder)" method="_on_mouse_exited"]

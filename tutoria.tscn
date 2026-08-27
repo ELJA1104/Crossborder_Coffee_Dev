@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://tcjb03aas5rt"]
+
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="1_o7pn3"]
+
+[node name="tutoria" type="Node2D" unique_id=320199094]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994890227]
+position = Vector2(67, 224)
+texture = ExtResource("1_o7pn3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1129291980]
+offset_right = 1152.0
+offset_bottom = 137.0

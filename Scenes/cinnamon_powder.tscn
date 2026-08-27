@@ -25,6 +25,12 @@ texture = ExtResource("2_aqiwt")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_2m13f")
 
+[node name="Label" type="Label" parent="item(cinnamon powder)" unique_id=642004152]
+offset_left = -82.0
+offset_top = -88.0
+offset_right = 82.0
+offset_bottom = -65.0
+
 [node name="spwaner(cinnamon powder)" type="Node2D" parent="." unique_id=849249406]
 
 [node name="Area2D" type="Area2D" parent="spwaner(cinnamon powder)" unique_id=1483435465]
@@ -32,3 +38,6 @@ shape = SubResource("RectangleShape2D_2m13f")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(cinnamon powder)/Area2D" unique_id=1164244545]
 position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_t0v5d")
+
+[connection signal="mouse_entered" from="item(cinnamon powder)" to="item(cinnamon powder)" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="item(cinnamon powder)" to="item(cinnamon powder)" method="_on_mouse_exited"]

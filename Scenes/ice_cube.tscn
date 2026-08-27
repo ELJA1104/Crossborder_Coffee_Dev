@@ -11,6 +11,7 @@ size = Vector2(51, 53)
 size = Vector2(82, 81)
 
 [node name="ice cube" type="Node2D" unique_id=522084715]
+position = Vector2(206, 111)
 
 [node name="item(ice cube)" type="CharacterBody2D" parent="." unique_id=1680194961]
 disable_mode = 2
@@ -30,6 +31,13 @@ visibility_layer = 17
 position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_2m13f")
 
+[node name="Label" type="Label" parent="item(ice cube)" unique_id=1088371826]
+offset_left = -32.0
+offset_top = -50.0
+offset_right = 71.0
+offset_bottom = -27.0
+metadata/_edit_use_anchors_ = true
+
 [node name="spwaner(ice cube)" parent="." unique_id=216933453 instance=ExtResource("3_rs603")]
 position = Vector2(0, -2)
 
@@ -38,3 +46,6 @@ position = Vector2(0, -2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spwaner(ice cube)/Area2D" unique_id=124487648]
 position = Vector2(3, 2.5)
 shape = SubResource("RectangleShape2D_nsoho")
+
+[connection signal="mouse_entered" from="item(ice cube)" to="item(ice cube)" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="item(ice cube)" to="item(ice cube)" method="_on_mouse_exited"]
