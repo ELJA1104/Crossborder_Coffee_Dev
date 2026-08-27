@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d030l51eoqsom"]
+
+[ext_resource type="Script" uid="uid://bdfifmu0ott38" path="res://Code/view.gd" id="1_05um8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wan7g"]
+
+[node name="view" type="CharacterBody2D" unique_id=496351714]
+script = ExtResource("1_05um8")
+
+[node name="player\'s_view" type="Camera2D" parent="." unique_id=1269074334]
+limit_enabled = false
+limit_left = -600
+limit_right = 600
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=130680590]
+shape = SubResource("RectangleShape2D_wan7g")

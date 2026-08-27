@@ -2,14 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dmbpgcqfgkjdl" path="res://Code/customer_spawn_area.gd" id="1_yrq0x"]
 
-[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "has_fnshd_drnk_btn", "ok_btn")]
+[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "has_fnshd_drnk_btn", "ok_btn", "spwn_node")]
 script = ExtResource("1_yrq0x")
 customer_spwn_btn = NodePath("Spwn_customer")
 has_fnshd_drnk_btn = NodePath("Has_fnshd_drnk_btn")
 ok_btn = NodePath("Ok_btn")
+spwn_node = NodePath("Customer spawn node")
+
+[node name="Customer spawn node" type="Node2D" parent="." unique_id=1225865526]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1762353885]
-zoom = Vector2(0.5, 0.5)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1524820358]
 offset_left = -576.0

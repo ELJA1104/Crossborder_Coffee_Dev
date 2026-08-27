@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://d5tdykglykeu"]
+
+[ext_resource type="Script" uid="uid://d2bbculay2qn1" path="res://Code/coffee_residue_disposal.gd" id="1_3pg5u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etm2j"]
+size = Vector2(105, 169)
+
+[node name="Coffee_Residue_Disposal" type="Node2D" unique_id=721591295]
+script = ExtResource("1_3pg5u")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=43256709]
+offset_left = -68.0
+offset_top = -85.0
+offset_right = -52.0
+offset_bottom = 99.0
+color = Color(0.08339196, 0.08339202, 0.08339202, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1068383584]
+offset_left = -68.0
+offset_top = 83.0
+offset_right = 68.0
+offset_bottom = 99.0
+color = Color(0.08339196, 0.08339202, 0.08339202, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=859947840]
+offset_left = 52.0
+offset_top = -85.0
+offset_right = 68.0
+offset_bottom = 99.0
+color = Color(0.08339196, 0.08339202, 0.08339202, 1)
+
+[node name="Extract" type="Area2D" parent="." unique_id=1437078850]
+position = Vector2(-68, -85)
+
+[node name="Extract colision" type="CollisionShape2D" parent="Extract" unique_id=1341379202]
+position = Vector2(68.5, 84.5)
+shape = SubResource("RectangleShape2D_etm2j")
+
+[node name="Button" type="Button" parent="." unique_id=1774204475]
+offset_left = -52.0
+offset_top = 9.0
+offset_right = 54.0
+offset_bottom = 41.0
+text = "Extract used 
+coffee"
+
+[connection signal="body_entered" from="Extract" to="." method="_on_extract_area_body_entered"]
+[connection signal="body_exited" from="Extract" to="." method="_on_extract_area_body_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
