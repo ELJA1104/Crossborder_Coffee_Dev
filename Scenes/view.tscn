@@ -8,7 +8,8 @@
 script = ExtResource("1_05um8")
 
 [node name="player\'s_view" type="Camera2D" parent="." unique_id=1269074334]
-limit_enabled = false
+scale = Vector2(-31.818, 42.469)
+zoom = Vector2(1.015, 1.015)
 limit_left = -600
 limit_right = 600
 

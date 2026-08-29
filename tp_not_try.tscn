@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://crmr3rqhnrp6l"]
+
+[ext_resource type="Script" uid="uid://bhydkbu8uyxgy" path="res://tp_not_try.gd" id="1_n37b6"]
+[ext_resource type="PackedScene" uid="uid://d030l51eoqsom" path="res://Scenes/view.tscn" id="2_n37b6"]
+[ext_resource type="PackedScene" uid="uid://ddnfm0u6u1a4r" path="res://Scenes/customer_spawn_area.tscn" id="3_cgb1n"]
+
+[node name="Node2D" type="Node2D" unique_id=292522208]
+script = ExtResource("1_n37b6")
+
+[node name="view" parent="." unique_id=496351714 instance=ExtResource("2_n37b6")]
+script = null
+
+[node name="cus_alt" type="Node2D" parent="." unique_id=471642793]
+
+[node name="Customer spawn area" parent="cus_alt" unique_id=184865186 instance=ExtResource("3_cgb1n")]
+
+[node name="pvz_alt" type="Node2D" parent="." unique_id=829821155]
+position = Vector2(1167, 6)
+
+[node name="ColorRect" type="ColorRect" parent="pvz_alt" unique_id=563582392]
+offset_left = -585.0
+offset_top = -331.0
+offset_right = 566.0
+offset_bottom = 319.0
+color = Color(0, 0, 0, 1)

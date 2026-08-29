@@ -30,13 +30,6 @@ texture = ExtResource("2_p3pav")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=601192522]
 shape = SubResource("RectangleShape2D_wan7g")
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=414951260]
-offset_left = 320.0
-offset_top = 507.0
-offset_right = 746.0
-offset_bottom = 513.0
-show_percentage = false
-
 [node name="player" type="AudioStreamPlayer2D" parent="." unique_id=1682745814]
 stream = SubResource("AudioStreamMP3_rjark")
 
@@ -48,11 +41,17 @@ offset_right = 286.0
 offset_bottom = 500.0
 
 [node name="Label" type="Label" parent="." unique_id=708465434]
-offset_left = 304.0
-offset_top = 361.0
-offset_right = 739.0
-offset_bottom = 499.0
+offset_left = 320.0
+offset_top = 351.0
+offset_right = 714.0
+offset_bottom = 452.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 73
 text = "title"
 vertical_alignment = 1
+
+[node name="stop" type="Button" parent="." unique_id=425960024]
+offset_left = 449.0
+offset_top = 465.0
+offset_right = 511.0
+offset_bottom = 519.0
