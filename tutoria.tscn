@@ -1,117 +1,13 @@
 [gd_scene format=3 uid="uid://tcjb03aas5rt"]
 
-[ext_resource type="Script" uid="uid://cspcyhojmlc2a" path="res://tutoria.gd" id="1_7ilyp"]
 [ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="1_o7pn3"]
 
-[sub_resource type="Animation" id="Animation_jyhhc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(67, 224)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../ColorRect:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(6, 5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../ColorRect2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 468)]
-}
-
-[sub_resource type="Animation" id="Animation_me2nr"]
-resource_name = "开场进来"
-length = 7.8333335
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 1.7666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-446.062, 214.99788), Vector2(70, 215)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../ColorRect:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.4, 2.3, 3.3),
-"transitions": PackedFloat32Array(0.12499979, 1, 1, 1),
-"update": 0,
-"values": [Vector2(6, -4), Vector2(6, -100), Vector2(6, -20), Vector2(6, -800)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../ColorRect2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.4, 2.3, 3.3333333),
-"transitions": PackedFloat32Array(0.12499979, 1, 1, 1),
-"update": 0,
-"values": [Vector2(6, 300), Vector2(6, 400), Vector2(6, 320), Vector2(6, 800)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r3ah2"]
-_data = {
-&"RESET": SubResource("Animation_jyhhc"),
-&"开场进来": SubResource("Animation_me2nr")
-}
-
 [node name="tutoria" type="Node2D" unique_id=320199094]
-script = ExtResource("1_7ilyp")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1994890227]
 position = Vector2(67, 224)
 texture = ExtResource("1_o7pn3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=115905604]
-libraries/ = SubResource("AnimationLibrary_r3ah2")
-
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1129291980]
 offset_right = 1152.0
-offset_bottom = 398.0
-theme_override_font_sizes/normal_font_size = 32
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1671574179]
-offset_left = 6.0
-offset_top = 5.0
-offset_right = 1159.0
-offset_bottom = 361.0
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=1203344828]
-offset_top = 468.0
-offset_right = 1153.0
-offset_bottom = 824.0028
-color = Color(0, 0, 0, 1)
+offset_bottom = 137.0
