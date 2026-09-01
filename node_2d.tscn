@@ -14,6 +14,9 @@
 [node name="cup" parent="." unique_id=1073076532 instance=ExtResource("2_0hol4")]
 position = Vector2(1010, 291)
 
+[node name="cup2" parent="." unique_id=1581389214 instance=ExtResource("2_0hol4")]
+position = Vector2(920, 291)
+
 [node name="milk" parent="." unique_id=798909664 instance=ExtResource("3_epypp")]
 position = Vector2(541, 579)
 
