@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cdrmmvqde0k7w"]
+
+[ext_resource type="Script" uid="uid://crfnb0dryk4bh" path="res://Code/cup_spawner.gd" id="1_ytiim"]
+
+[node name="Cup spawner" type="Node2D" unique_id=730626694 node_paths=PackedStringArray("Cup_spwn_pos")]
+script = ExtResource("1_ytiim")
+Cup_spwn_pos = NodePath("Node2D")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=768819240]
+offset_left = -72.0
+offset_top = -56.0
+offset_right = 72.0
+offset_bottom = -6.0
+color = Color(0.34630424, 0.6182294, 0.5187594, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=1755772895]
+offset_left = -72.0
+offset_top = 104.0
+offset_right = 72.0
+offset_bottom = 136.0
+color = Color(0.34509805, 0.61960787, 0.5176471, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1722671512]
+offset_left = 48.0
+offset_top = -56.0
+offset_right = 72.0
+offset_bottom = 120.0
+color = Color(0.34509805, 0.61960787, 0.5176471, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=788422684]
+offset_left = -72.0
+offset_top = -56.0
+offset_right = -48.0
+offset_bottom = 120.0
+color = Color(0.34509805, 0.61960787, 0.5176471, 1)
+
+[node name="Spawn Button" type="Button" parent="." unique_id=1151724157]
+offset_left = -32.0
+offset_top = -51.0
+offset_right = 32.0
+offset_bottom = -13.0
+theme_override_font_sizes/font_size = 10
+text = "Press to 
+spawn cup"
+
+[node name="Node2D" type="Node2D" parent="." unique_id=6818830]
+position = Vector2(0, 48)
+
+[connection signal="pressed" from="Spawn Button" to="." method="_on_spawn_button_pressed"]

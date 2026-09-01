@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b1sjymn2f51ur" path="res://Code/base_scene.gd" id="1_5yig4"]
 [ext_resource type="PackedScene" uid="uid://b1hub4lvnhwtb" path="res://Scenes/Coffee_Brewer.tscn" id="2_ff227"]
-[ext_resource type="PackedScene" uid="uid://cgqjx1k2rpcd4" path="res://Scenes/cup.tscn" id="3_6t8sk"]
 [ext_resource type="PackedScene" uid="uid://7e4jqldc7kfk" path="res://Scenes/coffee_bean.tscn" id="4_kvnw2"]
 [ext_resource type="PackedScene" uid="uid://bd267dnu2okq3" path="res://Scenes/idk.tscn" id="5_kvnw2"]
 [ext_resource type="PackedScene" uid="uid://cty03jb2sdxnc" path="res://Scenes/Ethan's_Puck.tscn" id="6_cg6vo"]
@@ -14,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://dpmkcwcbx0c35" path="res://Scenes/cinnamon_powder.tscn" id="12_bcsim"]
 [ext_resource type="PackedScene" uid="uid://b1fpa1ev0581y" path="res://Scenes/matcha_powder.tscn" id="13_6c73o"]
 [ext_resource type="PackedScene" uid="uid://bivjxhuwrjr0c" path="res://Scenes/milk_foam.tscn" id="14_avmlv"]
+[ext_resource type="PackedScene" uid="uid://cdrmmvqde0k7w" path="res://Scenes/cup_spawner.tscn" id="14_fexq0"]
+[ext_resource type="PackedScene" uid="uid://cmfg28dff2vr7" path="res://Scenes/ice_cube.tscn" id="15_bcsim"]
 
 [node name="Node2D" type="Node2D" unique_id=800427921]
 script = ExtResource("1_5yig4")
@@ -21,42 +22,55 @@ script = ExtResource("1_5yig4")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1874151898]
 zoom = Vector2(0.65, 0.65)
 
-[node name="Coffeebrewer" parent="." unique_id=204845374 instance=ExtResource("2_ff227")]
-position = Vector2(760, 64)
-
-[node name="cup" parent="." unique_id=1073076532 instance=ExtResource("3_6t8sk")]
-position = Vector2(648, 320)
-
-[node name="Grinder" parent="." unique_id=985036243 instance=ExtResource("5_kvnw2")]
-position = Vector2(314, 28)
-
-[node name="coffe bean" parent="." unique_id=204909395 instance=ExtResource("4_kvnw2")]
-position = Vector2(80, 96)
-
-[node name="Coffee_Residue_Disposal" parent="." unique_id=721591295 instance=ExtResource("9_6xwkn")]
-position = Vector2(-112, 200)
-
-[node name="Ethan\'s Puck" parent="." unique_id=1396477318 instance=ExtResource("6_cg6vo")]
-position = Vector2(768, 432)
-
-[node name="milk" parent="." unique_id=1519699551 instance=ExtResource("7_6xwkn")]
-position = Vector2(440, 400)
-
-[node name="sugar" parent="." unique_id=328394952 instance=ExtResource("9_16yq7")]
-position = Vector2(608, 440)
+[node name="ColorRect" type="ColorRect" parent="." unique_id=813245759]
+offset_left = -888.0
+offset_top = -48.0
+offset_right = 888.0
+offset_bottom = 496.0
+mouse_filter = 2
+color = Color(0.54509807, 0.54509807, 0.54509807, 1)
 
 [node name="Customer spawn area" parent="." unique_id=184865186 instance=ExtResource("10_pw8rc")]
-position = Vector2(-384.00003, -216)
-scale = Vector2(0.7, 0.7)
+position = Vector2(16, -96.00001)
+scale = Vector2(1.5, 1.5)
 
-[node name="cocoa powder" parent="." unique_id=944126049 instance=ExtResource("11_fexq0")]
-position = Vector2(-312, 416)
+[node name="Coffeebrewer" parent="." unique_id=204845374 instance=ExtResource("2_ff227")]
+position = Vector2(-384, 344)
 
-[node name="cinnamon powder" parent="." unique_id=480502823 instance=ExtResource("12_bcsim")]
-position = Vector2(-16, 416)
+[node name="Grinder" parent="." unique_id=985036243 instance=ExtResource("5_kvnw2")]
+position = Vector2(-744, 240)
 
-[node name="matcha powder" parent="." unique_id=1009611989 instance=ExtResource("13_6c73o")]
-position = Vector2(-552, 432)
+[node name="coffe bean" parent="." unique_id=204909395 instance=ExtResource("4_kvnw2")]
+position = Vector2(-632, 48)
 
-[node name="milk foam" parent="." unique_id=886890274 instance=ExtResource("14_avmlv")]
-position = Vector2(200, 416)
+[node name="Coffee_Residue_Disposal" parent="." unique_id=721591295 instance=ExtResource("9_6xwkn")]
+position = Vector2(80, 392)
+
+[node name="Cup spawner" parent="." unique_id=730626694 instance=ExtResource("14_fexq0")]
+position = Vector2(240, 344)
+
+[node name="Draggables" type="Node2D" parent="." unique_id=1992531953]
+
+[node name="Ethan\'s Puck" parent="Draggables" unique_id=1396477318 instance=ExtResource("6_cg6vo")]
+position = Vector2(-144, 384)
+
+[node name="milk" parent="Draggables" unique_id=1519699551 instance=ExtResource("7_6xwkn")]
+position = Vector2(808, 432)
+
+[node name="sugar" parent="Draggables" unique_id=328394952 instance=ExtResource("9_16yq7")]
+position = Vector2(600, 448)
+
+[node name="cocoa powder" parent="Draggables" unique_id=944126049 instance=ExtResource("11_fexq0")]
+position = Vector2(560, 248)
+
+[node name="cinnamon powder" parent="Draggables" unique_id=480502823 instance=ExtResource("12_bcsim")]
+position = Vector2(592, 56)
+
+[node name="matcha powder" parent="Draggables" unique_id=1009611989 instance=ExtResource("13_6c73o")]
+position = Vector2(784, 64)
+
+[node name="milk foam" parent="Draggables" unique_id=886890274 instance=ExtResource("14_avmlv")]
+position = Vector2(784, 272)
+
+[node name="ice cube" parent="Draggables" unique_id=522084715 instance=ExtResource("15_bcsim")]
+position = Vector2(502, 407)

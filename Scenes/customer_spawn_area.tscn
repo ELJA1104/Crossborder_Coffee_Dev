@@ -4,24 +4,15 @@
 
 [node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "spwn_node")]
 script = ExtResource("1_yrq0x")
-customer_spwn_btn = NodePath("Spwn_customer")
+customer_spwn_btn = NodePath("")
 spwn_node = NodePath("Customer spawn node")
 
 [node name="Customer spawn node" type="Node2D" parent="." unique_id=1225865526]
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1762353885]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1524820358]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1035825289]
 offset_left = -576.0
+offset_top = 32.0
 offset_right = 576.0
-offset_bottom = 328.0
-color = Color(0.5449743, 0.54497427, 0.54497427, 1)
-
-[node name="Spwn_customer" type="Button" parent="." unique_id=1028141521]
-offset_left = 144.0
-offset_top = 56.0
-offset_right = 328.0
-offset_bottom = 87.0
-text = "Spawn customer"
-
-[connection signal="pressed" from="Spwn_customer" to="." method="_on_customer_spawn_button_pressed"]
+offset_bottom = 320.0
+mouse_filter = 2
+color = Color(0.54509807, 0.54509807, 0.54509807, 1)
