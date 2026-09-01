@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://crmr3rqhnrp6l"]
+
+[ext_resource type="Script" uid="uid://bhydkbu8uyxgy" path="res://Code/tp_not_try.gd" id="1_dv3lg"]
+[ext_resource type="PackedScene" uid="uid://d030l51eoqsom" path="res://Scenes/view.tscn" id="2_ojgo2"]
+[ext_resource type="PackedScene" uid="uid://ddnfm0u6u1a4r" path="res://Scenes/customer_spawn_area.tscn" id="3_4vagm"]
+
+[node name="Node2D" type="Node2D" unique_id=292522208]
+script = ExtResource("1_dv3lg")
+
+[node name="view" parent="." unique_id=496351714 instance=ExtResource("2_ojgo2")]
+
+[node name="cus_alt" type="Node2D" parent="." unique_id=471642793]
+
+[node name="Customer spawn area" parent="cus_alt" unique_id=184865186 instance=ExtResource("3_4vagm")]
+
+[node name="pvz_alt" type="Node2D" parent="." unique_id=829821155]
+position = Vector2(1150, 0)
+
+[node name="ColorRect" type="ColorRect" parent="pvz_alt" unique_id=563582392]
+offset_left = -579.0
+offset_top = -325.0
+offset_right = 572.0
+offset_bottom = 325.0
+scale = Vector2(1.0327868, 1.0046154)
+color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=566510768]
+position = Vector2(1150, 0)
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=1756430148]
+position = Vector2(-1154, 0)
