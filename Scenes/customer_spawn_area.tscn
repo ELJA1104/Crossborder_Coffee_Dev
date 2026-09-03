@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dmbpgcqfgkjdl" path="res://Code/customer_spawn_area.gd" id="1_yrq0x"]
 
-[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("customer_spwn_btn", "spwn_node")]
+[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("spwn_node", "label")]
 script = ExtResource("1_yrq0x")
-customer_spwn_btn = NodePath("")
 spwn_node = NodePath("Customer spawn node")
+label = NodePath("Label")
 
 [node name="Customer spawn node" type="Node2D" parent="." unique_id=1225865526]
 
@@ -16,3 +16,12 @@ offset_right = 576.0
 offset_bottom = 320.0
 mouse_filter = 2
 color = Color(0.54509807, 0.54509807, 0.54509807, 1)
+
+[node name="Label" type="Label" parent="." unique_id=391134045]
+offset_left = -232.0
+offset_top = -256.0
+offset_right = 248.0
+offset_bottom = -200.0
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1

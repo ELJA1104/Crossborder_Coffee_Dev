@@ -11,28 +11,28 @@ offset_left = -72.0
 offset_top = -56.0
 offset_right = 72.0
 offset_bottom = -6.0
-color = Color(0.34630424, 0.6182294, 0.5187594, 1)
+color = Color(0.83130413, 0.41902238, 0.31901878, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="." unique_id=1755772895]
 offset_left = -72.0
 offset_top = 104.0
 offset_right = 72.0
 offset_bottom = 136.0
-color = Color(0.34509805, 0.61960787, 0.5176471, 1)
+color = Color(0.83137256, 0.41960785, 0.31764707, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1722671512]
 offset_left = 48.0
 offset_top = -56.0
 offset_right = 72.0
 offset_bottom = 120.0
-color = Color(0.34509805, 0.61960787, 0.5176471, 1)
+color = Color(0.83137256, 0.41960785, 0.31764707, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="." unique_id=788422684]
 offset_left = -72.0
 offset_top = -56.0
 offset_right = -48.0
 offset_bottom = 120.0
-color = Color(0.34509805, 0.61960787, 0.5176471, 1)
+color = Color(0.83137256, 0.41960785, 0.31764707, 1)
 
 [node name="Spawn Button" type="Button" parent="." unique_id=1151724157]
 offset_left = -32.0

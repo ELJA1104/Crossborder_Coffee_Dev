@@ -11,6 +11,7 @@ var times_up : bool = false
 var cup
 var ran_ice : int
 var temp
+var start_timer : bool = false
 
 func displaying_text():
 	text_lable.visible_characters= 0
@@ -115,5 +116,6 @@ func customer_conver():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "customer_sld_in":
 		text_to_be_displayed(customer_dialogue)
+		start_timer = true
 	elif anim_name == "customer_exit":
 		queue_free()
