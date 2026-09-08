@@ -25,6 +25,7 @@ func spawn_customer():
 		customer_scene = preload("res://Scenes/customers.tscn")
 		customer = customer_scene.instantiate()
 		customer.customer_spawner = self
+  print(customer.customer_spawner)
 		spwn_node.add_child(customer)
 		customer.anim_plyr.play("customer_sld_in")
 		
