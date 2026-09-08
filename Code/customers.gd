@@ -13,7 +13,7 @@ var ran_ice : int
 var temp
 var b : int
 var confrimation = 0
-var customer_spawner : Customer_Spawner
+var customer_spawner
 func displaying_text():
 	text_lable.visible_characters= 0
 	for i in text_lable.text.length():
