@@ -2,17 +2,18 @@ extends Node2D
 class_name  Cust0mers
 @export var text_lable : Label
 @export var anim_plyr : AnimationPlayer
+@export var label : Label
 var ran_drink : int
 var flavour
-var correct_drink : bool = false
 var customer_dialogue
 var start_conver : bool = false
 var times_up : bool = false
 var cup
 var ran_ice : int
 var temp
-var start_timer : bool = false
-
+var b : int
+var confrimation = 0
+var customer_spawner : Customer_Spawner
 func displaying_text():
 	text_lable.visible_characters= 0
 	for i in text_lable.text.length():
@@ -24,7 +25,7 @@ func text_to_be_displayed(text : String):
 	displaying_text()
 
 func customer_wait_time():
-	await get_tree().create_timer(60).timeout
+	await get_tree().create_timer(120).timeout
 	times_up = true
 	print(times_up)
 	text_to_be_displayed("Too slow man, bye")
@@ -32,7 +33,7 @@ func customer_wait_time():
 	anim_plyr.play("customer_exit")
 
 func drink_select():
-	ran_drink = randi_range(0, 16)
+	ran_drink = 0 #randi_range(0, 16)
 	if ran_drink == 0:
 		flavour = "Water"
 	elif ran_drink == 1:
@@ -81,7 +82,6 @@ func _ready() -> void:
 	drink_select()
 	hot_or_iced()
 	customer_conver()
-	customer_wait_time()
 	print(temp + flavour)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -92,9 +92,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			cup = body
 			if body.flavour == flavour:
 				if body.temp == temp:
-					print("yay")
 					body.queue_free()
 					text_to_be_displayed("Thank you!")
+					label.add_theme_color_override("font_color", Color.GREEN)
+					text_box("Success!")
+					confrimation = 1
+					edit_served_var()
 					await get_tree().create_timer(2).timeout
 					anim_plyr.play("customer_exit")
 					text_to_be_displayed("")
@@ -116,6 +119,33 @@ func customer_conver():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "customer_sld_in":
 		text_to_be_displayed(customer_dialogue)
-		start_timer = true
+		customer_wait_time()
+		timer()
 	elif anim_name == "customer_exit":
 		queue_free()
+		
+func timer():
+	b = 120
+	label.add_theme_color_override("font_color", Color.YELLOW)
+	text_box("Prepare and serve drink in " + str(b) +" Seconds")
+	for i in range (b):
+		if confrimation == 0:
+			if b >= 1:
+				await get_tree().create_timer(1).timeout
+				b -= 1
+				label.add_theme_color_override("font_color", Color.YELLOW)
+				text_box("Prepare and serve drink in " + str(b) +" Seconds")
+			elif b == 0:
+				label.add_theme_color_override("font_color", Color.RED)
+				text_box("You failed!")
+				await get_tree().create_timer(2).timeout
+				text_box("")
+		if confrimation != 0:
+			text_box("")
+			break
+
+func text_box(text_wt):
+	label.text = text_wt
+
+func edit_served_var():
+	customer_spawner.customer_served_count += 1

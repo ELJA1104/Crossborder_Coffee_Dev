@@ -58,10 +58,11 @@ _data = {
 &"customer_sld_in": SubResource("Animation_udw6f")
 }
 
-[node name="Customers" type="Node2D" unique_id=1058599703 node_paths=PackedStringArray("text_lable", "anim_plyr")]
+[node name="Customers" type="Node2D" unique_id=1058599703 node_paths=PackedStringArray("text_lable", "anim_plyr", "label")]
 script = ExtResource("1_k6i54")
 text_lable = NodePath("Icon/Label")
 anim_plyr = NodePath("AnimationPlayer")
+label = NodePath("Icon/Label2")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1940389990]
 position = Vector2(704, 0)
@@ -73,6 +74,15 @@ offset_top = -200.0
 offset_right = 312.0
 offset_bottom = -120.0
 theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Icon" unique_id=1582464579]
+offset_left = -328.0
+offset_top = -280.0
+offset_right = 328.0
+offset_bottom = -209.0
+theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
