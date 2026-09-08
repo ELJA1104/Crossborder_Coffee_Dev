@@ -97,7 +97,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 					label.add_theme_color_override("font_color", Color.GREEN)
 					text_box("Success!")
 					confrimation = 1
-					edit_served_var()
+					customer_spawner.customer_served_count += 1
 					await get_tree().create_timer(2).timeout
 					anim_plyr.play("customer_exit")
 					text_to_be_displayed("")
@@ -146,6 +146,3 @@ func timer():
 
 func text_box(text_wt):
 	label.text = text_wt
-
-func edit_served_var():
-	customer_spawner.customer_served_count += 1

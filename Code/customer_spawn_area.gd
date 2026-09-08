@@ -45,6 +45,6 @@ func day_time():
 			Day_count_label.text = "Day: " + str(days_count)
 			
 func customer_has_been_served():
-	if customer_served_count == 1:
+	if customer_served_count != 0:
 		print("hbu")
 		customers_served_label.text = "Customers Served: " + str(customer_served_count)
