@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dmbpgcqfgkjdl" path="res://Code/customer_spawn_area.gd" id="1_yrq0x"]
 
-[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("spwn_node", "Day_count_label", "customers_served_label") groups=["Customer_spawner_node"]]
+[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("spwn_node", "Day_count_label", "customers_served_label")]
 script = ExtResource("1_yrq0x")
 spwn_node = NodePath("Customer spawn node")
 Day_count_label = NodePath("Day count")
@@ -23,7 +23,7 @@ offset_left = 256.0
 offset_top = -248.0
 offset_right = 512.0
 offset_bottom = -208.0
-text = "Day count: 0"
+text = "Day: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 

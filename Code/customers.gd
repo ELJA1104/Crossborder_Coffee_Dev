@@ -33,7 +33,7 @@ func customer_wait_time():
 	anim_plyr.play("customer_exit")
 
 func drink_select():
-	ran_drink = 0 #randi_range(0, 16)
+	ran_drink = randi_range(0, 16)
 	if ran_drink == 0:
 		flavour = "Water"
 	elif ran_drink == 1:
@@ -83,6 +83,7 @@ func _ready() -> void:
 	hot_or_iced()
 	customer_conver()
 	print(temp + flavour)
+	print(customer_spawner)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if times_up == true:

@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bd267dnu2okq3" path="res://Scenes/idk.tscn" id="5_kvnw2"]
 [ext_resource type="PackedScene" uid="uid://cty03jb2sdxnc" path="res://Scenes/Ethan's_Puck.tscn" id="6_cg6vo"]
 [ext_resource type="PackedScene" uid="uid://cmitv4ele86py" path="res://Scenes/milk.tscn" id="7_6xwkn"]
-[ext_resource type="PackedScene" uid="uid://dcxqgousq4jfq" path="res://Scenes/shelf.tscn" id="9_6c73o"]
 [ext_resource type="PackedScene" uid="uid://d5tdykglykeu" path="res://Scenes/coffee_residue_disposal.tscn" id="9_6xwkn"]
 [ext_resource type="PackedScene" uid="uid://d2ck4um7l27gx" path="res://Scenes/sugar.tscn" id="9_16yq7"]
 [ext_resource type="PackedScene" uid="uid://ddnfm0u6u1a4r" path="res://Scenes/customer_spawn_area.tscn" id="10_pw8rc"]
@@ -17,8 +16,208 @@
 [ext_resource type="PackedScene" uid="uid://cdrmmvqde0k7w" path="res://Scenes/cup_spawner.tscn" id="14_fexq0"]
 [ext_resource type="PackedScene" uid="uid://cmfg28dff2vr7" path="res://Scenes/ice_cube.tscn" id="15_bcsim"]
 
-[node name="Node2D" type="Node2D" unique_id=800427921]
+[sub_resource type="Animation" id="Animation_yw0jl"]
+resource_name = "Cinnamon Powder slide in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cinnamon powder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1104, 384), Vector2(800, 384)]
+}
+
+[sub_resource type="Animation" id="Animation_rb1tr"]
+resource_name = "Cinnamon Powder slide out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cinnamon powder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(818, 384), Vector2(1104, 384)]
+}
+
+[sub_resource type="Animation" id="Animation_xinke"]
+resource_name = "Cocoa Powder slide in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cocoa powder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1104, 352), Vector2(718, 352)]
+}
+
+[sub_resource type="Animation" id="Animation_uja5i"]
+resource_name = "Cocoa Powder slide out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cocoa powder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(718, 352), Vector2(1104, 352)]
+}
+
+[sub_resource type="Animation" id="Animation_bcsim"]
+resource_name = "Main ingredients slide in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("milk:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1104, 8), Vector2(688, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sugar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1104, 112), Vector2(688, 112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("milk foam:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1104, 232), Vector2(688, 232)]
+}
+
+[sub_resource type="Animation" id="Animation_6c73o"]
+resource_name = "Main ingredients slide out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("milk:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(688, 8), Vector2(1104, 8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sugar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(688, 112), Vector2(1104, 112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("milk foam:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(688, 232), Vector2(1104, 232)]
+}
+
+[sub_resource type="Animation" id="Animation_gy1mm"]
+resource_name = "Matcha Powder slide in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("matcha powder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1104, 368), Vector2(768, 368)]
+}
+
+[sub_resource type="Animation" id="Animation_cl422"]
+resource_name = "Matcha Powder slide out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("matcha powder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(768, 368), Vector2(1104, 368)]
+}
+
+[sub_resource type="Animation" id="Animation_avmlv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cinnamon powder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1104, 384)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xinke"]
+_data = {
+&"Cinnamon Powder slide in": SubResource("Animation_yw0jl"),
+&"Cinnamon Powder slide out": SubResource("Animation_rb1tr"),
+&"Cocoa Powder slide in": SubResource("Animation_xinke"),
+&"Cocoa Powder slide out": SubResource("Animation_uja5i"),
+&"Main ingredients slide in": SubResource("Animation_bcsim"),
+&"Main ingredients slide out": SubResource("Animation_6c73o"),
+&"Matcha Powder slide in": SubResource("Animation_gy1mm"),
+&"Matcha Powder slide out": SubResource("Animation_cl422"),
+&"RESET": SubResource("Animation_avmlv")
+}
+
+[node name="Node2D" type="Node2D" unique_id=800427921 node_paths=PackedStringArray("anim_plyr")]
 script = ExtResource("1_5yig4")
+anim_plyr = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=272407408]
+libraries/ = SubResource("AnimationLibrary_xinke")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1874151898]
 zoom = Vector2(0.65, 0.65)
@@ -32,11 +231,18 @@ mouse_filter = 2
 color = Color(0.54509807, 0.54509807, 0.54509807, 1)
 
 [node name="Customer spawn area" parent="." unique_id=184865186 instance=ExtResource("10_pw8rc")]
-position = Vector2(16, -96.00001)
+position = Vector2(0, -96)
 scale = Vector2(1.5, 1.5)
 
+[node name="Button" type="Button" parent="." unique_id=1600915986]
+offset_left = 280.0
+offset_top = -24.0
+offset_right = 416.0
+offset_bottom = 16.0
+text = "Test Button"
+
 [node name="Coffeebrewer" parent="." unique_id=204845374 instance=ExtResource("2_ff227")]
-position = Vector2(-384, 272)
+position = Vector2(-424, 272)
 
 [node name="Grinder" parent="." unique_id=985036243 instance=ExtResource("5_kvnw2")]
 position = Vector2(-752, 216)
@@ -45,34 +251,33 @@ position = Vector2(-752, 216)
 position = Vector2(-632, 48)
 
 [node name="Coffee_Residue_Disposal" parent="." unique_id=721591295 instance=ExtResource("9_6xwkn")]
-position = Vector2(80, 392)
+position = Vector2(40, 392)
 
 [node name="Cup spawner" parent="." unique_id=730626694 instance=ExtResource("14_fexq0")]
-position = Vector2(64, 136)
+position = Vector2(64, 80)
 
 [node name="Ethan\'s Puck" parent="." unique_id=1396477318 instance=ExtResource("6_cg6vo")]
-position = Vector2(-144, 384)
+position = Vector2(-136, 80)
 
-[node name="Shelf" parent="." unique_id=149869620 instance=ExtResource("9_6c73o")]
-position = Vector2(240, 8)
+[node name="milk" parent="." unique_id=1519699551 instance=ExtResource("7_6xwkn")]
+position = Vector2(1104, 8)
 
-[node name="milk" parent="Shelf" unique_id=1519699551 instance=ExtResource("7_6xwkn")]
-position = Vector2(512, 104)
+[node name="sugar" parent="." unique_id=328394952 instance=ExtResource("9_16yq7")]
+position = Vector2(1104, 112)
 
-[node name="sugar" parent="Shelf" unique_id=328394952 instance=ExtResource("9_16yq7")]
-position = Vector2(536, 376)
+[node name="milk foam" parent="." unique_id=886890274 instance=ExtResource("14_avmlv")]
+position = Vector2(1104, 232)
 
-[node name="cocoa powder" parent="Shelf" unique_id=944126049 instance=ExtResource("11_fexq0")]
-position = Vector2(119.99997, 328)
+[node name="cocoa powder" parent="." unique_id=944126049 instance=ExtResource("11_fexq0")]
+position = Vector2(1104, 352)
 
-[node name="cinnamon powder" parent="Shelf" unique_id=480502823 instance=ExtResource("12_bcsim")]
-position = Vector2(105.99997, 112)
+[node name="matcha powder" parent="." unique_id=1009611989 instance=ExtResource("13_6c73o")]
+position = Vector2(1104, 368)
 
-[node name="matcha powder" parent="Shelf" unique_id=1009611989 instance=ExtResource("13_6c73o")]
-position = Vector2(312, 112)
+[node name="cinnamon powder" parent="." unique_id=480502823 instance=ExtResource("12_bcsim")]
+position = Vector2(1104, 384)
 
-[node name="milk foam" parent="Shelf" unique_id=886890274 instance=ExtResource("14_avmlv")]
-position = Vector2(336, 328)
+[node name="ice cube" parent="." unique_id=522084715 instance=ExtResource("15_bcsim")]
+position = Vector2(296, 240)
 
-[node name="ice cube" parent="Shelf" unique_id=522084715 instance=ExtResource("15_bcsim")]
-position = Vector2(536, 280)
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
