@@ -41,10 +41,11 @@ offset_right = 286.0
 offset_bottom = 500.0
 
 [node name="Label" type="Label" parent="." unique_id=708465434]
-offset_left = 320.0
-offset_top = 351.0
-offset_right = 714.0
-offset_bottom = 452.0
+offset_left = 303.0
+offset_top = 350.00003
+offset_right = 697.0
+offset_bottom = 451.00003
+scale = Vector2(0.74, 0.74)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 73
 text = "title"
@@ -55,3 +56,21 @@ offset_left = 449.0
 offset_top = 465.0
 offset_right = 511.0
 offset_bottom = 519.0
+
+[node name="Label2" type="Label" parent="." unique_id=460052087]
+offset_left = 302.0
+offset_top = 429.0
+offset_right = 578.0
+offset_bottom = 452.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "creator"
+
+[node name="shuffle" type="Button" parent="." unique_id=1152627450]
+offset_left = 715.0
+offset_top = 485.0
+offset_right = 745.50635
+offset_bottom = 515.0
+
+[connection signal="finished" from="player" to="." method="_on_player_finished"]
+[connection signal="pressed" from="stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="shuffle" to="." method="_on_shuffle_pressed"]
