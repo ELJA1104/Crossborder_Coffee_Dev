@@ -2,10 +2,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wan7g"]
 
-[node name="view" type="CharacterBody2D" unique_id=496351714]
+[node name="view" type="Node2D" unique_id=1318707027]
 
 [node name="player\'s_view" type="Camera2D" parent="." unique_id=1269074334]
-scale = Vector2(-31.818, 42.469)
+rotation = -3.1415927
+scale = Vector2(31.818, -42.469)
 zoom = Vector2(1.015, 1.015)
 limit_enabled = false
 limit_left = -600
