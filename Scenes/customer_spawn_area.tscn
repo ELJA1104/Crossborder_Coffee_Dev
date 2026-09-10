@@ -1,37 +1,48 @@
 [gd_scene format=3 uid="uid://ddnfm0u6u1a4r"]
 
 [ext_resource type="Script" uid="uid://dmbpgcqfgkjdl" path="res://Code/customer_spawn_area.gd" id="1_yrq0x"]
+[ext_resource type="Texture2D" uid="uid://dka2r0j5by6pu" path="res://Assets/PNG/Pasted image.png" id="2_3qsvk"]
 
-[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("spwn_node", "Day_count_label", "customers_served_label")]
+[node name="Customer spawn area" type="Node2D" unique_id=184865186 node_paths=PackedStringArray("spwn_node", "Day_count_label", "customers_served_label", "credits_label")]
 script = ExtResource("1_yrq0x")
 spwn_node = NodePath("Customer spawn node")
 Day_count_label = NodePath("Day count")
 customers_served_label = NodePath("Customers served")
+credits_label = NodePath("Credit")
 
 [node name="Customer spawn node" type="Node2D" parent="." unique_id=1225865526]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1035825289]
-offset_left = -640.0
-offset_top = 32.0
-offset_right = 632.0
-offset_bottom = 320.0
-mouse_filter = 2
-color = Color(0.54509807, 0.54509807, 0.54509807, 1)
+[node name="PastedImage" type="Sprite2D" parent="." unique_id=1294025403]
+position = Vector2(1.9073486e-06, 216.00002)
+scale = Vector2(0.521385, 0.76152617)
+texture = ExtResource("2_3qsvk")
 
 [node name="Day count" type="Label" parent="." unique_id=639356232]
 offset_left = 256.0
 offset_top = -248.0
 offset_right = 512.0
-offset_bottom = -208.0
+offset_bottom = -225.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Day: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Customers served" type="Label" parent="." unique_id=430760661]
 offset_left = 256.0
+offset_top = -216.0
+offset_right = 512.0
+offset_bottom = -193.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Customers served: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credit" type="Label" parent="." unique_id=1212860790]
+offset_left = 256.0
 offset_top = -184.0
 offset_right = 512.0
-offset_bottom = -144.0
-text = "Customers served: 0"
+offset_bottom = -161.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Credit balance: 0"
 horizontal_alignment = 1
 vertical_alignment = 1

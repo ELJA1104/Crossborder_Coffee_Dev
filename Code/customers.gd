@@ -14,6 +14,7 @@ var temp
 var b : int
 var confrimation = 0
 var customer_spawner
+var price : int
 func displaying_text():
 	text_lable.visible_characters= 0
 	for i in text_lable.text.length():
@@ -36,38 +37,55 @@ func drink_select():
 	ran_drink = randi_range(0, 16)
 	if ran_drink == 0:
 		flavour = "Water"
+		price = 50
 	elif ran_drink == 1:
 		flavour = "Plain Coffee"
+		price = 150
 	elif ran_drink == 2:
 		flavour = "Espresso"
+		price = 450
 	elif ran_drink == 3:
 		flavour = "Double Espresso"
+		price = 550
 	elif ran_drink == 4:
 		flavour = "Caffè Latte"
+		price = 1050
 	elif ran_drink == 5:
 		flavour = "Cappuccino"
+		price = 1050
 	elif ran_drink == 6:
 		flavour = "Mocha"
+		price = 1350
 	elif ran_drink == 7:
 		flavour = "Caramel Macchiato"
+		price = 1250
 	elif ran_drink == 8:
 		flavour = "Vanilla Latte"
+		price = 1100
 	elif ran_drink == 9:
 		flavour = "Hazelnut Latte"
+		price = 1100
 	elif ran_drink == 10:
 		flavour = "Vietnamese Coffee"
+		price = 1200
 	elif ran_drink == 11:
 		flavour = "Hong Kong–Style Milk Coffee"
+		price = 1150
 	elif ran_drink == 12:
 		flavour = "Matcha Coffee"
+		price = 1200
 	elif ran_drink == 13:
 		flavour = "Cinnamon Coffee"
+		price = 1650
 	elif ran_drink == 14:
 		flavour = "Caramel Foam Coffee"
+		price = 1750
 	elif ran_drink == 15:
 		flavour = "Chocolate Cream Coffee"
+		price = 1400
 	elif ran_drink == 16:
 		flavour = "Sweet Foam Latte"
+		price = 1600
 		
 func hot_or_iced():
 	ran_ice = randi_range(0, 2)
@@ -84,6 +102,7 @@ func _ready() -> void:
 	customer_conver()
 	print(temp + flavour)
 	print(customer_spawner)
+	print(price)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if times_up == true:
@@ -99,6 +118,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 					text_box("Success!")
 					confrimation = 1
 					customer_spawner.customer_served_count += 1
+					customer_spawner.credits_earned += price
 					await get_tree().create_timer(2).timeout
 					anim_plyr.play("customer_exit")
 					text_to_be_displayed("")
