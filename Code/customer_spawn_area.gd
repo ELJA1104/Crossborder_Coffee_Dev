@@ -17,6 +17,7 @@ var credits_earned : int = 0
 func _ready() -> void:
 	spawn_customer()
 	child_spawn_timer()
+	print(clamp(2,0,16))
 	
 func _physics_process(delta: float) -> void:
 	customer_has_been_served()

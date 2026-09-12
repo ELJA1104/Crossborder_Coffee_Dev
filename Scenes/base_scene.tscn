@@ -194,6 +194,7 @@ position = Vector2(1104, 384)
 [node name="ice cube" parent="." unique_id=522084715 instance=ExtResource("15_bcsim")]
 position = Vector2(240, 336)
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="Cocoa powder" to="." method="_on_cocoa_powder_pressed"]
 [connection signal="pressed" from="Matcha powder" to="." method="_on_matcha_powder_pressed"]
 [connection signal="pressed" from="Cinnamon powder" to="." method="_on_cinnamon_powder_pressed"]
