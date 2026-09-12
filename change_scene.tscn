@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bc5ti7kx4vip1"]
 
 [ext_resource type="Script" uid="uid://bhydkbu8uyxgy" path="res://Code/tp_not_try.gd" id="1_70pe2"]
+[ext_resource type="PackedScene" uid="uid://ddnfm0u6u1a4r" path="res://Scenes/customer_spawn_area.tscn" id="2_iv2li"]
 [ext_resource type="PackedScene" uid="uid://d030l51eoqsom" path="res://Scenes/view.tscn" id="3_tsppp"]
 
 [node name="change_scene" type="Node2D" unique_id=753283931]
@@ -20,6 +21,8 @@ text = "zombie"
 offset_right = 40.0
 offset_bottom = 23.0
 text = "cus"
+
+[node name="Customer spawn area" parent="cus_alt" unique_id=184865186 instance=ExtResource("2_iv2li")]
 
 [node name="view" parent="." unique_id=496351714 instance=ExtResource("3_tsppp")]
 position = Vector2(783, 3)
