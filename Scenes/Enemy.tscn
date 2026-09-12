@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b55bbasvp4yf7"]
+
+[ext_resource type="Script" uid="uid://datmy54etuet3" path="res://Code/enemy.gd" id="1_wovta"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_xeo28"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a2ibi"]
+radius = 30.413813
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01sja"]
+radius = 24.186773
+
+[node name="Enemy" type="CharacterBody2D" unique_id=503198342]
+script = ExtResource("1_wovta")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=578340149]
+modulate = Color(1, 0, 0.015686275, 1)
+position = Vector2(0.29999924, -0.19999886)
+scale = Vector2(0.35468748, 0.34687498)
+texture = ExtResource("2_xeo28")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2132474105]
+shape = SubResource("CircleShape2D_a2ibi")
+debug_color = Color(0.3546412, 0.08574786, 0.07739062, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1453927239]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=240369641]
+shape = SubResource("CircleShape2D_01sja")
+debug_color = Color(0.47353327, 0.0030519648, 0.014754987, 0.41960785)
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]

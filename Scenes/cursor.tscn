@@ -2,9 +2,17 @@
 
 [ext_resource type="Script" uid="uid://c5dxwnx6ymdif" path="res://Code/cursor.gd" id="1_8pp82"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_01sja"]
+radius = 4.0
+
 [node name="Crosshair" type="Node2D" unique_id=989418816]
 scale = Vector2(0.25, 0.25)
 script = ExtResource("1_8pp82")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=933247781]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1708281489]
+shape = SubResource("CircleShape2D_01sja")
 
 [node name="ColorRect2" type="ColorRect" parent="." unique_id=1300099247]
 offset_left = 24.0
@@ -23,3 +31,5 @@ offset_left = -8.0
 offset_top = 24.0
 offset_right = 8.0
 offset_bottom = 128.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
