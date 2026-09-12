@@ -4,6 +4,7 @@ extends Node2D
 @onready var cus_alt = $cus_alt
 @onready var view = $view
 
+var dir
 var toggle : bool = false
 var cursor = load("res://Assets/PNG/just_dot.png")
 
@@ -11,7 +12,7 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor)
 
 func _physics_process(delta: float) -> void:
-	tp(delta)
+	tp()
 	space()
 
 func space():
@@ -25,11 +26,10 @@ func space():
 		if !toggle:
 			print("false")
 
-func tp(delta):
-	var dir
-	if toggle:
+func tp():
+	if !toggle:
 		dir = cus_alt.global_position
 		view.global_position = lerp(view.global_position, dir, 0.5)
-	if !toggle:
+	if toggle:
 		dir = pvz_alt.global_position
 		view.global_position = lerp(view.global_position, dir, 0.5)

@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var speed = 1
 var playing : bool = false
 var can_play :bool = true
@@ -60,7 +61,7 @@ func _on_stop_pressed() -> void:
 
 
 func _on_player_finished() -> void:
-	_ready()
+	play_music()
 
 
 func _on_shuffle_pressed() -> void:
