@@ -26,7 +26,7 @@ func text_to_be_displayed(text : String):
 	displaying_text()
 
 func customer_wait_time():
-	await get_tree().create_timer(120).timeout
+	await get_tree().create_timer(300).timeout
 	times_up = true
 	print(times_up)
 	text_to_be_displayed("Too slow man, bye")
@@ -146,7 +146,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		queue_free()
 		
 func timer():
-	b = 120
+	b = 300
 	label.add_theme_color_override("font_color", Color.YELLOW)
 	text_box("Prepare and serve drink in " + str(b) +" Seconds")
 	for i in range (b):

@@ -2,13 +2,13 @@ extends Node2D
 class_name  Customer_Spawner
 @export var spwn_node : Node2D
 @export var Day_count_label : Label
-@export var customers_served_label : Label
+@export var  customers_served_label : Label
 @export var credits_label : Label
 var customer_scene
 var customer
 var customer_spawn_rate = randi_range(150, 300)
 var days_count : int = 0
-var day_duration : int = 1800
+var day_duration : int = 2500
 var customer_served_count : int = 0
 var current_num : int = 0
 var current_credit_balance : int = 0
@@ -45,7 +45,7 @@ func day_time():
 			await get_tree().create_timer(1).timeout
 			day_duration -= 1
 		elif day_duration == 0:
-			day_duration = 1800
+			day_duration = 2500
 			days_count + 1
 			Day_count_label.text = "Day: " + str(days_count)
 			
