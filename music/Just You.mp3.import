@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j2thta58nudi"
+path="res://.godot/imported/Just You.mp3-3c70b2a8f01377c139fb93eefdf8c000.mp3str"
+
+[deps]
+
+source_file="res://music/Just You.mp3"
+dest_files=["res://.godot/imported/Just You.mp3-3c70b2a8f01377c139fb93eefdf8c000.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
