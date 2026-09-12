@@ -1,9 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene format=4 uid="uid://btiosw05wam1t"]
+=======
+[gd_scene format=3 uid="uid://btiosw05wam1t"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://vetshytrk6mj" path="res://Code/music_player.gd" id="1_k4xj7"]
 [ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_p3pav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wan7g"]
+<<<<<<< Updated upstream
 size = Vector2(132, 130)
 
 [sub_resource type="AudioStreamMP3" id="AudioStreamMP3_rjark"]
@@ -74,3 +79,33 @@ offset_bottom = 515.0
 [connection signal="finished" from="player" to="." method="_on_player_finished"]
 [connection signal="pressed" from="stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="shuffle" to="." method="_on_shuffle_pressed"]
+=======
+
+[node name="Node2D" type="Node2D" unique_id=933273921]
+position = Vector2(56, 496)
+script = ExtResource("1_k4xj7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1972816038]
+offset_left = -56.0
+offset_top = 24.0
+offset_right = 384.0
+offset_bottom = 152.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=205024510]
+position = Vector2(8, 88)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=641161467]
+position = Vector2(4.7683716e-07, -5.722046e-06)
+scale = Vector2(0.6875, 0.6874999)
+texture = ExtResource("2_p3pav")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=256043609]
+shape = SubResource("RectangleShape2D_wan7g")
+
+[node name="Label" type="Label" parent="." unique_id=1450766767]
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 360.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+>>>>>>> Stashed changes
