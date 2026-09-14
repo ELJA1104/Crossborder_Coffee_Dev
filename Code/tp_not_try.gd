@@ -33,3 +33,4 @@ func tp():
 	if toggle:
 		dir = pvz_alt.global_position
 		view.global_position = lerp(view.global_position, dir, 0.5)
+	view.global_position = lerp(view.global_position, get_global_mouse_position()-dir, 0.1)
