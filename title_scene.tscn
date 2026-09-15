@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dbbd28g7hw1ja"]
+
+[ext_resource type="Script" uid="uid://bxj88u54754ld" path="res://title_scene.gd" id="1_176dl"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_8vtwa"]
+[ext_resource type="VideoStream" uid="uid://ca8g5xtupyylx" path="res://Smartest Rick Roll but with a different link. ( 720 X 1280 ).ogv" id="3_8vtwa"]
+
+[node name="title_scene" type="Node2D" unique_id=1623471532]
+script = ExtResource("1_176dl")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2057187261]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="start" type="Button" parent="." unique_id=534173958]
+offset_left = 88.0
+offset_top = 176.0
+offset_right = 392.0
+offset_bottom = 272.0
+theme_override_colors/icon_disabled_color = Color(0.12941177, 0.12941177, 0.12941177, 0.61960787)
+theme_override_font_sizes/font_size = 67
+text = "Start"
+
+[node name="quit" type="Button" parent="." unique_id=846924191]
+offset_left = 88.0
+offset_top = 480.0
+offset_right = 392.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 67
+text = "Quit"
+
+[node name="CharacterBody2D" type="Node2D" parent="." unique_id=494168096]
+position = Vector2(88, 328)
+
+[node name="setting" type="Button" parent="CharacterBody2D" unique_id=1950155939]
+offset_top = -4.0
+offset_right = 304.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 67
+text = "Setting"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1256016432]
+position = Vector2(888.00006, 360)
+scale = Vector2(1.875, 1.875)
+texture = ExtResource("2_8vtwa")
+
+[node name="Label" type="Label" parent="." unique_id=813730836]
+offset_left = 200.0
+offset_top = 32.0
+offset_right = 1040.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 88
+text = "Crossborder Coffee"
+
+[node name="Label2" type="Label" parent="." unique_id=1194014590]
+modulate = Color(1, 1, 1, 0)
+offset_left = 88.0
+offset_top = 480.0
+offset_right = 392.0
+offset_bottom = 576.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 67
+text = "Nuh uh"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1208854606]
+
+[node name="Control" type="Control" parent="." unique_id=2032677162]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Control" unique_id=1367588221]
+modulate = Color(1, 1, 1, 0)
+custom_maximum_size = Vector2(303.445, 100.76)
+propagate_maximum_size = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("3_8vtwa")
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CharacterBody2D/setting" to="." method="_on_setting_pressed"]
