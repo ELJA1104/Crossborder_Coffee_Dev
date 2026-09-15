@@ -58,7 +58,7 @@ func display_line(new_text: String, duration: float) -> Signal:
 func display_line_board(new_text: String, duration: float) -> Signal:
 	board.text = new_text
 	board.visible_ratio = 0.0 
-	var text_tween = create_tween()
+	var text_tween = create_tween()	
 	text_tween.tween_property(board, "visible_ratio", 1.0, duration)
 	return text_tween.finished
 

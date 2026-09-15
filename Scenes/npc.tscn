@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://bq2ty8bspmp47"]
 
-[ext_resource type="Script" uid="uid://d0pyb143h01s3" path="res://npc.gd" id="1_slxoh"]
-[ext_resource type="PackedScene" uid="uid://b1hub4lvnhwtb" path="res://Scenes/Coffee_Brewer.tscn" id="2_l64hl"]
-[ext_resource type="PackedScene" uid="uid://bd267dnu2okq3" path="res://Scenes/idk.tscn" id="3_215dd"]
-[ext_resource type="PackedScene" uid="uid://cgqjx1k2rpcd4" path="res://Scenes/cup.tscn" id="4_p5bpe"]
-[ext_resource type="Script" uid="uid://dncx84h2fvxng" path="res://door.gd" id="5_l64hl"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="5_upjdb"]
-[ext_resource type="PackedScene" uid="uid://cty03jb2sdxnc" path="res://Scenes/Ethan's_Puck.tscn" id="6_u41a8"]
-[ext_resource type="Shader" uid="uid://b7rdmeu6gxi2b" path="res://hand.gdshader" id="8_gu3sj"]
-[ext_resource type="Texture2D" uid="uid://db7crvinlosk3" path="res://Assets/PNG/Coffee_Bean.png" id="8_l64hl"]
+[ext_resource type="Script" uid="uid://cqqyghpkhk3lt" path="res://Code/npc.gd" id="1_8gudg"]
+[ext_resource type="PackedScene" uid="uid://b1hub4lvnhwtb" path="res://Scenes/Coffee_Brewer.tscn" id="2_qi7up"]
+[ext_resource type="PackedScene" uid="uid://bd267dnu2okq3" path="res://Scenes/idk.tscn" id="3_a6nw3"]
+[ext_resource type="PackedScene" uid="uid://cgqjx1k2rpcd4" path="res://Scenes/cup.tscn" id="4_b4syp"]
+[ext_resource type="Script" uid="uid://dvell33i8jtry" path="res://door.gd" id="5_f10bm"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="6_jcef7"]
+[ext_resource type="PackedScene" uid="uid://cty03jb2sdxnc" path="res://Scenes/Ethan's_Puck.tscn" id="7_njxey"]
+[ext_resource type="Texture2D" uid="uid://db7crvinlosk3" path="res://Assets/PNG/Coffee_Bean.png" id="8_y54i2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(169, 426)
@@ -703,32 +702,31 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t0v5d"]
-shader = ExtResource("8_gu3sj")
 
 [node name="npc" type="Node2D" unique_id=1145555013]
-script = ExtResource("1_slxoh")
+script = ExtResource("1_8gudg")
 
-[node name="Coffeebrewer" parent="." unique_id=204845374 instance=ExtResource("2_l64hl")]
+[node name="Coffeebrewer" parent="." unique_id=204845374 instance=ExtResource("2_qi7up")]
 position = Vector2(1691, 346.00006)
 rotation = -1.0663961
 script = null
 
-[node name="Grinder" parent="." unique_id=985036243 instance=ExtResource("3_215dd")]
+[node name="Grinder" parent="." unique_id=985036243 instance=ExtResource("3_a6nw3")]
 position = Vector2(1500, 346)
 rotation = 0.72082096
 script = null
 
-[node name="cup" parent="." unique_id=1073076532 instance=ExtResource("4_p5bpe")]
+[node name="cup" parent="." unique_id=1073076532 instance=ExtResource("4_b4syp")]
 position = Vector2(1640, 293)
 
 [node name="door" type="Area2D" parent="." unique_id=1942715273]
 position = Vector2(835, -246)
-script = ExtResource("5_l64hl")
+script = ExtResource("5_f10bm")
 
 [node name="Sprite2D" type="Sprite2D" parent="door" unique_id=1534907784]
 position = Vector2(14, -5)
 scale = Vector2(1.265625, 3.28125)
-texture = ExtResource("5_upjdb")
+texture = ExtResource("6_jcef7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="door" unique_id=924628358]
 position = Vector2(16.5, -7)
@@ -738,19 +736,19 @@ shape = SubResource("RectangleShape2D_2m13f")
 root_node = NodePath("../orang")
 libraries/ = SubResource("AnimationLibrary_faxwa")
 
-[node name="Ethan\'s Puck" parent="." unique_id=1459799583 instance=ExtResource("6_u41a8")]
+[node name="Ethan\'s Puck" parent="." unique_id=1459799583 instance=ExtResource("7_njxey")]
 position = Vector2(-144, 161)
 script = null
 
 [node name="CoffeeBean" type="Sprite2D" parent="." unique_id=941302353]
 position = Vector2(1414, 236)
 scale = Vector2(0.020216769, 0.019212963)
-texture = ExtResource("8_l64hl")
+texture = ExtResource("8_y54i2")
 
 [node name="orang" type="Sprite2D" parent="." unique_id=1009882871]
 position = Vector2(-138, 145)
 scale = Vector2(1.3749999, 1.3593749)
-texture = ExtResource("5_upjdb")
+texture = ExtResource("6_jcef7")
 
 [node name="ColorRect" type="ColorRect" parent="orang" unique_id=1360922305]
 top_level = true
