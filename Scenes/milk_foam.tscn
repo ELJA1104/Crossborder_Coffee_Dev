@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bivjxhuwrjr0c"]
 
 [ext_resource type="Script" uid="uid://4rdsppxpeqae" path="res://Code/item(milk_foam).gd" id="1_b56fy"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_2kd3c"]
+[ext_resource type="Texture2D" uid="uid://dtjfns0h7sj0f" path="res://Assets/PNG/Milk cream sprite.png" id="2_b56fy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(125, 121)
@@ -19,7 +19,9 @@ input_pickable = true
 script = ExtResource("1_b56fy")
 
 [node name="Sprite2D" type="Sprite2D" parent="item(milk foam)" unique_id=277854089]
-texture = ExtResource("2_2kd3c")
+position = Vector2(1.2397766e-05, -4.0000153)
+scale = Vector2(0.09602402, 0.12435234)
+texture = ExtResource("2_b56fy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item(milk foam)" unique_id=1659793376]
 position = Vector2(-1.5, -3.5)

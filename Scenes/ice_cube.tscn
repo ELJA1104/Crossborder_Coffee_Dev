@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmfg28dff2vr7"]
 
 [ext_resource type="Script" uid="uid://ch2d12q6hheii" path="res://Code/item(ice_cube).gd" id="1_g2q5g"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_y4dtr"]
+[ext_resource type="Texture2D" uid="uid://dmc75rap27k4t" path="res://Assets/PNG/Ice cube sprite.png" id="2_g2q5g"]
 [ext_resource type="PackedScene" uid="uid://bdy00p4eayhfx" path="res://Scenes/spwaner(ice_cube).tscn" id="3_rs603"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
@@ -21,9 +21,9 @@ input_pickable = true
 script = ExtResource("1_g2q5g")
 
 [node name="Sprite2D" type="Sprite2D" parent="item(ice cube)" unique_id=1451377844]
-position = Vector2(0, 2)
-scale = Vector2(0.4140625, 0.421875)
-texture = ExtResource("2_y4dtr")
+position = Vector2(0.5000075, 1.5000017)
+scale = Vector2(0.031250022, 0.04030418)
+texture = ExtResource("2_g2q5g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item(ice cube)" unique_id=6431900]
 light_mask = 17

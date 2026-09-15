@@ -4,6 +4,7 @@ var cocoa_powder_pressed : bool = false
 var matcha_powder_pressed : bool = false
 var cinnamon_powder_pressed : bool = false
 var if_anim_is_playing : bool = false
+var pressed_once : bool = false
 #PLEASE READ!!!
 #THIS SCENE IS USED AS A BASIS FOR OTHER SCENES TO BE TESTED HERE!!! IMPORT YOUR SCENE INTO THIS SCENE TO RUN AND TEST IT FOR BUGS
 #这个Scene作为在此处测试其他Scene的基础！！！请将您的场景导入此场景，以便运行并测试是否存在错误。
@@ -46,5 +47,18 @@ func _on_cinnamon_powder_pressed() -> void:
 	elif if_anim_is_playing == true:
 		pass
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "Cocoa Powder slide in" or anim_name == "Cocoa Powder slide out" or anim_name == "Matcha Powder slide in" or anim_name == "Matcha Powder slide out" or anim_name == "Cinnamon Powder slide in" or anim_name == "Cinnamon Powder slide out":
+	if anim_name == "Cocoa Powder slide in" or anim_name == "Cocoa Powder slide out" or anim_name == "Matcha Powder slide in" or anim_name == "Matcha Powder slide out" or anim_name == "Cinnamon Powder slide in" or anim_name == "Cinnamon Powder slide out" or anim_name == "Slide_in" or anim_name == "Slide_out":
 		if_anim_is_playing = false
+
+func _on_recipe_button_pressed() -> void:
+	if if_anim_is_playing == false:
+		if pressed_once == false:
+			anim_plyr.play("Slide_in")
+			pressed_once = true
+			if_anim_is_playing = true
+		elif pressed_once == true:
+			anim_plyr.play("Slide_out")
+			pressed_once = false
+			if_anim_is_playing = true
+	if if_anim_is_playing == true:
+		pass

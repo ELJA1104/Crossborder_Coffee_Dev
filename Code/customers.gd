@@ -95,6 +95,7 @@ func hot_or_iced():
 		temp = "Warm "
 	elif ran_ice == 2:
 		temp = "Cold "
+		price += 50
 		
 func _ready() -> void:
 	drink_select()
