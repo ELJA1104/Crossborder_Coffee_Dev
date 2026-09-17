@@ -43,6 +43,21 @@ position = Vector2(888.00006, 360)
 scale = Vector2(1.875, 1.875)
 texture = ExtResource("2_8vtwa")
 
+[node name="icon" type="Button" parent="Sprite2D" unique_id=1139465944]
+offset_left = -64.0
+offset_top = -64.000015
+offset_right = 63.99997
+offset_bottom = 63.999985
+
+[node name="Label" type="Label" parent="Sprite2D" unique_id=846464504]
+offset_left = -98.1334
+offset_top = -106.666664
+offset_right = 93.86663
+offset_bottom = -83.666664
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Label" type="Label" parent="." unique_id=813730836]
 offset_left = 200.0
 offset_top = 32.0
@@ -86,5 +101,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 stream = ExtResource("3_8vtwa")
 
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1186781830]
+offset_left = -1352.0
+offset_right = -200.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="ColorRect2" unique_id=885756215]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 232.0
+offset_right = 846.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "Wait a sec"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="CharacterBody2D/setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="Sprite2D/icon" to="." method="_on_icon_pressed"]
