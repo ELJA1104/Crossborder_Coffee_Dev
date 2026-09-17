@@ -15,7 +15,6 @@ var current_num : int = 0
 func _ready() -> void:
 	spawn_customer()
 	child_spawn_timer()
-	print(clamp(2,0,16))
 	
 func _physics_process(delta: float) -> void:
 	customer_has_been_served()
@@ -23,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	credits_increase()
 	
 func spawn_customer():
-	if customer_spawn_rate + 120 > day_duration:
+	if customer_spawn_rate + 300 > day_duration:
 		pass
 	else:
 		customer_scene = preload("res://Scenes/customers.tscn")

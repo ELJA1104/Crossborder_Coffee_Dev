@@ -207,7 +207,7 @@ position = Vector2(-368, 312)
 position = Vector2(-688, 240)
 
 [node name="coffe bean" parent="." unique_id=204909395 instance=ExtResource("4_kvnw2")]
-position = Vector2(-648, 96)
+position = Vector2(-576, 96)
 
 [node name="Coffee_Residue_Disposal" parent="." unique_id=721591295 instance=ExtResource("9_6xwkn")]
 position = Vector2(72, 424)
