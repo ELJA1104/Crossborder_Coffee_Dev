@@ -7,12 +7,10 @@ class_name  Customer_Spawner
 var customer_scene
 var customer
 var customer_spawn_rate = randi_range(150, 300)
-var days_count : int = 0
+
 var day_duration : int = 2500
 var customer_served_count : int = 0
 var current_num : int = 0
-var current_credit_balance : int = 0
-var credits_earned : int = 0
 
 func _ready() -> void:
 	spawn_customer()
@@ -47,8 +45,8 @@ func day_time():
 			day_duration -= 1
 		elif day_duration == 0:
 			day_duration = 2500
-			days_count + 1
-			Day_count_label.text = "Day: " + str(days_count)
+			Noel_sEvent.days_count + 1
+			Day_count_label.text = "Day: " + str(Noel_sEvent.days_count)
 			
 func customer_has_been_served():
 	if current_num < customer_served_count:
@@ -56,6 +54,6 @@ func customer_has_been_served():
 		current_num = customer_served_count
 		
 func credits_increase():
-	if current_credit_balance < credits_earned:
-		credits_label.text = "Credit balance: " + str(credits_earned)
-		credits_earned = current_credit_balance
+	if Noel_sEvent.current_credit_balance < Noel_sEvent.credits_earned:
+		credits_label.text = "Credit balance: " + str(Noel_sEvent.credits_earned)
+		Noel_sEvent.credits_earned = Noel_sEvent.current_credit_balance

@@ -119,7 +119,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 					text_box("Success!")
 					confrimation = 1
 					customer_spawner.customer_served_count += 1
-					customer_spawner.credits_earned += price
+					Noel_sEvent.credits_earned += price
 					await get_tree().create_timer(2).timeout
 					anim_plyr.play("customer_exit")
 					text_to_be_displayed("")
@@ -132,9 +132,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				await get_tree().create_timer(1).timeout
 				text_to_be_displayed(customer_dialogue)
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	body = null
-	
 func customer_conver():
 	customer_dialogue = "I want a " + temp + flavour + " please."
 

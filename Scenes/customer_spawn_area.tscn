@@ -65,8 +65,8 @@ credits_label = NodePath("Credit")
 [node name="Customer spawn node" type="Node2D" parent="." unique_id=1225865526]
 
 [node name="PastedImage" type="Sprite2D" parent="." unique_id=1294025403]
-position = Vector2(1.9073486e-06, 216.00002)
-scale = Vector2(0.521385, 0.76152617)
+position = Vector2(0, 216)
+scale = Vector2(0.56585073, 0.76152617)
 texture = ExtResource("2_3qsvk")
 
 [node name="Day count" type="Label" parent="." unique_id=639356232]

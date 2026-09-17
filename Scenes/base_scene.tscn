@@ -173,7 +173,7 @@ anim_plyr = NodePath("AnimationPlayer")
 libraries/ = SubResource("AnimationLibrary_xinke")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1874151898]
-zoom = Vector2(0.65, 0.65)
+zoom = Vector2(0.6, 0.6)
 
 [node name="Customer spawn area" parent="." unique_id=184865186 instance=ExtResource("10_pw8rc")]
 position = Vector2(0, -96)
@@ -201,22 +201,22 @@ offset_bottom = 80.0
 text = "Cinnamon powder"
 
 [node name="Coffeebrewer" parent="." unique_id=204845374 instance=ExtResource("2_ff227")]
-position = Vector2(-464, 328)
+position = Vector2(-368, 312)
 
 [node name="Grinder" parent="." unique_id=985036243 instance=ExtResource("5_kvnw2")]
-position = Vector2(-792, 248)
+position = Vector2(-688, 240)
 
 [node name="coffe bean" parent="." unique_id=204909395 instance=ExtResource("4_kvnw2")]
 position = Vector2(-648, 96)
 
 [node name="Coffee_Residue_Disposal" parent="." unique_id=721591295 instance=ExtResource("9_6xwkn")]
-position = Vector2(-8, 408)
+position = Vector2(72, 424)
 
 [node name="Cup spawner" parent="." unique_id=730626694 instance=ExtResource("14_fexq0")]
-position = Vector2(-200, 352)
+position = Vector2(-104, 384)
 
 [node name="Ethan\'s Puck" parent="." unique_id=1396477318 instance=ExtResource("6_cg6vo")]
-position = Vector2(-192, 136)
+position = Vector2(-96, 176)
 
 [node name="milk" parent="." unique_id=1519699551 instance=ExtResource("7_6xwkn")]
 position = Vector2(280, 176)
@@ -247,7 +247,7 @@ offset_bottom = -640.0
 color = Color(0.2914629, 0.27195957, 0.2493422, 1)
 
 [node name="CoffeeIngredientsList" type="Sprite2D" parent="ColorRect" unique_id=1284983211]
-position = Vector2(904, 577.25006)
+position = Vector2(903.99994, 559.99994)
 scale = Vector2(1.072796, 1.111461)
 texture = ExtResource("16_6c73o")
 
