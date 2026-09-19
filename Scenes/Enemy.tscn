@@ -15,18 +15,20 @@ script = ExtResource("1_wovta")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=578340149]
 modulate = Color(1, 0, 0.015686275, 1)
-position = Vector2(0.29999924, -0.19999886)
+y_sort_enabled = true
 scale = Vector2(0.35468748, 0.34687498)
 texture = ExtResource("2_xeo28")
+offset = Vector2(0, -63.423428)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2132474105]
-position = Vector2(0.5, 12)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_xeo28")
 debug_color = Color(0.3546412, 0.08574786, 0.07739062, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1453927239]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=240369641]
+position = Vector2(0, -21)
 shape = SubResource("CircleShape2D_01sja")
 debug_color = Color(0.47353327, 0.0030519648, 0.014754987, 0.41960785)
 

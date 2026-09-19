@@ -10,6 +10,7 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if event.is_action_pressed("m1"):
 		_kill_enemy()
+		
 
 func _kill_enemy():
 	queue_free()
