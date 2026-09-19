@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://7mnfo3fwg2yg"]
 
-[ext_resource type="Script" uid="uid://b7um4six61h0i" path="res://game_menu.gd" id="1_rjxss"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_rjxss"]
+[ext_resource type="Script" uid="uid://b7um4six61h0i" path="res://Code/game_menu.gd" id="1_in7i6"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_5a81j"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2m13f"]
 particle_flag_disable_z = true
@@ -139,12 +139,12 @@ _data = {
 
 [node name="game menu" type="Node2D" unique_id=2012986201]
 modulate = Color(1, 1, 1, 0)
-script = ExtResource("1_rjxss")
+script = ExtResource("1_in7i6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2114438025]
 position = Vector2(558.99994, 308.5)
 scale = Vector2(9.734375, 5.8203125)
-texture = ExtResource("2_rjxss")
+texture = ExtResource("2_5a81j")
 
 [node name="ScrapEffects" type="Node2D" parent="." unique_id=970890682]
 
