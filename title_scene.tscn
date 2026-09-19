@@ -1,12 +1,6 @@
-<<<<<<< Updated upstream
 [gd_scene format=3 uid="uid://dbbd28g7hw1ja"]
 
 [ext_resource type="Script" uid="uid://bxj88u54754ld" path="res://title_scene.gd" id="1_176dl"]
-=======
-[gd_scene format=3 uid="uid://dt4pxkmheuow8"]
-
-[ext_resource type="Script" path="res://title_scene.gd" id="1_176dl"]
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_8vtwa"]
 [ext_resource type="VideoStream" uid="uid://ca8g5xtupyylx" path="res://Smartest Rick Roll but with a different link. ( 720 X 1280 ).ogv" id="3_8vtwa"]
 
