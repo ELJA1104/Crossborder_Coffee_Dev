@@ -64,3 +64,6 @@ func display_line_board(new_text: String, duration: float) -> Signal:
 
 func drop_board():
 	anim_player.play("drop_board")
+	await get_tree().create_timer(2).timeout
+	anim_player.play("opening animation")
+	pass

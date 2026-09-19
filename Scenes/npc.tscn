@@ -12,223 +12,43 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(169, 426)
 
-[sub_resource type="Animation" id="Animation_ytjd8"]
+[sub_resource type="Animation" id="Animation_8gudg"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("../door:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-138, 145)]
+"values": [Vector2(835, 416)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:size")
+tracks/1/path = NodePath("../light:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(40, 40)]
+"values": [Vector2(1692, -14)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:position")
+tracks/2/path = NodePath("../ColorRect:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-343, -556)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../Coffeebrewer:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1691, 346.00006)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Coffeebrewer:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.0663961]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../Grinder:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1500, 346)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("../Grinder:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.72082096]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("../cup:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1640, 293)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("../cup:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("../Ethan\'s Puck:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-144, 161)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("../eye(up):position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 4)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("../eye(down):position")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 327)]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("../door:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(835, -246)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("../ColorRect:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(595, -206)]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("../ColorRect/ColorRect2:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-845.3627, 64.8667)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("../ColorRect/ColorRect2/e_word:rotation")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("../ColorRect/ColorRect2/e_word:position")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, -18)]
-}
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("../ColorRect:rotation")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [Vector2(1505, 490)]
 }
 
 [sub_resource type="Animation" id="Animation_upjdb"]
@@ -424,6 +244,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_cgete"]
 resource_name = "drop_board"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -431,10 +252,10 @@ tracks/0/path = NodePath("../ColorRect:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(2.3784163, 0.30778614),
+"times": PackedFloat32Array(0, 0.43333334, 1),
+"transitions": PackedFloat32Array(2.3784163, 1, 0.30778614),
 "update": 0,
-"values": [Vector2(588, 43), Vector2(600, 496)]
+"values": [Vector2(588, 43), Vector2(589.79626, 110.809906), Vector2(600, 496)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -443,10 +264,10 @@ tracks/1/path = NodePath("../ColorRect/ColorRect2/e_word:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.43333334, 0.8667, 1, 1.5),
+"transitions": PackedFloat32Array(2.3784163, 1, 1, 0.3186403, 0.30778614),
 "update": 0,
-"values": [Vector2(-1, 448), Vector2(-1, 448)]
+"values": [Vector2(-1, 448), Vector2(-23.749512, 406.55902), Vector2(-250.31, 185.75262), Vector2(-174.36047, 132.2031), Vector2(437.99414, 78.46298)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -455,10 +276,22 @@ tracks/2/path = NodePath("../ColorRect:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6666667),
+"times": PackedFloat32Array(0.4333, 0.8667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, -0.7853982]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../light:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.6, 1.7333333, 2.1, 2.35, 2.54, 2.7),
+"transitions": PackedFloat32Array(1, 1e-05, 1.8024912e-05, 1e-05, 1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector2(1580, -2), Vector2(1580, -2), Vector2(-15, 7), Vector2(1580, -2), Vector2(-15, 7), Vector2(1580, -2), Vector2(-15, 7)]
 }
 
 [sub_resource type="Animation" id="Animation_u41a8"]
@@ -484,7 +317,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.5, 0.9),
-"transitions": PackedFloat32Array(1, 1),
+"transitions": PackedFloat32Array(0.2679431, 1),
 "update": 0,
 "values": [Vector2(-1, -18), Vector2(-1, 448)]
 }
@@ -689,16 +522,57 @@ tracks/6/keys = {
 "values": [Vector2(-278, 375)]
 }
 
+[sub_resource type="Animation" id="Animation_qi7up"]
+resource_name = "opening animation"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../door:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1594, 440)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../light:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1692, -14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../ColorRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1505, 490)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_faxwa"]
 _data = {
-&"RESET": SubResource("Animation_ytjd8"),
+&"RESET": SubResource("Animation_8gudg"),
 &"board": SubResource("Animation_upjdb"),
 &"do coffee": SubResource("Animation_l64hl"),
 &"do coffee2": SubResource("Animation_215dd"),
 &"drop_board": SubResource("Animation_cgete"),
 &"e_missing": SubResource("Animation_u41a8"),
 &"ending": SubResource("Animation_p5bpe"),
-&"intro": SubResource("Animation_hivs1")
+&"intro": SubResource("Animation_hivs1"),
+&"opening animation": SubResource("Animation_qi7up")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t0v5d"]
@@ -707,20 +581,18 @@ _data = {
 script = ExtResource("1_8gudg")
 
 [node name="Coffeebrewer" parent="." unique_id=204845374 instance=ExtResource("2_qi7up")]
-position = Vector2(1691, 346.00006)
-rotation = -1.0663961
+position = Vector2(1408, 455)
 script = null
 
 [node name="Grinder" parent="." unique_id=985036243 instance=ExtResource("3_a6nw3")]
-position = Vector2(1500, 346)
-rotation = 0.72082096
+position = Vector2(1436, 334)
 script = null
 
 [node name="cup" parent="." unique_id=1073076532 instance=ExtResource("4_b4syp")]
-position = Vector2(1640, 293)
+position = Vector2(1422, 531)
 
 [node name="door" type="Area2D" parent="." unique_id=1942715273]
-position = Vector2(835, -246)
+position = Vector2(835, 416)
 script = ExtResource("5_f10bm")
 
 [node name="Sprite2D" type="Sprite2D" parent="door" unique_id=1534907784]
@@ -737,7 +609,7 @@ root_node = NodePath("../orang")
 libraries/ = SubResource("AnimationLibrary_faxwa")
 
 [node name="Ethan\'s Puck" parent="." unique_id=1459799583 instance=ExtResource("7_njxey")]
-position = Vector2(-144, 161)
+position = Vector2(1384, 467)
 script = null
 
 [node name="CoffeeBean" type="Sprite2D" parent="." unique_id=941302353]
@@ -746,36 +618,36 @@ scale = Vector2(0.020216769, 0.019212963)
 texture = ExtResource("8_y54i2")
 
 [node name="orang" type="Sprite2D" parent="." unique_id=1009882871]
-position = Vector2(-138, 145)
+position = Vector2(1289, 232)
 scale = Vector2(1.3749999, 1.3593749)
 texture = ExtResource("6_jcef7")
 
 [node name="ColorRect" type="ColorRect" parent="orang" unique_id=1360922305]
 top_level = true
 material = SubResource("ShaderMaterial_t0v5d")
-offset_left = -343.0
-offset_top = -556.0
-offset_right = -303.0
-offset_bottom = -516.0
+offset_left = 1404.0
+offset_top = 247.0
+offset_right = 1444.0
+offset_bottom = 287.00006
 color = Color(0.16862746, 1, 1, 1)
 
 [node name="eye(up)" type="ColorRect" parent="." unique_id=1056328881]
 top_level = true
 anchors_preset = -1
 anchor_right = 0.051215276
-offset_left = 1.0
-offset_top = 4.0
-offset_right = 1179.0
-offset_bottom = 339.0
+offset_left = -2.0
+offset_top = -423.0
+offset_right = 1176.0
+offset_bottom = -88.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="eye(down)" type="ColorRect" parent="." unique_id=1019798708]
 top_level = true
-offset_left = 2.0
-offset_top = 327.0
-offset_right = 1206.0
-offset_bottom = 652.99976
+offset_left = 1.0
+offset_top = 706.0
+offset_right = 1205.0
+offset_bottom = 1031.9998
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -790,10 +662,10 @@ bbcode_enabled = true
 metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1930214066]
-offset_left = 595.0
-offset_top = -206.0
-offset_right = 1105.9991
-offset_bottom = -64.0
+offset_left = 1505.0
+offset_top = 490.0
+offset_right = 2015.9822
+offset_bottom = 631.9995
 color = Color(0.29663417, 0.11581527, 0, 1)
 
 [node name="board" type="RichTextLabel" parent="ColorRect" unique_id=1194706499]
@@ -806,17 +678,25 @@ horizontal_alignment = 1
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect" unique_id=1019534604]
 layout_mode = 0
-offset_left = -845.3627
-offset_top = 64.8667
-offset_right = -805.3627
-offset_bottom = 104.8667
+offset_left = 238.0
+offset_top = 87.0
+offset_right = 278.0
+offset_bottom = 127.0
 color = Color(0.29803923, 0.11764706, 0, 1)
 
 [node name="e_word" type="RichTextLabel" parent="ColorRect/ColorRect2" unique_id=1550654101]
 layout_mode = 0
 offset_left = -1.0
-offset_top = -18.0
+offset_top = 448.0
 offset_right = 35.0
-offset_bottom = 451.00012
+offset_bottom = 917.0112
+rotation = 0.4754769
 theme_override_font_sizes/normal_font_size = 50
 text = "e"
+
+[node name="light" type="ColorRect" parent="." unique_id=1583441796]
+offset_left = 1692.0
+offset_top = -14.0
+offset_right = 2862.0
+offset_bottom = 634.0
+color = Color(0, 0, 0, 1)
