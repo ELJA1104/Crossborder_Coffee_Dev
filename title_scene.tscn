@@ -44,6 +44,7 @@ scale = Vector2(1.875, 1.875)
 texture = ExtResource("2_8vtwa")
 
 [node name="icon" type="Button" parent="Sprite2D" unique_id=1139465944]
+self_modulate = Color(1, 1, 1, 0)
 offset_left = -64.0
 offset_top = -64.000015
 offset_right = 63.99997
@@ -59,9 +60,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="." unique_id=813730836]
-offset_left = 200.0
+offset_left = 168.0
 offset_top = 32.0
-offset_right = 1040.0
+offset_right = 1008.0
 offset_bottom = 153.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 88
@@ -95,6 +96,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -78.99997
+offset_right = 184.44504
+offset_bottom = 60.760002
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
