@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="1_mh3m5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
-size = Vector2(128, 128)
+size = Vector2(128, 72)
 
 [sub_resource type="Animation" id="Animation_k6i54"]
 length = 0.001
@@ -89,7 +89,7 @@ vertical_alignment = 1
 [node name="Area2D" type="Area2D" parent="Icon" unique_id=276294215]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D" unique_id=2013781503]
-position = Vector2(-1.5999756, 0)
+position = Vector2(0, -28)
 shape = SubResource("RectangleShape2D_yf5fn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1541556412]
