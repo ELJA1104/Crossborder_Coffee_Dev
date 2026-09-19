@@ -234,7 +234,6 @@ func cup_is_in_spwaner():
 	tp_to_spwaner()
 	hot_or_iced()
 	drink_select()
-	nothing_loading = true
 
 #======================================================================
 

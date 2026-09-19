@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://df4wgl4i8nkff"]
+
+[ext_resource type="PackedScene" uid="uid://qqpnfwanee66" path="res://Scenes/base_scene.tscn" id="1_57xsf"]
+[ext_resource type="PackedScene" uid="uid://cmfg28dff2vr7" path="res://Scenes/ice_cube.tscn" id="2_qcxwf"]
+
+[node name="Node2D" unique_id=800427921 instance=ExtResource("1_57xsf")]
+
+[node name="ice cube" parent="." index="14" unique_id=522084715 instance=ExtResource("2_qcxwf")]
+position = Vector2(-759, 429)
