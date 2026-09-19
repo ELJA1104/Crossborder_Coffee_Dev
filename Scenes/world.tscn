@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cdx08h2n6xqiv"]
+
+[ext_resource type="Script" uid="uid://cxfbeqipptrfa" path="res://Scenes/player.gd" id="1_8j60k"]
+[ext_resource type="PackedScene" uid="uid://dgfe306jyhme8" path="res://Scenes/GreatWall.tscn" id="2_8j60k"]
+[ext_resource type="PackedScene" uid="uid://pq22bk8wvxcl" path="res://Scenes/cursor.tscn" id="3_5a7ea"]
+[ext_resource type="Script" uid="uid://d2j3jcppm6bmh" path="res://Code/spawner.gd" id="3_fo5ed"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01sja"]
+size = Vector2(1200, 98)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01sja"]
+radius = 3.0
+
+[node name="World" type="Node2D" unique_id=2130750133]
+
+[node name="Player" type="Node2D" parent="." unique_id=1111474708]
+position = Vector2(520, 1312)
+script = ExtResource("1_8j60k")
+
+[node name="Area2D" type="Area2D" parent="Player" unique_id=542193186]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D" unique_id=1600480610]
+position = Vector2(0, -39)
+shape = SubResource("RectangleShape2D_01sja")
+
+[node name="GreatWall" parent="." unique_id=788673175 instance=ExtResource("2_8j60k")]
+position = Vector2(-4, 4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=739326023]
+
+[node name="Crosshair" parent="Area2D" unique_id=989418816 instance=ExtResource("3_5a7ea")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=368609563]
+shape = SubResource("CircleShape2D_01sja")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=1924499976 node_paths=PackedStringArray("player")]
+position = Vector2(26, 32)
+script = ExtResource("3_fo5ed")
+player = NodePath("../Player")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=524669006]
+wait_time = 3.8
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1341148731]
+offset_left = -699.0
+offset_top = 1094.0
+offset_right = 1880.0
+offset_bottom = 2347.0
+color = Color(0.35686275, 0.35686275, 0.35686275, 0.6862745)
+
+[node name="Control" type="Control" parent="ColorRect" unique_id=532758047]
+layout_mode = 1
+anchor_left = 0.275
+anchor_top = 0.009000001
+anchor_right = 0.41200003
+anchor_bottom = 0.26000002
+offset_left = 0.7749634
+offset_top = -0.27700043
+offset_right = -0.5480957
+offset_bottom = -17.78003
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect/Control" unique_id=1843694268]
+layout_mode = 0
+offset_left = 1489.0
+offset_top = 20.0
+offset_right = 1841.0
+offset_bottom = 303.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=757630685]
+position = Vector2(575, 324)
+zoom = Vector2(0.45, 0.45)
+
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="Area2D/Crosshair" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

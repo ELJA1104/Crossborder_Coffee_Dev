@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dgfe306jyhme8"]
+
+[ext_resource type="Script" uid="uid://dg6a7r1womey1" path="res://Code/great_wall.gd" id="1_iovgh"]
+[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="1_wohb0"]
+[ext_resource type="Script" uid="uid://bu1plhrhiw4wl" path="res://Code/wall_health.gd" id="3_iovgh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01sja"]
+size = Vector2(2009, 221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ibi"]
+size = Vector2(2007, 146)
+
+[node name="GreatWall" type="Area2D" unique_id=788673175]
+script = ExtResource("1_iovgh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1079106491]
+position = Vector2(546, 1111)
+scale = Vector2(15.484375, 1.625)
+texture = ExtResource("1_wohb0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=301892188]
+position = Vector2(547, 1110)
+shape = SubResource("RectangleShape2D_01sja")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=942928152]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1708116100]
+position = Vector2(550, 1147)
+shape = SubResource("RectangleShape2D_a2ibi")
+
+[node name="WallHealth" type="ProgressBar" parent="." unique_id=1456687706]
+offset_left = 1414.0
+offset_top = 925.0
+offset_right = 1637.0
+offset_bottom = 964.0
+script = ExtResource("3_iovgh")
+
+[node name="Label" type="Label" parent="WallHealth" unique_id=1902723045]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 947.0
+offset_top = 603.0
+offset_right = 950.0
+offset_bottom = 615.5
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
