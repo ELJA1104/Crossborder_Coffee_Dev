@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cuig2p66f576w"]
 
 [ext_resource type="Script" uid="uid://c0dk8nffg24dq" path="res://Code/item(cocoa_powder).gd" id="1_33fj1"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_o0qtg"]
+[ext_resource type="Texture2D" uid="uid://bi17rje58x0jc" path="res://Assets/PNG/Cocoa powder sprite.png" id="2_33fj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(126, 123)
@@ -19,7 +19,9 @@ input_pickable = true
 script = ExtResource("1_33fj1")
 
 [node name="Sprite2D" type="Sprite2D" parent="item(cocoa powder)" unique_id=194305599]
-texture = ExtResource("2_o0qtg")
+position = Vector2(3.8146973e-06, -1.9073486e-06)
+scale = Vector2(0.097635396, 0.0979342)
+texture = ExtResource("2_33fj1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item(cocoa powder)" unique_id=1021056183]
 position = Vector2(-2, -2.5)

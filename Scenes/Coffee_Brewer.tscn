@@ -58,11 +58,13 @@ theme_override_font_sizes/font_size = 10
 text = "Stop"
 
 [node name="Label" type="Label" parent="." unique_id=1508481027]
+self_modulate = Color(0, 0, 0, 1)
 offset_left = -192.0
-offset_top = 192.0
+offset_top = 176.0
 offset_right = 192.0
-offset_bottom = 240.0
-theme_override_font_sizes/font_size = 20
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 25
+text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
