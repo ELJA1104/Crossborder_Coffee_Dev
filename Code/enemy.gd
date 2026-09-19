@@ -41,3 +41,4 @@ func _on_area_2d_area_entered(body):
 	if "cursor" in body.name:
 		_kill_enemy()
 		
+		
