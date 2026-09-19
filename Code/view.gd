@@ -1,18 +1,12 @@
 extends CharacterBody2D
 
-@export var speed = 100
-@onready var view = self
-var cursor = load("res://Assets/PNG/just_dot.png")
-var cus = preload("res://Scenes/customer_spawn_area.tscn")
 
-func _ready() -> void:
-	Input.set_custom_mouse_cursor(cursor)
-
+const SPEED = 300.0
 
 func _physics_process(delta: float) -> void:
-	movement_lerp(delta)
+	follow_mouse(delta)
 
-func movement_lerp(delta):
+func follow_mouse(delta):
+	var view = self
 	var dir = get_global_mouse_position()
-	var wishvel = dir * delta
-	view.global_position = lerp(view.global_position,wishvel,1)
+	view.global_position = lerp(view.global_position, dir*delta,1)
