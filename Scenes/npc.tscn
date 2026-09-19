@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="6_jcef7"]
 [ext_resource type="PackedScene" uid="uid://cty03jb2sdxnc" path="res://Scenes/Ethan's_Puck.tscn" id="7_njxey"]
 [ext_resource type="Texture2D" uid="uid://db7crvinlosk3" path="res://Assets/PNG/Coffee_Bean.png" id="8_y54i2"]
+[ext_resource type="Shader" uid="uid://b7rdmeu6gxi2b" path="res://hand.gdshader" id="9_qi7up"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(169, 426)
@@ -576,6 +577,7 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t0v5d"]
+shader = ExtResource("9_qi7up")
 
 [node name="npc" type="Node2D" unique_id=1145555013]
 script = ExtResource("1_8gudg")
