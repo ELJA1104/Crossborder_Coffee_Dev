@@ -12,7 +12,7 @@ func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor)
 
 func _physics_process(delta: float) -> void:
-	tp()
+	tp(delta)
 	space()
 
 func space():
@@ -26,10 +26,12 @@ func space():
 		if !toggle:
 			print("false")
 
-func tp():
+func tp(delta):
 	if !toggle:
 		dir = cus_alt.global_position
 		view.global_position = lerp(view.global_position, dir, 0.4)
 	if toggle:
 		dir = pvz_alt.global_position
 		view.global_position = lerp(view.global_position, dir, 0.4)
+	var wishvel = get_global_mouse_position()*delta
+	view.global_position = lerp(view.global_position, wishvel+dir, 0.4)
