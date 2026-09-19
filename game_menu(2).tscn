@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://0xyccml2vy2u"]
+
+[ext_resource type="Script" uid="uid://dt6q5pqkjbpie" path="res://game_menu(2).gd" id="1_savlp"]
+
+[sub_resource type="FontVariation" id="FontVariation_r8lft"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2m13f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t0v5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nsoho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13w1b"]
+
+[node name="game_menu(2)" type="Node2D" unique_id=1986282186]
+script = ExtResource("1_savlp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1261157036]
+
+[node name="给vernon：换成你的" type="Node2D" parent="." unique_id=1873540856]
+
+[node name="IDCard_Physical" type="Control" parent="." unique_id=1544848982]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 400.0
+offset_top = 250.0
+offset_right = 750.0
+offset_bottom = 500.0
+rotation = 0.05235988
+
+[node name="shop" type="Button" parent="IDCard_Physical" unique_id=1799567292]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.1700001
+anchor_top = -0.89300007
+anchor_right = -1.1700001
+anchor_bottom = -0.89300007
+offset_left = 36.89514
+offset_top = 527.1671
+offset_right = 296.27225
+offset_bottom = 625.70764
+rotation = -0.052675657
+theme_override_colors/font_color = Color(0.101960786, 0, 0.2509804, 1)
+theme_override_colors/font_pressed_color = Color(0.44313726, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(18.892157, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_r8lft")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2m13f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t0v5d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nsoho")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13w1b")
+text = "TO SHOP"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IDCard_Physical" unique_id=591529786]
+layout_mode = 0
+offset_left = 444.54575
+offset_top = -249.60783
+offset_right = 622.5458
+offset_bottom = -82.607834
+rotation = -0.0648592
+scale = Vector2(1.374864, 1.7214582)
+
+[node name="Btn_Start" type="Button" parent="IDCard_Physical/VBoxContainer" unique_id=2104471846]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101960786, 0, 0.2509804, 1)
+theme_override_colors/font_pressed_color = Color(0.44313726, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(18.892157, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_r8lft")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2m13f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t0v5d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nsoho")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13w1b")
+text = "VENTURE "
+
+[node name="Btn_Load" type="Button" parent="IDCard_Physical/VBoxContainer" unique_id=617118457]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101960786, 0, 0.2509804, 1)
+theme_override_colors/font_pressed_color = Color(0.44313726, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(18.892157, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_r8lft")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2m13f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t0v5d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nsoho")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13w1b")
+text = "SPECS "
+
+[node name="Btn_Quit" type="Button" parent="IDCard_Physical/VBoxContainer" unique_id=793963444]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101960786, 0, 0.2509804, 1)
+theme_override_colors/font_pressed_color = Color(0.44313726, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(18.892157, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_r8lft")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2m13f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t0v5d")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_nsoho")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13w1b")
+text = "ABANDON "
+
+[node name="shop_page" type="Node2D" parent="." unique_id=597879877]
+
+[connection signal="pressed" from="IDCard_Physical/shop" to="." method="_on_shop_pressed"]
+[connection signal="pressed" from="IDCard_Physical/VBoxContainer/Btn_Quit" to="." method="_on_btn_quit_pressed"]
