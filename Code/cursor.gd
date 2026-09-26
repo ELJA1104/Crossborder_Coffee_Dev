@@ -9,11 +9,12 @@ func _physics_process(delta: float) -> void:
 
 func _input(event):
 	if event.is_action_pressed("m1"):
-		_kill_enemy()
+		_killed_enemy()
 		
 
-func _kill_enemy():
+func _killed_enemy():
+	print("You have slayed a zombie!")
 	queue_free()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	pass
+	pass 

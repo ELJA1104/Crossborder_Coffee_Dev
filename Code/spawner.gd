@@ -3,7 +3,7 @@ extends Node2D
 @export var player : Player
 
 const WIDTH = 1300
-const HEIGHT = 150
+const HEIGHT = 50
 const ENEMY = preload("res://Scenes/Enemy.tscn")
 
 var spawnArea = Rect2()

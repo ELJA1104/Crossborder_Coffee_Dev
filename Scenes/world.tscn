@@ -25,7 +25,7 @@ position = Vector2(0, -92)
 shape = SubResource("RectangleShape2D_01sja")
 
 [node name="GreatWall" parent="." unique_id=788673175 instance=ExtResource("2_8j60k")]
-position = Vector2(2207, -585)
+position = Vector2(5, -4)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=739326023]
 

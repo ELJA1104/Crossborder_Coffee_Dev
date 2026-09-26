@@ -1,4 +1,4 @@
-class_name Enemy
+class_name Enemy2
 extends CharacterBody2D
 
 var target : Player
@@ -37,8 +37,7 @@ func _physics_process(delta: float) -> void:
 func _kill_enemy():
 	queue_free()
 	
-func _on_area_2d_area_entered(body: Node2D) -> void:
+
+func _on_hitbox_area_entered(body):
 	if "cursor" in body.name:
 		_kill_enemy()
-		
-		
