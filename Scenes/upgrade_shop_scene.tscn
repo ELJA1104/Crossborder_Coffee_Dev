@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://dn5j3chu7p01h" path="res://Code/upgrade_shop_scene.gd" id="1_dnv1f"]
 [ext_resource type="Texture2D" uid="uid://bmsq06euhof45" path="res://Assets/PNG/Gun.png" id="2_5hkf3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fwwm"]
-size = Vector2(328, 160)
-
 [sub_resource type="Animation" id="Animation_5hkf3"]
 length = 0.001
 tracks/0/type = "value"
@@ -42,9 +39,12 @@ _data = {
 &"door opening animation": SubResource("Animation_d2mlb")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fwwm"]
+size = Vector2(328, 160)
+
 [node name="Upgrade shop scene" type="Node2D" unique_id=1535892368 node_paths=PackedStringArray("node2d", "anim_plyr")]
 script = ExtResource("1_dnv1f")
-node2d = NodePath("Deagle")
+node2d = NodePath("")
 anim_plyr = NodePath("AnimationPlayer")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=119451301]
@@ -110,38 +110,6 @@ theme_override_font_sizes/font_size = 24
 text = "Guns"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Deagle" type="Node2D" parent="." unique_id=717104424]
-position = Vector2(-400, -136)
-
-[node name="ColorRect" type="ColorRect" parent="Deagle" unique_id=1535619891]
-offset_left = -88.0
-offset_top = -32.0
-offset_right = 256.0
-offset_bottom = 144.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gun" type="Sprite2D" parent="Deagle" unique_id=2106569586]
-position = Vector2(-0.40000153, 56.6)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_5hkf3")
-
-[node name="Test" type="Area2D" parent="Deagle" unique_id=943042216]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deagle/Test" unique_id=23737667]
-position = Vector2(84, 56)
-shape = SubResource("RectangleShape2D_5fwwm")
-debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
-
-[node name="Label" type="Label" parent="Deagle" unique_id=1652051917]
-offset_left = 80.0
-offset_top = -19.0
-offset_right = 240.0
-offset_bottom = 136.0
-text = "Name: DEagle
-Price: 35,000 Credits
-Hp Damage: 20"
 
 [node name="Secret Hack" type="Node2D" parent="." unique_id=1349056093]
 position = Vector2(312, -176)
@@ -269,8 +237,249 @@ text = "Click to buy"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=832521914]
 libraries/ = SubResource("AnimationLibrary_luo8r")
 
-[connection signal="mouse_entered" from="Deagle/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_exited" from="Deagle/Test" to="." method="_on_test_mouse_exited"]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=569535054]
+offset_left = -488.0
+offset_top = -168.0
+offset_right = -88.0
+offset_bottom = 232.0
+size_flags_horizontal = 3
+draw_focus_border = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+scroll_hint_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1060751645]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Deagle2" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=838631411]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+offset_transform_position = Vector2(0, 7.175)
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle2" unique_id=1298625196]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 340.0
+offset_bottom = 172.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle2" unique_id=57710092]
+position = Vector2(83.6, 84.6)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_5hkf3")
+
+[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle2" unique_id=470313232]
+position = Vector2(84, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle2/Test" unique_id=604861491]
+position = Vector2(84, 56)
+shape = SubResource("RectangleShape2D_5fwwm")
+debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle2" unique_id=509203273]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 9.0
+offset_right = 324.0
+offset_bottom = 164.0
+text = "Name: DEagle
+Price: 35,000 Credits
+Hp Damage: 20"
+
+[node name="Deagle3" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=2017695722]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle3" unique_id=1541810820]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 340.0
+offset_bottom = 172.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle3" unique_id=876311572]
+position = Vector2(83.6, 84.6)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_5hkf3")
+
+[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle3" unique_id=1542979624]
+position = Vector2(84, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle3/Test" unique_id=1220938017]
+position = Vector2(84, 56)
+shape = SubResource("RectangleShape2D_5fwwm")
+debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle3" unique_id=1195864013]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 9.0
+offset_right = 324.0
+offset_bottom = 164.0
+text = "Name: DEagle
+Price: 35,000 Credits
+Hp Damage: 20"
+
+[node name="Deagle4" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=914154036]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle4" unique_id=1528408965]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 340.0
+offset_bottom = 172.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle4" unique_id=777085699]
+position = Vector2(83.6, 84.6)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_5hkf3")
+
+[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle4" unique_id=1239749817]
+position = Vector2(84, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle4/Test" unique_id=1558689245]
+position = Vector2(84, 56)
+shape = SubResource("RectangleShape2D_5fwwm")
+debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle4" unique_id=127050815]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 9.0
+offset_right = 324.0
+offset_bottom = 164.0
+text = "Name: DEagle
+Price: 35,000 Credits
+Hp Damage: 20"
+
+[node name="Deagle5" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1782781560]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+offset_transform_position = Vector2(0, 7.175)
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle5" unique_id=410469466]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 340.0
+offset_bottom = 172.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle5" unique_id=1542424878]
+position = Vector2(83.6, 84.6)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_5hkf3")
+
+[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle5" unique_id=83319828]
+position = Vector2(84, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle5/Test" unique_id=720865132]
+position = Vector2(84, 56)
+shape = SubResource("RectangleShape2D_5fwwm")
+debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle5" unique_id=1103359942]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 9.0
+offset_right = 324.0
+offset_bottom = 164.0
+text = "Name: DEagle
+Price: 35,000 Credits
+Hp Damage: 20"
+
+[node name="Deagle6" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=974539559]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle6" unique_id=1473438855]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 340.0
+offset_bottom = 172.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle6" unique_id=1396037388]
+position = Vector2(83.6, 84.6)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_5hkf3")
+
+[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle6" unique_id=1432813779]
+position = Vector2(84, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle6/Test" unique_id=1315892733]
+position = Vector2(84, 56)
+shape = SubResource("RectangleShape2D_5fwwm")
+debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle6" unique_id=2005480737]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 9.0
+offset_right = 324.0
+offset_bottom = 164.0
+text = "Name: DEagle
+Price: 35,000 Credits
+Hp Damage: 20"
+
+[node name="Deagle7" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=71411734]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle7" unique_id=1728157013]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 340.0
+offset_bottom = 172.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle7" unique_id=1893291071]
+position = Vector2(83.6, 84.6)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_5hkf3")
+
+[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle7" unique_id=1482223027]
+position = Vector2(84, 28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle7/Test" unique_id=232462883]
+position = Vector2(84, 56)
+shape = SubResource("RectangleShape2D_5fwwm")
+debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle7" unique_id=940972020]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 9.0
+offset_right = 324.0
+offset_bottom = 164.0
+text = "Name: DEagle
+Price: 35,000 Credits
+Hp Damage: 20"
+
 [connection signal="pressed" from="Secret Hack/Secret Hack buy button" to="." method="_on_secret_hack_buy_button_pressed"]
 [connection signal="pressed" from="Secret Hack/Node2D/Coffee Bean Hack" to="." method="_on_coffee_bean_hack_pressed"]
 [connection signal="pressed" from="Secret Hack/Node2D/Milk Hack" to="." method="_on_milk_hack_pressed"]
@@ -282,3 +491,15 @@ libraries/ = SubResource("AnimationLibrary_luo8r")
 [connection signal="pressed" from="Secret Hack/Node2D/Cinnamon Hack" to="." method="_on_cinnamon_hack_pressed"]
 [connection signal="pressed" from="Wall repair/Wall repair button" to="." method="_on_wall_repair_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle2/Test" to="." method="_on_test_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle2/Test" to="." method="_on_test_mouse_exited"]
+[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle3/Test" to="." method="_on_test_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle3/Test" to="." method="_on_test_mouse_exited"]
+[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle4/Test" to="." method="_on_test_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle4/Test" to="." method="_on_test_mouse_exited"]
+[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle5/Test" to="." method="_on_test_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle5/Test" to="." method="_on_test_mouse_exited"]
+[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle6/Test" to="." method="_on_test_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle6/Test" to="." method="_on_test_mouse_exited"]
+[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle7/Test" to="." method="_on_test_mouse_entered"]
+[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle7/Test" to="." method="_on_test_mouse_exited"]

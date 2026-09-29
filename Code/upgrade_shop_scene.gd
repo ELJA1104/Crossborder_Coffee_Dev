@@ -65,3 +65,6 @@ func _on_cinnamon_hack_pressed() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "door opening animation":
 		opened = true
+
+func _on_v_slider_value_changed(value: float) -> void:
+	pass # Replace with function body.
