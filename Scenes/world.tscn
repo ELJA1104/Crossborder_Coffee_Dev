@@ -25,7 +25,7 @@ position = Vector2(0, -92)
 shape = SubResource("RectangleShape2D_01sja")
 
 [node name="GreatWall" parent="." unique_id=788673175 instance=ExtResource("2_8j60k")]
-position = Vector2(2207, -585)
+position = Vector2(1, -4)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=739326023]
 
@@ -45,7 +45,7 @@ wait_time = 3.8
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1341148731]
 offset_left = -721.0
 offset_top = 1120.0
-offset_right = 1858.0
+offset_right = 1871.0
 offset_bottom = 2373.0
 color = Color(0.35686275, 0.35686275, 0.35686275, 0.6862745)
 

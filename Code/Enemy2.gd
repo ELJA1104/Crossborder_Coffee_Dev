@@ -1,14 +1,12 @@
-class_name Enemy
+class_name Enemy2
 extends CharacterBody2D
 
 var target : Player
-
 
 @export var start_y: float = 0
 @export var max_forward_y: float = 650
 @export var min_scale: float = 1
 @export var max_scale: float = 8
-@export var scale_sprite: Vector2
 
 
 var SPEED = 75
@@ -39,8 +37,7 @@ func _physics_process(delta: float) -> void:
 func _kill_enemy():
 	queue_free()
 	
-func _on_area_2d_area_entered(body: Node2D) -> void:
+
+func _on_hitbox_area_entered(body):
 	if "cursor" in body.name:
 		_kill_enemy()
-		
-		

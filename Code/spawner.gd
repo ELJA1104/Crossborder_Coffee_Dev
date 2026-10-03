@@ -42,7 +42,7 @@ func _on_timer_timeout() -> void:
 	
 #func _draw():
 	#var radius = 15
-	#draw_rect(spawnArea, Color(0.375, 0.375, 0.375, 0.0))
+	#draw_rect(spawnArea, Color(0.329, 0.329, 0.329, 0.0))
 	#
 	#for i in range(20):
 		#draw_circle(_spawn_enemy(), radius, Color.TRANSPARENT)
