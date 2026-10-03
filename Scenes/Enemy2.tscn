@@ -23,6 +23,8 @@ shape = SubResource("RectangleShape2D_xeo28")
 debug_color = Color(0.2901961, 0.6313726, 0, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1068579920]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1428582511]
 shape = SubResource("CircleShape2D_a2ibi")

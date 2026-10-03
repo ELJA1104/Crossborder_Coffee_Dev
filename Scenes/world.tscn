@@ -78,10 +78,6 @@ text = "Start
 "
 script = ExtResource("5_fo5ed")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=757630685]
-position = Vector2(575, 324)
-zoom = Vector2(0.45, 0.45)
-
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D" to="Area2D/Crosshair" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

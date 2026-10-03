@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 			
 		elif is_filling == false:
 			cup.cup_stop_fill()
+			cup.cup_return_to_zero()
 			
 		if cup.Progress_Bar_cup.value >= 99:
 			cup.menu_in_coffe()

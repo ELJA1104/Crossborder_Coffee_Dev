@@ -11,6 +11,8 @@ size = Vector2(5322, 333.5)
 size = Vector2(5222, 222)
 
 [node name="GreatWall" type="Area2D" unique_id=788673175]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_iovgh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1079106491]
@@ -23,6 +25,8 @@ position = Vector2(549, 1053.75)
 shape = SubResource("RectangleShape2D_01sja")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=942928152]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1708116100]
 position = Vector2(546, 1109)

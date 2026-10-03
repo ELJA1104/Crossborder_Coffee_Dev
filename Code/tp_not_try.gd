@@ -29,9 +29,9 @@ func space():
 func tp(delta):
 	if !toggle:
 		dir = cus_alt.global_position
-		view.global_position = lerp(view.global_position, dir, 0.4)
+		view.global_position = lerp(view.global_position, dir, 0.1)
 	if toggle:
 		dir = pvz_alt.global_position
-		view.global_position = lerp(view.global_position, dir, 0.4)
+		view.global_position = lerp(view.global_position, dir, 0.1)
 	var wishvel = get_global_mouse_position()*delta
 	view.global_position = lerp(view.global_position, wishvel+dir, 0.4)

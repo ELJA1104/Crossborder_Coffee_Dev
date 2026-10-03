@@ -11,8 +11,8 @@ size = Vector2(34, 3)
 radius = 25.019993
 
 [node name="Enemy" type="CharacterBody2D" unique_id=503198342]
-collision_layer = 2
-collision_mask = 3
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_wovta")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=578340149]
@@ -28,6 +28,8 @@ shape = SubResource("RectangleShape2D_jcd86")
 debug_color = Color(0.3546412, 0.08574786, 0.07739062, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1453927239]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=240369641]
 position = Vector2(0, -21)

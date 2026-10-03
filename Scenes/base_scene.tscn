@@ -172,9 +172,6 @@ anim_plyr = NodePath("AnimationPlayer")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=272407408]
 libraries/ = SubResource("AnimationLibrary_xinke")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1874151898]
-zoom = Vector2(0.6, 0.6)
-
 [node name="Customer spawn area" parent="." unique_id=184865186 instance=ExtResource("10_pw8rc")]
 position = Vector2(0, -96)
 scale = Vector2(1.5, 1.5)
@@ -242,12 +239,12 @@ position = Vector2(240, 336)
 [node name="ColorRect" type="ColorRect" parent="." unique_id=304660983]
 offset_left = -904.0
 offset_top = -1696.0
-offset_right = 904.0
+offset_right = 1128.0
 offset_bottom = -640.0
 color = Color(0.2914629, 0.27195957, 0.2493422, 1)
 
 [node name="CoffeeIngredientsList" type="Sprite2D" parent="ColorRect" unique_id=1284983211]
-position = Vector2(903.99994, 559.99994)
+position = Vector2(1015.99994, 559.99994)
 scale = Vector2(1.072796, 1.111461)
 texture = ExtResource("16_6c73o")
 
