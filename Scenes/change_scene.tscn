@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bc5ti7kx4vip1"]
+
+[ext_resource type="Script" uid="uid://bhydkbu8uyxgy" path="res://Code/tp_not_try.gd" id="1_70pe2"]
+[ext_resource type="PackedScene" uid="uid://d030l51eoqsom" path="res://Scenes/view.tscn" id="3_tsppp"]
+
+[node name="change_scene" type="Node2D" unique_id=753283931]
+script = ExtResource("1_70pe2")
+
+[node name="pvz_alt" type="Node2D" parent="." unique_id=1290254239]
+position = Vector2(-858, 0)
+
+[node name="Label" type="Label" parent="pvz_alt" unique_id=1782168311]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "zombie"
+
+[node name="cus_alt" type="Node2D" parent="." unique_id=584802593]
+
+[node name="Label" type="Label" parent="cus_alt" unique_id=940785562]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "cus"
+
+[node name="view" parent="." unique_id=496351714 instance=ExtResource("3_tsppp")]
+position = Vector2(783, 3)
