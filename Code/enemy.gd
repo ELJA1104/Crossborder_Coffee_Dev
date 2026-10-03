@@ -3,10 +3,12 @@ extends CharacterBody2D
 
 var target : Player
 
+
 @export var start_y: float = 0
 @export var max_forward_y: float = 650
 @export var min_scale: float = 1
 @export var max_scale: float = 8
+@export var scale_sprite: Vector2
 
 
 var SPEED = 75
