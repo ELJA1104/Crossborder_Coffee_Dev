@@ -1,36 +1,8 @@
 [gd_scene format=3 uid="uid://bmrjo0a7t2dgr"]
 
 [ext_resource type="Script" uid="uid://sgo3h3vfu2rq" path="res://Code/setting.gd" id="1_h44gi"]
-[ext_resource type="Texture2D" uid="uid://icdeunb87jkf" path="res://Assets/PNG/just_dot.png" id="2_47wfv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqtub"]
-size = Vector2(648, 48)
 
 [node name="setting" type="Control" unique_id=2016926726]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_h44gi")
-
-[node name="dot1" type="Node2D" parent="." unique_id=993911218]
-position = Vector2(96, 104)
-
-[node name="Sprite2D" type="Sprite2D" parent="dot1" unique_id=186749394]
-scale = Vector2(23.999998, 24)
-texture = ExtResource("2_47wfv")
-
-[node name="Area2D" type="Area2D" parent="." unique_id=383713884]
-position = Vector2(96, 104)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1105364675]
-position = Vector2(300, 0)
-shape = SubResource("RectangleShape2D_sqtub")
-
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1753402881]
-layout_mode = 0
-offset_left = 760.0
-offset_top = 88.0
-offset_right = 888.0
-offset_bottom = 115.0
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
