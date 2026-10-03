@@ -1,6 +1,7 @@
 extends Node2D
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var dialog_text: RichTextLabel = $text
+@onready var board: RichTextLabel = $ColorRect/board
 
 func _ready():
 	dialog_text.bbcode_enabled = true 
@@ -10,7 +11,6 @@ func _ready():
 func run_story_sequence():
 	if anim_player.has_animation("intro"):
 		anim_player.play("intro")
-
 	await display_line("[center][color=gray](Wake up... wake up...)[/color][/center]", 1.0)
 	await get_tree().create_timer(1.0).timeout
 	await display_line("[center]Whoa! You're finally awake! Let me introduce myself, I'm the Pioneer here.[/center]", 2.0)
@@ -38,7 +38,15 @@ func run_story_sequence():
 	await display_line("[center]There are plenty of ingredients here for you to mix! Good luck... I'm outta here![/center]", 2.0)
 	await get_tree().create_timer(0.5).timeout
 	anim_player.play("ending")
-	display_line("[center][b][color=yellow]..........[/color][/b][/center]", 0.1)
+	await display_line("[center][b][color=yellow]..........[/color][/b][/center]", 0.1)
+	await get_tree().create_timer(0.5).timeout
+	await display_line(" ", 0.1)
+	await get_tree().create_timer(5.5).timeout
+	anim_player.play("board")
+	await get_tree().create_timer(1).timeout
+	await display_line_board("CROSSBORDER Coffee Shop",0.1)
+	await get_tree().create_timer(0.5).timeout
+	anim_player.play("e_missing")
 
 func display_line(new_text: String, duration: float) -> Signal:
 	dialog_text.text = new_text
@@ -46,3 +54,16 @@ func display_line(new_text: String, duration: float) -> Signal:
 	var text_tween = create_tween()
 	text_tween.tween_property(dialog_text, "visible_ratio", 1.0, duration)
 	return text_tween.finished
+
+func display_line_board(new_text: String, duration: float) -> Signal:
+	board.text = new_text
+	board.visible_ratio = 0.0 
+	var text_tween = create_tween()	
+	text_tween.tween_property(board, "visible_ratio", 1.0, duration)
+	return text_tween.finished
+
+func drop_board():
+	anim_player.play("drop_board")
+	await get_tree().create_timer(2).timeout
+	anim_player.play("opening animation")
+	pass
