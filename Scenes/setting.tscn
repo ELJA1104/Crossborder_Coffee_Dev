@@ -1,8 +1,29 @@
 [gd_scene format=3 uid="uid://bmrjo0a7t2dgr"]
 
 [ext_resource type="Script" uid="uid://sgo3h3vfu2rq" path="res://Code/setting.gd" id="1_h44gi"]
+[ext_resource type="PackedScene" uid="uid://tnw8klvkp8u3" path="res://Scenes/screen_size.tscn" id="2_47wfv"]
 
 [node name="setting" type="Control" unique_id=2016926726]
 layout_mode = 3
 anchors_preset = 0
+offset_left = 153.0
+offset_top = 145.0
+offset_right = 153.0
+offset_bottom = 145.0
+pivot_offset = Vector2(424, 184)
 script = ExtResource("1_h44gi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1510819138]
+layout_mode = 0
+offset_left = -153.0
+offset_top = -145.0
+offset_right = 999.0
+offset_bottom = 503.0
+color = Color(1, 1, 1, 0.42745098)
+
+[node name="screen_size" parent="." unique_id=1622477845 instance=ExtResource("2_47wfv")]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 375.0
+offset_right = 135.0
+offset_bottom = 375.0

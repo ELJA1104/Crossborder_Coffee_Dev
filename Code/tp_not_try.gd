@@ -6,6 +6,7 @@ extends Node2D
 
 var dir
 var toggle : bool = false
+var esc: bool = false
 var cursor = load("res://Assets/PNG/just_dot.png")
 
 func _ready() -> void:
@@ -14,6 +15,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	tp()
 	space()
+	settings()
 
 func space():
 	if Input.is_action_just_pressed("space"):
@@ -33,4 +35,13 @@ func tp():
 	if toggle:
 		dir = pvz_alt.global_position
 		view.global_position = lerp(view.global_position, dir, 0.5)
+	$setting.global_position.y = view.global_position.y
 	view.global_position = lerp(view.global_position, get_global_mouse_position()-dir, 0.1)
+
+func settings():
+	if Input.is_action_just_pressed("esc"):
+		esc = true
+		if esc == false:
+			$setting.global_position = lerp($setting.global_position , view.global_position, 0.1)
+		else:
+			$setting.global_position.y -= view.global_position.y

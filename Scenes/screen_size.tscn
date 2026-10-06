@@ -2,33 +2,57 @@
 
 [ext_resource type="Script" uid="uid://c4sp8i37p01s5" path="res://Code/screen_size.gd" id="1_ym3mg"]
 
-[node name="screen_size" type="Control" unique_id=1622477845]
+[node name="screen_size" type="Control" unique_id=869344849]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ym3mg")
 
 [node name="Button" type="Button" parent="." unique_id=1718821167]
 layout_mode = 0
-offset_left = 632.0
-offset_top = 328.0
-offset_right = 688.0
-offset_bottom = 416.0
+offset_left = 152.0
+offset_top = -32.0
+offset_right = 192.0
+offset_bottom = 32.0
 
 [node name="Button2" type="Button" parent="." unique_id=123054147]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 328.0
-offset_right = 168.0
-offset_bottom = 416.0
+offset_left = -192.0
+offset_top = -32.0
+offset_right = -152.0
+offset_bottom = 32.0
 
 [node name="Label" type="Label" parent="." unique_id=666342483]
 layout_mode = 0
-offset_left = 168.0
-offset_top = 328.0
-offset_right = 632.0
-offset_bottom = 416.0
+offset_left = -152.0
+offset_top = -32.0
+offset_right = 152.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "awa"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="OptionButton" type="OptionButton" parent="." unique_id=1827404785]
+layout_mode = 0
+offset_left = -152.0
+offset_top = -32.0
+offset_right = 152.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+flat = true
+item_count = 3
+popup/item_0/text = "1920×1080"
+popup/item_0/id = 0
+popup/item_1/text = "1280×720"
+popup/item_1/id = 1
+popup/item_2/text = "960×540"
+popup/item_2/id = 2
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]
