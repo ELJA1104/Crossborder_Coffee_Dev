@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var player : Player
+@onready var spawn_timer : Timer = $Timer
 
 const WIDTH = 1300
 const HEIGHT = 150
@@ -16,7 +17,7 @@ var offset = 4
 func _ready() -> void:
 	randomize()
 	spawnArea = Rect2(0, 0, WIDTH, HEIGHT)
-	_set_next_spawn()
+	
 	
 func _spawn_enemy():
 	var position = Vector2(randi()%WIDTH, randi()%HEIGHT)
@@ -31,11 +32,11 @@ func _spawn_enemy():
 	
 func _set_next_spawn():
 	var nextTime = delta + (randf() - 0.5)*2*offset
-	$Timer.wait_time = nextTime
-	$Timer.start()
+	spawn_timer.wait_time = nextTime
+	spawn_timer.start()
 	
 
-func _on_timer_timeout() -> void:
+func _on_timer_timeout():
 	_spawn_enemy()
 	_set_next_spawn()
 	
@@ -47,3 +48,6 @@ func _on_timer_timeout() -> void:
 	#for i in range(20):
 		#draw_circle(_spawn_enemy(), radius, Color.TRANSPARENT)
 		#
+
+func _start_spawner() -> void:
+	_set_next_spawn()

@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dgfe306jyhme8" path="res://Scenes/GreatWall.tscn" id="2_8j60k"]
 [ext_resource type="PackedScene" uid="uid://pq22bk8wvxcl" path="res://Scenes/cursor.tscn" id="3_5a7ea"]
 [ext_resource type="Script" uid="uid://d2j3jcppm6bmh" path="res://Code/spawner.gd" id="3_fo5ed"]
-[ext_resource type="Script" uid="uid://irjo26r7yjtf" path="res://Scenes/start_button.gd" id="5_fo5ed"]
+[ext_resource type="Script" uid="uid://irjo26r7yjtf" path="res://Code/start_button.gd" id="5_fo5ed"]
+[ext_resource type="Script" uid="uid://cu38gix1xwrta" path="res://Code/paused_button.gd" id="6_5ukr8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01sja"]
 size = Vector2(1200, 98)
@@ -43,10 +44,10 @@ player = NodePath("../Player")
 wait_time = 3.8
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1341148731]
-offset_left = -721.0
-offset_top = 1120.0
-offset_right = 1871.0
-offset_bottom = 2373.0
+offset_left = -735.0
+offset_top = 906.0
+offset_right = 1857.0
+offset_bottom = 2159.0
 color = Color(0.35686275, 0.35686275, 0.35686275, 0.6862745)
 
 [node name="Control" type="Control" parent="ColorRect" unique_id=532758047]
@@ -65,24 +66,34 @@ layout_mode = 0
 offset_left = 1489.0
 offset_top = 20.0
 offset_right = 1841.0
-offset_bottom = 303.0
+offset_bottom = 364.0
 
 [node name="StartButton" type="Button" parent="ColorRect/Control" unique_id=1450589621]
 layout_mode = 0
-offset_left = 1511.0
-offset_top = 39.0
-offset_right = 1820.0
-offset_bottom = 130.0
+offset_left = 1510.425
+offset_top = 38.0
+offset_right = 1819.425
+offset_bottom = 129.0
 theme_override_font_sizes/font_size = 60
 text = "Start
 "
 script = ExtResource("5_fo5ed")
 
+[node name="PausedButton" type="Button" parent="ColorRect/Control" unique_id=1293385668]
+layout_mode = 0
+offset_left = 1512.425
+offset_top = 146.0
+offset_right = 1824.425
+offset_bottom = 249.0
+theme_override_font_sizes/font_size = 60
+text = "Pause"
+script = ExtResource("6_5ukr8")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=757630685]
-position = Vector2(575, 324)
+position = Vector2(562, 639)
 zoom = Vector2(0.45, 0.45)
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D" to="Area2D/Crosshair" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
-[connection signal="pressed" from="ColorRect/Control/StartButton" to="ColorRect/Control/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="ColorRect/Control/StartButton" to="Spawner" method="_start_spawner"]
