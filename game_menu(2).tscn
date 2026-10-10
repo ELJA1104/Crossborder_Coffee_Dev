@@ -22,11 +22,11 @@ script = ExtResource("1_savlp")
 [node name="IDCard_Physical" type="Control" parent="." unique_id=1544848982]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 400.0
-offset_top = 250.0
-offset_right = 750.0
-offset_bottom = 500.0
-rotation = 0.05235988
+offset_left = 0.9999981
+offset_top = 1.0
+offset_right = 1145.7698
+offset_bottom = 646.0948
+rotation = -0.001965776
 
 [node name="shop" type="Button" parent="IDCard_Physical" unique_id=1799567292]
 layout_mode = 1
@@ -35,11 +35,11 @@ anchor_left = -1.1700001
 anchor_top = -0.89300007
 anchor_right = -1.1700001
 anchor_bottom = -0.89300007
-offset_left = 36.89514
-offset_top = 527.1671
-offset_right = 296.27225
-offset_bottom = 625.70764
-rotation = -0.052675657
+offset_left = 1499.0667
+offset_top = 998.89197
+offset_right = 1758.4437
+offset_bottom = 1097.4325
+rotation = -0.004552655
 theme_override_colors/font_color = Color(0.101960786, 0, 0.2509804, 1)
 theme_override_colors/font_pressed_color = Color(0.44313726, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(18.892157, 0, 0, 1)
@@ -53,11 +53,11 @@ text = "TO SHOP"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="IDCard_Physical" unique_id=591529786]
 layout_mode = 0
-offset_left = 444.54575
-offset_top = -249.60783
-offset_right = 622.5458
-offset_bottom = -82.607834
-rotation = -0.0648592
+offset_left = 157.87
+offset_top = 66.31047
+offset_right = 335.87003
+offset_bottom = 233.31047
+rotation = -0.0076819733
 scale = Vector2(1.374864, 1.7214582)
 
 [node name="Btn_Start" type="Button" parent="IDCard_Physical/VBoxContainer" unique_id=2104471846]
