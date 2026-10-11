@@ -78,7 +78,7 @@ func _on_button_pressed() -> void:
 	if opened == false:
 		pass
 	elif opened == true:
-		ran_txt_label.text = ""
+		info_txt_label.text = ""
 		var a = 1
 		for i in range (1000):
 			ran_txt_label.text = str(a)
