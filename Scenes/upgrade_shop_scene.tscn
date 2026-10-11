@@ -45,10 +45,8 @@ size = Vector2(328, 160)
 [node name="Upgrade shop scene" type="Node2D" unique_id=1535892368 node_paths=PackedStringArray("anim_plyr", "ran_txt_label", "info_txt_label")]
 script = ExtResource("1_dnv1f")
 anim_plyr = NodePath("AnimationPlayer")
-ran_txt_label = NodePath("Secret Hack/Label")
-info_txt_label = NodePath("Secret Hack/Label2")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=119451301]
+ran_txt_label = NodePath("Secret Hack/Hack Label")
+info_txt_label = NodePath("Secret Hack/Info Label")
 
 [node name="Colorrect nodes" type="Node2D" parent="." unique_id=2136117316]
 
@@ -149,7 +147,7 @@ offset_right = 96.0
 offset_bottom = 360.0
 text = "Gamble"
 
-[node name="Label" type="Label" parent="Secret Hack" unique_id=1167889937]
+[node name="Hack Label" type="Label" parent="Secret Hack" unique_id=1167889937]
 offset_left = -112.0
 offset_top = 176.0
 offset_right = 128.0
@@ -157,11 +155,12 @@ offset_bottom = 224.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Secret Hack" unique_id=2131113549]
+[node name="Info Label" type="Label" parent="Secret Hack" unique_id=2131113549]
 offset_left = -184.0
-offset_top = 248.0
+offset_top = 224.0
 offset_right = 200.0
-offset_bottom = 296.0
+offset_bottom = 288.0
+theme_override_font_sizes/font_size = 14
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -169,7 +168,7 @@ vertical_alignment = 1
 offset_left = -184.0
 offset_top = 104.0
 offset_right = 200.0
-offset_bottom = 448.00012
+offset_bottom = 440.0
 mouse_filter = 2
 color = Color(0.17163703, 0.17163706, 0.171637, 1)
 

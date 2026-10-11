@@ -44,39 +44,41 @@ func num_def(selection_num):
 	if selection_num == 1:
 		Noel_sEvent.Coffee_Bean_Hack_enabled = true
 		ran_txt_label.text = "Coffee Bean Buff"
-		info_txt_label.text = "Damage +4"
+		info_txt_label.text = "Damage to Zombies increased by 4"
 	elif  selection_num == 2:
 		Noel_sEvent.Milk_Hack_enabled = true
 		ran_txt_label.text = "Milk Buff"
-		info_txt_label.text = "Gun fire rate +10%"
+		info_txt_label.text = "Gun fire rate increased by 10%"
 	elif selection_num == 3:
 		Noel_sEvent.Milk_Cream_Hack_enabled = true
 		ran_txt_label.text = "Milk Cream Buff"
-		info_txt_label.text = "Zombie speed -10%"
+		info_txt_label.text = "Zombie speed reduced by 10%"
 	elif selection_num == 4:
 		Noel_sEvent.Ice_Hack_enabled = true
 		ran_txt_label.text = "Ice Buff"
-		info_txt_label.text = "Zombie freeze rate +5%"
+		info_txt_label.text = "Zombie freeze rate increased by 5%"
 	elif selection_num == 5:
 		Noel_sEvent.Cocoa_Hack_enabled = true
 		ran_txt_label.text = "Cocoa Powder Buff"
-		info_txt_label.text = "Time +10s"
+		info_txt_label.text = "Zombies will be frozen for 10 seconds longer"
 	elif selection_num == 6:
 		Noel_sEvent.Cinnamon_Hack_enabled = true
 		ran_txt_label.text = "Cinnamon Powder Buff"
-		info_txt_label.text = "Area damage radius / 4"
+		info_txt_label.text = "Radius of damage multiplied by 4"
 	elif selection_num == 7:
 		Noel_sEvent.Matcha_Hack_enabled = true
 		ran_txt_label.text = "Matcha Power Buff"
-		info_txt_label.text = "Add Toxic"
+		info_txt_label.text = "Basically a Toxic Molotov"
 	elif selection_num == 8:
 		Noel_sEvent.Sugar_Hack_enabled = true
 		ran_txt_label.text = "Sugar Buff"
-		info_txt_label.text = "On Zombie death, a bomb will be there"
+		info_txt_label.text = "When a Zombie dies, a bomb will be 
+		placed on it's area of death"
 func _on_button_pressed() -> void:
 	if opened == false:
 		pass
 	elif opened == true:
+		ran_txt_label.text = ""
 		var a = 1
 		for i in range (1000):
 			ran_txt_label.text = str(a)
