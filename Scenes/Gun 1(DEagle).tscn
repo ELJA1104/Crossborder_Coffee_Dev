@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bypx4xxxfesbn"]
+
+[ext_resource type="Script" uid="uid://bnejo1yb758xv" path="res://Code/Gun 1 (DEAGLE).gd" id="1_qcv20"]
+[ext_resource type="Texture2D" uid="uid://bmsq06euhof45" path="res://Assets/PNG/Gun.png" id="2_qgs8r"]
+
+[node name="Deagle" type="Control" unique_id=1415082785]
+custom_minimum_size = Vector2(250, 175)
+propagate_maximum_size = true
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_left = -484.0
+offset_top = -164.0
+offset_right = -100.0
+offset_bottom = 228.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+offset_transform_position = Vector2(0, 7.175)
+script = ExtResource("1_qcv20")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=864144551]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 340.0
+offset_bottom = 172.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Purchase Button" type="Button" parent="." unique_id=226353457]
+layout_mode = 0
+offset_right = 340.0
+offset_bottom = 172.0
+
+[node name="Gun" type="Sprite2D" parent="." unique_id=87293557]
+position = Vector2(83.6, 84.6)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_qgs8r")
+
+[node name="Label" type="Label" parent="." unique_id=1756908839]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 9.0
+offset_right = 324.0
+offset_bottom = 164.0
+text = "Name: DEagle
+Price: 35,000 Credits
+Hp Damage: 20"
+
+[connection signal="pressed" from="Purchase Button" to="." method="_on_purchase_button_pressed"]

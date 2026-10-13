@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bivjxhuwrjr0c" path="res://Scenes/milk_foam.tscn" id="14_avmlv"]
 [ext_resource type="PackedScene" uid="uid://cdrmmvqde0k7w" path="res://Scenes/cup_spawner.tscn" id="14_fexq0"]
 [ext_resource type="PackedScene" uid="uid://cmfg28dff2vr7" path="res://Scenes/ice_cube.tscn" id="15_bcsim"]
-[ext_resource type="Texture2D" uid="uid://b8wfw8scnulex" path="res://Assets/PNG/Coffee_Ingredients_List.png" id="16_6c73o"]
+[ext_resource type="PackedScene" uid="uid://5axfihyvbn41" path="res://Scenes/test_ingredients_list.tscn" id="16_6c73o"]
 
 [sub_resource type="Animation" id="Animation_yw0jl"]
 resource_name = "Cinnamon Powder slide in"
@@ -241,12 +241,11 @@ offset_left = -904.0
 offset_top = -1696.0
 offset_right = 1128.0
 offset_bottom = -640.0
-color = Color(0.2914629, 0.27195957, 0.2493422, 1)
+color = Color(0.155413, 0.1431222, 0.13082719, 1)
 
-[node name="CoffeeIngredientsList" type="Sprite2D" parent="ColorRect" unique_id=1284983211]
-position = Vector2(1015.99994, 559.99994)
-scale = Vector2(1.072796, 1.111461)
-texture = ExtResource("16_6c73o")
+[node name="Test ingredients list" parent="ColorRect" unique_id=811308725 instance=ExtResource("16_6c73o")]
+position = Vector2(1015.99994, 536)
+scale = Vector2(1.915, 1.915)
 
 [node name="Button" type="Button" parent="." unique_id=296506385]
 offset_left = -264.0
