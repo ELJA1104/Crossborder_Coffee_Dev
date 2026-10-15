@@ -13,7 +13,6 @@ var ran_ice : int
 var temp
 var b : int
 var confrimation = 0
-var customer_spawner
 var price : int
 func displaying_text():
 	text_lable.visible_characters= 0
@@ -102,7 +101,6 @@ func _ready() -> void:
 	hot_or_iced()
 	customer_conver()
 	print(temp + flavour)
-	print(customer_spawner)
 	print(price)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -118,7 +116,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 					label.add_theme_color_override("font_color", Color.GREEN)
 					text_box("Success!")
 					confrimation = 1
-					customer_spawner.customer_served_count += 1
+					Noel_sEvent.customer_served_count += 1
 					Noel_sEvent.credits_earned += price
 					await get_tree().create_timer(2).timeout
 					anim_plyr.play("customer_exit")

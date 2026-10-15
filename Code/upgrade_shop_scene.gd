@@ -10,20 +10,24 @@ var opened : bool = false
 func  _ready() -> void:
 	pass
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 
 func _on_wall_repair_button_pressed() -> void:
 	if Wall_repair_box_price > Noel_sEvent.current_credit_balance:
-		print("Not enough Credits")
+		purchase_text(false)
+
 	elif Wall_repair_box_price <= Noel_sEvent.current_credit_balance:
-		print("Suffecient Credits")
+		purchase_text(true)
+		Noel_sEvent.current_credit_balance -= Wall_repair_box_price
+		Noel_sEvent.Wall_repair_box_count += 1
 
 func _on_secret_hack_buy_button_pressed() -> void:
 	if Secret_hack_price > Noel_sEvent.current_credit_balance:
-		print("Not enough Credits")
-	#elif Secret_hack_price <= Noel_sEvent.current_credit_balance:
-		print("Suffecient Credits")
+		purchase_text(false)
+	elif Secret_hack_price <= Noel_sEvent.current_credit_balance:
+		purchase_text(true)
+		Noel_sEvent.current_credit_balance -= Secret_hack_price
 		if opened == false:
 			anim_plyr.play("door opening animation")
 		elif opened == true:
@@ -77,7 +81,26 @@ func _on_button_pressed() -> void:
 			a = randi_range(1,8)
 		num_def(a)
 
-
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "door opening animation":
 		opened = true
+		
+func purchase_text(purchasable : bool):
+	if purchasable == false:
+		text_to_be_displayed("You do not have enough credits to buy this")
+		await get_tree().create_timer(3).timeout
+		text_to_be_displayed("")
+	elif purchasable == true:
+		text_to_be_displayed("Purchased")
+		await get_tree().create_timer(3).timeout
+		text_to_be_displayed("")
+		
+func displaying_text():
+	cukup_atau_tak_label.visible_characters= 0
+	for i in cukup_atau_tak_label.text.length():
+		cukup_atau_tak_label.visible_characters += 1
+		await get_tree().create_timer(0.03).timeout
+		
+func text_to_be_displayed(text : String):
+	cukup_atau_tak_label.text = text
+	displaying_text()

@@ -17,7 +17,7 @@ func _on_button_button_down() -> void:
 func _on_button_button_up() -> void:
 	dragged = false
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if dragged == true:
 		self.global_position = lerp(global_position, get_global_mouse_position(), 0.5) - Offset
 	if is_empty == true:

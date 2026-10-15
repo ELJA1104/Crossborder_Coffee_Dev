@@ -48,5 +48,5 @@ scale = Vector2(0.315, 0.315)
 [node name="view" parent="." unique_id=496351714 instance=ExtResource("3_tsppp")]
 position = Vector2(783, 3)
 
-[node name="Crosshair" parent="." unique_id=989418816 instance=ExtResource("6_77q20")]
+[node name="Crosshair&Cursor" parent="." unique_id=989418816 instance=ExtResource("6_77q20")]
 position = Vector2(-8, -264)
