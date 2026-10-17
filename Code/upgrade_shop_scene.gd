@@ -19,7 +19,8 @@ func _on_wall_repair_button_pressed() -> void:
 
 	elif Wall_repair_box_price <= Noel_sEvent.current_credit_balance:
 		purchase_text(true)
-		Noel_sEvent.current_credit_balance -= Wall_repair_box_price
+		Noel_sEvent.credits_change -= Wall_repair_box_price
+		print(Noel_sEvent.credits_change)
 		Noel_sEvent.Wall_repair_box_count += 1
 
 func _on_secret_hack_buy_button_pressed() -> void:
@@ -27,14 +28,14 @@ func _on_secret_hack_buy_button_pressed() -> void:
 		purchase_text(false)
 	elif Secret_hack_price <= Noel_sEvent.current_credit_balance:
 		purchase_text(true)
-		Noel_sEvent.current_credit_balance -= Secret_hack_price
+		Noel_sEvent.credits_change -= Secret_hack_price
+		print(Noel_sEvent.credits_change)
 		if opened == false:
 			anim_plyr.play("door opening animation")
 		elif opened == true:
 			pass
 			
 func num_def(selection_num):
-
 	if selection_num == 1:
 		Noel_sEvent.Coffee_Bean_Hack_enabled = true
 		ran_txt_label.text = "Coffee Bean Buff"

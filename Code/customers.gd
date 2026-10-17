@@ -117,7 +117,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 					text_box("Success!")
 					confrimation = 1
 					Noel_sEvent.customer_served_count += 1
-					Noel_sEvent.credits_earned += price
+					Noel_sEvent.credits_change += price
 					await get_tree().create_timer(2).timeout
 					anim_plyr.play("customer_exit")
 					text_to_be_displayed("")

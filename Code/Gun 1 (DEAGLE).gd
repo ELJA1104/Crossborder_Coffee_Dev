@@ -8,7 +8,7 @@ func _ready() -> void:
 func _on_purchase_button_pressed() -> void:
 	if price > Noel_sEvent.current_credit_balance:
 		parent_node.purchase_text(false)
-		print(Noel_sEvent.current_credit_balance)
 	elif price <= Noel_sEvent.current_credit_balance:
 		parent_node.purchase_text(true)
-		Noel_sEvent.current_credit_balance -= price
+		Noel_sEvent.credits_change -= price
+		print(Noel_sEvent.credits_change)

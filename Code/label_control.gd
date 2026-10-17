@@ -22,7 +22,7 @@ func _ready() -> void:
 	customers_served_label.text = "Customers Served: " + str(Noel_sEvent.customer_served_count)
 	current_customer_num = Noel_sEvent.customer_served_count
 	credits_label.text = "Credit balance: " + str(Noel_sEvent.current_credit_balance)
-	Noel_sEvent.credits_earned = Noel_sEvent.current_credit_balance
+	Noel_sEvent.credits_change = Noel_sEvent.current_credit_balance
 	zombies_killed_label.text = "Zombies killed: " + str(Noel_sEvent.zombies_killed_count)
 	Noel_sEvent.zombies_killed_count = current_zombie_num
 	Wall_repair_boxes_label.text = "Wall repair boxes: " + str(Noel_sEvent.Wall_repair_box_count)
@@ -34,9 +34,9 @@ func customer_has_been_served():
 		current_customer_num = Noel_sEvent.customer_served_count
 		
 func credits_increase():
-	if Noel_sEvent.current_credit_balance < Noel_sEvent.credits_earned:
-		credits_label.text = "Credit balance: " + str(Noel_sEvent.credits_earned)
-		Noel_sEvent.credits_earned = Noel_sEvent.current_credit_balance
+	if Noel_sEvent.current_credit_balance != Noel_sEvent.credits_change:
+		credits_label.text = "Credit balance: " + str(Noel_sEvent.credits_change)
+		Noel_sEvent.current_credit_balance = Noel_sEvent.credits_change
 
 func zombies_killed():
 	if Noel_sEvent.zombies_killed_count > current_zombie_num:
