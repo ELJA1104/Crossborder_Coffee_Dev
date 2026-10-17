@@ -2,15 +2,30 @@
 
 [ext_resource type="Script" uid="uid://dg6a7r1womey1" path="res://Code/great_wall.gd" id="1_iovgh"]
 [ext_resource type="Texture2D" uid="uid://bgjde0p2d2otj" path="res://Assets/PNG/Wall_Full_Health_State.png" id="2_iovgh"]
-[ext_resource type="Script" uid="uid://bu1plhrhiw4wl" path="res://Code/wall_health.gd" id="3_iovgh"]
+[ext_resource type="PackedScene" uid="uid://cr02gya2rci4" path="res://Scenes/health_bar.tscn" id="3_iovgh"]
+
+[sub_resource type="Shader" id="Shader_oxalv"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.7.1.stable's CanvasItemMaterial.
+
+shader_type canvas_item;
+render_mode blend_mix;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iovgh"]
+shader = SubResource("Shader_oxalv")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01sja"]
-size = Vector2(5322, 333.5)
+size = Vector2(5322, 104.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ibi"]
-size = Vector2(5222, 222)
+size = Vector2(5222, 292)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxof0"]
+size = Vector2(5338, 295.5)
 
 [node name="GreatWall" type="Area2D" unique_id=788673175]
+material = SubResource("ShaderMaterial_iovgh")
+collision_layer = 3
 script = ExtResource("1_iovgh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1079106491]
@@ -19,35 +34,39 @@ scale = Vector2(4.153125, 0.6954987)
 texture = ExtResource("2_iovgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=301892188]
-position = Vector2(549, 1053.75)
+modulate = Color(0, 0.5137255, 1, 1)
+position = Vector2(549, 1168.25)
 shape = SubResource("RectangleShape2D_01sja")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=942928152]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1708116100]
-position = Vector2(546, 1109)
+position = Vector2(546, 1074)
 shape = SubResource("RectangleShape2D_a2ibi")
 
-[node name="WallHealth" type="ProgressBar" parent="." unique_id=1456687706]
-offset_left = 1421.0
-offset_top = 809.0
-offset_right = 1695.0
-offset_bottom = 859.0
-script = ExtResource("3_iovgh")
+[node name="hurtBox" type="Area2D" parent="." unique_id=595852778]
+position = Vector2(548, 533)
+collision_mask = 2
 
-[node name="Label" type="Label" parent="WallHealth" unique_id=1902723045]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -14.0
-offset_right = 3.0
-offset_bottom = 11.0
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 16
-text = "
-HP
-"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox" unique_id=1173918974]
+position = Vector2(3, 461.75)
+shape = SubResource("RectangleShape2D_rxof0")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="atk_cooldown" type="Timer" parent="." unique_id=1801044459]
+wait_time = 4.0
+
+[node name="HealthBar" parent="." unique_id=328116606 instance=ExtResource("3_iovgh")]
+anchors_preset = 15
+offset_left = 1559.0
+offset_top = 804.0
+offset_right = 1759.0
+offset_bottom = 838.0
+script = null
+
+[node name="Timer" type="Timer" parent="." unique_id=1050362839]
+wait_time = 3.0
+
+[connection signal="body_entered" from="hurtBox" to="." method="_on_hurt_box_body_entered"]
+[connection signal="body_exited" from="hurtBox" to="." method="_on_hurt_box_body_exited"]
+[connection signal="timeout" from="atk_cooldown" to="." method="_on_atk_cooldown_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

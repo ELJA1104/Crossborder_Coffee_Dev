@@ -8,7 +8,7 @@
 size = Vector2(34, 3)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01sja"]
-radius = 25.019993
+radius = 29.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=503198342]
 collision_layer = 2
@@ -27,10 +27,11 @@ position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_jcd86")
 debug_color = Color(0.3546412, 0.08574786, 0.07739062, 0.41960785)
 
-[node name="Hitbox" type="Area2D" parent="." unique_id=1453927239]
+[node name="enemy_hitbox" type="Area2D" parent="." unique_id=1453927239]
+position = Vector2(0, -20)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=240369641]
-position = Vector2(0, -21)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hitbox" unique_id=240369641]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_01sja")
 debug_color = Color(0.47353327, 0.0030519648, 0.014754987, 0.41960785)
 
@@ -47,4 +48,5 @@ layout_mode = 0
 offset_right = 94.0
 offset_bottom = 23.0
 
-[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="enemy_hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="enemy_hitbox" to="." method="_on_hitbox_body_exited"]

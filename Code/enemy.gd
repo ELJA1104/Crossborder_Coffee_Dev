@@ -2,8 +2,9 @@ class_name Enemy
 extends CharacterBody2D
 
 var target : Player
+var wall_in_damage_range = false
 
-
+@export var atk_damage: int = 5
 @export var start_y: float = 0
 @export var max_forward_y: float = 650
 @export var min_scale: float = 1
@@ -36,11 +37,29 @@ func _physics_process(delta: float) -> void:
 	
 	scale = Vector2(final_scale, final_scale)
 	
-func _kill_enemy():
-	queue_free()
+	_wall_take_damage()
 	
-func _on_area_2d_area_entered(body: Node2D) -> void:
-	if "cursor" in body.name:
-		_kill_enemy()
+#func _kill_enemy():
+	#queue_free()
+	
+#func _on_area_2d_area_entered(body: Node2D) -> void:
+	#if "cursor" in body.name:
+		#_kill_enemy()
+
+#func _on_enemy_hitbox_body_entered(body):
+	#if body.has_method("great_wall"):
+		#wall_in_damage_range = true
 		
 		
+#func _on_enemy_hitbox_body_exited(body):
+	#if body.has_method("great_wall"):
+		#wall_in_damage_range = false
+		
+		
+func _wall_take_damage():
+	if wall_in_damage_range:
+		print("Wall took some damage")
+		
+		
+func enemy():
+	pass

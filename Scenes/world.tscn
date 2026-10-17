@@ -13,6 +13,9 @@ size = Vector2(1200, 98)
 [sub_resource type="CircleShape2D" id="CircleShape2D_01sja"]
 radius = 3.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ibi"]
+size = Vector2(2592, 1252)
+
 [node name="World" type="Node2D" unique_id=2130750133]
 
 [node name="Player" type="Node2D" parent="." unique_id=1111474708]
@@ -26,7 +29,6 @@ position = Vector2(0, -92)
 shape = SubResource("RectangleShape2D_01sja")
 
 [node name="GreatWall" parent="." unique_id=788673175 instance=ExtResource("2_8j60k")]
-position = Vector2(1, -4)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=739326023]
 
@@ -44,9 +46,9 @@ player = NodePath("../Player")
 wait_time = 3.8
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1341148731]
-offset_left = -735.0
+offset_left = -727.0
 offset_top = 906.0
-offset_right = 1857.0
+offset_right = 1865.0
 offset_bottom = 2159.0
 color = Color(0.35686275, 0.35686275, 0.35686275, 0.6862745)
 
@@ -89,6 +91,13 @@ theme_override_font_sizes/font_size = 60
 text = "Pause"
 script = ExtResource("6_5ukr8")
 
+[node name="Area2D2" type="Area2D" parent="ColorRect" unique_id=384620839]
+position = Vector2(705.57495, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D2" unique_id=110544123]
+position = Vector2(597.42505, 626)
+shape = SubResource("RectangleShape2D_a2ibi")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=757630685]
 position = Vector2(562, 639)
 zoom = Vector2(0.45, 0.45)
@@ -97,3 +106,5 @@ zoom = Vector2(0.45, 0.45)
 [connection signal="area_entered" from="Area2D" to="Area2D/Crosshair" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="ColorRect/Control/StartButton" to="Spawner" method="_start_spawner"]
+[connection signal="mouse_entered" from="ColorRect/Area2D2" to="Area2D/Crosshair" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/Area2D2" to="Area2D/Crosshair" method="_on_area_2d_2_mouse_exited"]
