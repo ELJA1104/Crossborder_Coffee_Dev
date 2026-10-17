@@ -1,5 +1,5 @@
 extends Node2D
-@onready var gm = $"../game muneee"
+@onready var gm = $".."
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var dialog_text: RichTextLabel = $text
 @onready var board: RichTextLabel = $ColorRect/board

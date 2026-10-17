@@ -1,5 +1,5 @@
 extends Node2D
-@onready var intro = $"../game menu point"
+@onready var intro = $"game menu point"
 @onready var menu = $menu
 @onready var loading = $loading
 @onready var game = $game
