@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bxmj82pyfarms"]
+
+[ext_resource type="PackedScene" uid="uid://bq2ty8bspmp47" path="res://Scenes/npc.tscn" id="1_cuwga"]
+[ext_resource type="PackedScene" uid="uid://cp6vvkypx2kpp" path="res://Scenes/game mene1.6.1.tscn" id="2_hxww5"]
+
+[node name="Node2D" type="Node2D" unique_id=832467997]
+
+[node name="npc" parent="." unique_id=1145555013 instance=ExtResource("1_cuwga")]
+position = Vector2(-1, -4)
+
+[node name="game muneee" parent="." unique_id=1807869082 instance=ExtResource("2_hxww5")]
+position = Vector2(4908, 1285)
+
+[node name="game menu point" type="Node2D" parent="." unique_id=524761961]
+position = Vector2(573, 338)

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bq2ty8bspmp47"]
 
 [ext_resource type="Script" uid="uid://cqqyghpkhk3lt" path="res://Code/npc.gd" id="1_8gudg"]
-[ext_resource type="PackedScene" uid="uid://b1hub4lvnhwtb" path="res://Scenes/Coffee_Brewer.tscn" id="2_qi7up"]
-[ext_resource type="PackedScene" uid="uid://bd267dnu2okq3" path="res://Scenes/idk.tscn" id="3_a6nw3"]
-[ext_resource type="PackedScene" uid="uid://cgqjx1k2rpcd4" path="res://Scenes/cup.tscn" id="4_b4syp"]
+[ext_resource type="Texture2D" uid="uid://b5uh8geo2jm8a" path="res://Assets/PNG/Coffee_Machine.png" id="2_qi7up"]
+[ext_resource type="Texture2D" uid="uid://dy3e6ysrco2u4" path="res://Assets/PNG/grinder1.png" id="3_a6nw3"]
+[ext_resource type="Texture2D" uid="uid://cafrui7pjxh8x" path="res://Assets/PNG/Cup.png" id="4_b4syp"]
 [ext_resource type="Script" uid="uid://dvell33i8jtry" path="res://Code/door.gd" id="5_f10bm"]
 [ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="6_jcef7"]
 [ext_resource type="PackedScene" uid="uid://cty03jb2sdxnc" path="res://Scenes/Ethan's_Puck.tscn" id="7_njxey"]
@@ -50,6 +50,102 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1505, 490)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../ColorRect:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Coffeebrewer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2131, 909)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Grinder:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1667, 865)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../cup:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2686, 986)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../light:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../ColorRect/ColorRect2/e_word:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2411.745, 636.8343)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../cup:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5848159]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Coffeebrewer:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.583915]
 }
 
 [sub_resource type="Animation" id="Animation_upjdb"]
@@ -113,10 +209,10 @@ tracks/2/path = NodePath("../Coffeebrewer:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.1333333, 1.5, 1.6666666),
+"times": PackedFloat32Array(0, 1.1333333, 1.5, 1.8333334),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [-1.0663961, -1.0663961, 0.4363323129985824, 0.0]
+"values": [-1.0663961, -1.0663961, 0.4363323129985824, 1.583915]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -161,10 +257,10 @@ tracks/6/path = NodePath("../cup:rotation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.5, 1.2, 1.4, 1.5, 1.7, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.5, 1.2, 1.4, 1.5, 1.7, 1.8, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 5.403539364174445, -0.7627089, -1.2217304763960306, 0.0]
+"values": [0.0, 0.0, 5.403539364174445, -0.7627089, -1.2217304763960306, 0.0, -1.5848159]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -522,6 +618,102 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(-278, 375)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../door:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-788.2302, 356.37433)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../ColorRect:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(588, -206)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../ColorRect:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Coffeebrewer:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.033333335),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2131, 909)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("../Grinder:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1667, 865)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("../cup:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2686, 986)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("../light:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2695.393, 395.51605)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("../ColorRect/ColorRect2/e_word:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2411.745, 636.8343)]
+}
 
 [sub_resource type="Animation" id="Animation_qi7up"]
 resource_name = "opening animation"
@@ -541,26 +733,38 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../light:position")
+tracks/1/path = NodePath("../ColorRect:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1692, -14)]
+"values": [Vector2(1505, 490)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../ColorRect:position")
+tracks/2/path = NodePath("../light:color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../light:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1505, 490)]
+"values": [Vector2(-6, -14)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_faxwa"]
@@ -582,16 +786,22 @@ shader = ExtResource("9_qi7up")
 [node name="npc" type="Node2D" unique_id=1145555013]
 script = ExtResource("1_8gudg")
 
-[node name="Coffeebrewer" parent="." unique_id=204845374 instance=ExtResource("2_qi7up")]
-position = Vector2(1408, 455)
-script = null
+[node name="Coffeebrewer" type="Sprite2D" parent="." unique_id=2123972935]
+position = Vector2(2131, 909)
+rotation = 1.583915
+scale = Vector2(0.25586528, 0.27622345)
+texture = ExtResource("2_qi7up")
 
-[node name="Grinder" parent="." unique_id=985036243 instance=ExtResource("3_a6nw3")]
-position = Vector2(1436, 334)
-script = null
+[node name="Grinder" type="Sprite2D" parent="." unique_id=164619672]
+position = Vector2(1667, 865)
+scale = Vector2(0.20534912, 0.16736113)
+texture = ExtResource("3_a6nw3")
 
-[node name="cup" parent="." unique_id=1073076532 instance=ExtResource("4_b4syp")]
-position = Vector2(1422, 531)
+[node name="cup" type="Sprite2D" parent="." unique_id=1302175251]
+position = Vector2(2686, 986)
+rotation = -1.5848159
+scale = Vector2(0.025927603, 0.026491048)
+texture = ExtResource("4_b4syp")
 
 [node name="door" type="Area2D" parent="." unique_id=1942715273]
 position = Vector2(835, 416)
@@ -611,26 +821,26 @@ root_node = NodePath("../orang")
 libraries/ = SubResource("AnimationLibrary_faxwa")
 
 [node name="Ethan\'s Puck" parent="." unique_id=1459799583 instance=ExtResource("7_njxey")]
-position = Vector2(1384, 467)
+position = Vector2(381.23022, 252.38007)
 script = null
 
 [node name="CoffeeBean" type="Sprite2D" parent="." unique_id=941302353]
-position = Vector2(1414, 236)
+position = Vector2(341, 237)
 scale = Vector2(0.020216769, 0.019212963)
 texture = ExtResource("8_y54i2")
 
 [node name="orang" type="Sprite2D" parent="." unique_id=1009882871]
-position = Vector2(1289, 232)
+position = Vector2(170, 232)
 scale = Vector2(1.3749999, 1.3593749)
 texture = ExtResource("6_jcef7")
 
 [node name="ColorRect" type="ColorRect" parent="orang" unique_id=1360922305]
 top_level = true
 material = SubResource("ShaderMaterial_t0v5d")
-offset_left = 1404.0
-offset_top = 247.0
-offset_right = 1444.0
-offset_bottom = 287.00006
+offset_left = 283.0
+offset_top = 221.0
+offset_right = 323.00012
+offset_bottom = 261.0
 color = Color(0.16862746, 1, 1, 1)
 
 [node name="eye(up)" type="ColorRect" parent="." unique_id=1056328881]
@@ -680,19 +890,18 @@ horizontal_alignment = 1
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect" unique_id=1019534604]
 layout_mode = 0
-offset_left = 238.0
-offset_top = 87.0
-offset_right = 278.0
-offset_bottom = 127.0
+offset_left = -845.3627
+offset_top = 64.8667
+offset_right = -805.3627
+offset_bottom = 104.8667
 color = Color(0.29803923, 0.11764706, 0, 1)
 
 [node name="e_word" type="RichTextLabel" parent="ColorRect/ColorRect2" unique_id=1550654101]
 layout_mode = 0
-offset_left = -1.0
-offset_top = 448.0
-offset_right = 35.0
-offset_bottom = 917.0112
-rotation = 0.4754769
+offset_left = -2411.745
+offset_top = 636.8343
+offset_right = -2375.745
+offset_bottom = 1105.8455
 theme_override_font_sizes/normal_font_size = 50
 text = "e"
 
@@ -700,5 +909,5 @@ text = "e"
 offset_left = 1692.0
 offset_top = -14.0
 offset_right = 2862.0
-offset_bottom = 634.0
-color = Color(0, 0, 0, 1)
+offset_bottom = 634.00006
+color = Color(0, 0, 0, 0)

@@ -1,12 +1,14 @@
 extends Node2D
+@onready var gm = $"../game muneee"
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var dialog_text: RichTextLabel = $text
 @onready var board: RichTextLabel = $ColorRect/board
-
+@onready var door = $door
 func _ready():
 	dialog_text.bbcode_enabled = true 
 	dialog_text.visible_ratio = 0.0
 	run_story_sequence()
+	door.cannot_press_now()
 
 func run_story_sequence():
 	if anim_player.has_animation("intro"):
@@ -31,9 +33,9 @@ func run_story_sequence():
 	await display_line("[center]You ask me how to make it and what to use? Look! The machines are all ready![/center]", 2.0)
 	await get_tree().create_timer(1.0).timeout
 	anim_player.play("do coffee2")
-	await display_line("[center]Listen closely: Put the [color=yellow]coffee beans on top[/color] of [b]Machine 1[/b], place a [color=aqua]pack underneath[/color], and press the button![/center]", 2.5)
+	await display_line("[center]Listen closely: Put the [color=yellow]coffee beans on top[/color] of [b]Coffee Grinder[/b], place a [color=aqua]pack underneath[/color], and press the button![/center]", 2.5)
 	await get_tree().create_timer(1.0).timeout
-	await display_line("[center]Then take that pack, put it into [b]Machine 2[/b], place a cup at the bottom, and press the button again![/center]", 2.5)
+	await display_line("[center]Then take that pack, put it into [b]Coffee Brewer[/b], place a cup at the bottom, and press the button again![/center]", 2.5)
 	await get_tree().create_timer(1.0).timeout
 	await display_line("[center]There are plenty of ingredients here for you to mix! Good luck... I'm outta here![/center]", 2.0)
 	await get_tree().create_timer(0.5).timeout
@@ -47,6 +49,9 @@ func run_story_sequence():
 	await display_line_board("CROSSBORDER Coffee Shop",0.1)
 	await get_tree().create_timer(0.5).timeout
 	anim_player.play("e_missing")
+	await get_tree().create_timer(1.2).timeout
+	door.can_press_now()
+	await display_line("press to START AwA", 0.1)
 
 func display_line(new_text: String, duration: float) -> Signal:
 	dialog_text.text = new_text
@@ -64,6 +69,8 @@ func display_line_board(new_text: String, duration: float) -> Signal:
 
 func drop_board():
 	anim_player.play("drop_board")
+	await display_line(" ", 0.1)
 	await get_tree().create_timer(2).timeout
 	anim_player.play("opening animation")
-	pass
+	await get_tree().create_timer(10).timeout
+	gm.game_menu_open()
