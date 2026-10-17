@@ -9,7 +9,7 @@ func _ready():
 func _input(event: InputEvent) -> void:
 	if asept_press:
 		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-			if event.pressed and mouse_inside_door:
+			if event.pressed and mouse_inside_door == true:
 				print('start game')
 				$"..".drop_board()
 				pass

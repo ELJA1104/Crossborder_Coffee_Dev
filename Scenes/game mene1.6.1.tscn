@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://h24ehvgsdjjv" path="res://Code/game_mene_1.6.1.gd" id="1_vwcxu"]
 [ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_nsrwh"]
 [ext_resource type="Shader" uid="uid://b7rdmeu6gxi2b" path="res://hand.gdshader" id="3_jc2qw"]
+[ext_resource type="PackedScene" uid="uid://bq2ty8bspmp47" path="res://Scenes/npc.tscn" id="4_nsrwh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_t0v5d"]
 shader = ExtResource("3_jc2qw")
@@ -1044,7 +1045,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_gp6nx")
 text = "ABANDON "
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=161512131]
-position = Vector2(-684.68555, -512.2318)
+position = Vector2(-3841.2827, 725.5176)
 
 [node name="menu" type="Node2D" parent="." unique_id=1552860402]
 position = Vector2(576.98395, 329.5271)
@@ -1150,6 +1151,19 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_6u563")
 theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_kwagb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gp6nx")
 text = "BACK>"
+
+[node name="game menu point" type="Node2D" parent="." unique_id=131847325]
+position = Vector2(-3826, 741)
+
+[node name="ColorRect" type="ColorRect" parent="game menu point" unique_id=1172022302]
+offset_left = -585.0
+offset_top = -332.0
+offset_right = 562.0
+offset_bottom = 300.0
+color = Color(1, 1, 1, 0.20392157)
+
+[node name="npc" parent="game menu point" unique_id=1145555013 instance=ExtResource("4_nsrwh")]
+position = Vector2(-593, -343)
 
 [connection signal="pressed" from="IDCard_Physical/shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="IDCard_Physical/Btn_Start" to="." method="_on_btn_start_pressed"]

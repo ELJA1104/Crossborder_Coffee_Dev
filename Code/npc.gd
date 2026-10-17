@@ -1,5 +1,5 @@
 extends Node2D
-@onready var gm = $"../game muneee"
+
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var dialog_text: RichTextLabel = $text
 @onready var board: RichTextLabel = $ColorRect/board
@@ -8,9 +8,10 @@ func _ready():
 	dialog_text.bbcode_enabled = true 
 	dialog_text.visible_ratio = 0.0
 	run_story_sequence()
-	door.cannot_press_now()
+
 
 func run_story_sequence():
+	door.cannot_press_now()
 	if anim_player.has_animation("intro"):
 		anim_player.play("intro")
 	await display_line("[center][color=gray](Wake up... wake up...)[/color][/center]", 1.0)
@@ -73,4 +74,4 @@ func drop_board():
 	await get_tree().create_timer(2).timeout
 	anim_player.play("opening animation")
 	await get_tree().create_timer(10).timeout
-	gm.game_menu_open()
+	$"../..".game_menu_open()
