@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2kchrjtt1a64"]
 
 [ext_resource type="Script" uid="uid://dn5j3chu7p01h" path="res://Code/upgrade_shop_scene.gd" id="1_dnv1f"]
-[ext_resource type="Texture2D" uid="uid://bmsq06euhof45" path="res://Assets/PNG/Gun.png" id="2_5hkf3"]
+[ext_resource type="PackedScene" uid="uid://bypx4xxxfesbn" path="res://Scenes/Gun 1(DEagle).tscn" id="2_5hkf3"]
 
 [sub_resource type="Animation" id="Animation_5hkf3"]
 length = 0.001
@@ -39,14 +39,12 @@ _data = {
 &"door opening animation": SubResource("Animation_d2mlb")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fwwm"]
-size = Vector2(328, 160)
-
-[node name="Upgrade shop scene" type="Node2D" unique_id=1535892368 node_paths=PackedStringArray("anim_plyr", "ran_txt_label", "info_txt_label")]
+[node name="Upgrade shop scene" type="Node2D" unique_id=1535892368 node_paths=PackedStringArray("anim_plyr", "ran_txt_label", "info_txt_label", "cukup_atau_tak_label")]
 script = ExtResource("1_dnv1f")
 anim_plyr = NodePath("AnimationPlayer")
 ran_txt_label = NodePath("Secret Hack/Hack Label")
 info_txt_label = NodePath("Secret Hack/Info Label")
+cukup_atau_tak_label = NodePath("Suffecient or not label")
 
 [node name="Colorrect nodes" type="Node2D" parent="." unique_id=2136117316]
 
@@ -225,308 +223,39 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 offset_transform_enabled = true
 
-[node name="Deagle" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=838631411]
-custom_minimum_size = Vector2(250, 175)
-propagate_maximum_size = true
-clip_contents = true
+[node name="Deagle" parent="ScrollContainer/VBoxContainer" unique_id=1415082785 instance=ExtResource("2_5hkf3")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-offset_transform_position = Vector2(0, 7.175)
 
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle" unique_id=1298625196]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 340.0
-offset_bottom = 172.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle" unique_id=57710092]
-position = Vector2(83.6, 84.6)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_5hkf3")
-
-[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle" unique_id=470313232]
-position = Vector2(84, 28)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle/Test" unique_id=604861491]
-position = Vector2(84, 56)
-shape = SubResource("RectangleShape2D_5fwwm")
-debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle" unique_id=509203273]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 9.0
-offset_right = 324.0
-offset_bottom = 164.0
-text = "Name: DEagle
-Price: 35,000 Credits
-Hp Damage: 20"
-
-[node name="Deagle2" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1961109059]
-custom_minimum_size = Vector2(250, 175)
-propagate_maximum_size = true
-clip_contents = true
+[node name="Deagle2" parent="ScrollContainer/VBoxContainer" unique_id=84759831 instance=ExtResource("2_5hkf3")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-offset_transform_position = Vector2(0, 7.175)
 
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle2" unique_id=1906602465]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 340.0
-offset_bottom = 172.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle2" unique_id=1524446610]
-position = Vector2(83.6, 84.6)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_5hkf3")
-
-[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle2" unique_id=224228324]
-position = Vector2(84, 28)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle2/Test" unique_id=838080174]
-position = Vector2(84, 56)
-shape = SubResource("RectangleShape2D_5fwwm")
-debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle2" unique_id=1927368760]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 9.0
-offset_right = 324.0
-offset_bottom = 164.0
-text = "Name: DEagle
-Price: 35,000 Credits
-Hp Damage: 20"
-
-[node name="Deagle3" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=527602413]
-custom_minimum_size = Vector2(250, 175)
-propagate_maximum_size = true
-clip_contents = true
+[node name="Deagle3" parent="ScrollContainer/VBoxContainer" unique_id=109801522 instance=ExtResource("2_5hkf3")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-offset_transform_position = Vector2(0, 7.175)
 
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle3" unique_id=1299758867]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 340.0
-offset_bottom = 172.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle3" unique_id=1718416966]
-position = Vector2(83.6, 84.6)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_5hkf3")
-
-[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle3" unique_id=897974872]
-position = Vector2(84, 28)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle3/Test" unique_id=1215422329]
-position = Vector2(84, 56)
-shape = SubResource("RectangleShape2D_5fwwm")
-debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle3" unique_id=531059825]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 9.0
-offset_right = 324.0
-offset_bottom = 164.0
-text = "Name: DEagle
-Price: 35,000 Credits
-Hp Damage: 20"
-
-[node name="Deagle4" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=588630417]
-custom_minimum_size = Vector2(250, 175)
-propagate_maximum_size = true
-clip_contents = true
+[node name="Deagle4" parent="ScrollContainer/VBoxContainer" unique_id=694380841 instance=ExtResource("2_5hkf3")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-offset_transform_position = Vector2(0, 7.175)
 
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle4" unique_id=906015773]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 340.0
-offset_bottom = 172.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle4" unique_id=146721211]
-position = Vector2(83.6, 84.6)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_5hkf3")
-
-[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle4" unique_id=1969048801]
-position = Vector2(84, 28)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle4/Test" unique_id=1550190693]
-position = Vector2(84, 56)
-shape = SubResource("RectangleShape2D_5fwwm")
-debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle4" unique_id=884871976]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 9.0
-offset_right = 324.0
-offset_bottom = 164.0
-text = "Name: DEagle
-Price: 35,000 Credits
-Hp Damage: 20"
-
-[node name="Deagle5" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=543890645]
-custom_minimum_size = Vector2(250, 175)
-propagate_maximum_size = true
-clip_contents = true
+[node name="Deagle5" parent="ScrollContainer/VBoxContainer" unique_id=2023102881 instance=ExtResource("2_5hkf3")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-offset_transform_position = Vector2(0, 7.175)
 
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle5" unique_id=1427431897]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 340.0
-offset_bottom = 172.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle5" unique_id=336328248]
-position = Vector2(83.6, 84.6)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_5hkf3")
-
-[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle5" unique_id=197411018]
-position = Vector2(84, 28)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle5/Test" unique_id=1986926002]
-position = Vector2(84, 56)
-shape = SubResource("RectangleShape2D_5fwwm")
-debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle5" unique_id=508378374]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 9.0
-offset_right = 324.0
-offset_bottom = 164.0
-text = "Name: DEagle
-Price: 35,000 Credits
-Hp Damage: 20"
-
-[node name="Deagle6" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=743868235]
-custom_minimum_size = Vector2(250, 175)
-propagate_maximum_size = true
-clip_contents = true
+[node name="Deagle6" parent="ScrollContainer/VBoxContainer" unique_id=66601145 instance=ExtResource("2_5hkf3")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-offset_transform_position = Vector2(0, 7.175)
 
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle6" unique_id=480071146]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 340.0
-offset_bottom = 172.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle6" unique_id=1170223098]
-position = Vector2(83.6, 84.6)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_5hkf3")
-
-[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle6" unique_id=495157492]
-position = Vector2(84, 28)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle6/Test" unique_id=692531875]
-position = Vector2(84, 56)
-shape = SubResource("RectangleShape2D_5fwwm")
-debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle6" unique_id=424614231]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 9.0
-offset_right = 324.0
-offset_bottom = 164.0
-text = "Name: DEagle
-Price: 35,000 Credits
-Hp Damage: 20"
-
-[node name="Deagle7" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=100168439]
-custom_minimum_size = Vector2(250, 175)
-propagate_maximum_size = true
-clip_contents = true
+[node name="Deagle7" parent="ScrollContainer/VBoxContainer" unique_id=62699027 instance=ExtResource("2_5hkf3")]
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-offset_transform_position = Vector2(0, 7.175)
 
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer/Deagle7" unique_id=1456515914]
-layout_mode = 0
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 340.0
-offset_bottom = 172.0
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
+[node name="Deagle8" parent="ScrollContainer/VBoxContainer" unique_id=1412087394 instance=ExtResource("2_5hkf3")]
+layout_mode = 2
 
-[node name="Gun" type="Sprite2D" parent="ScrollContainer/VBoxContainer/Deagle7" unique_id=162472557]
-position = Vector2(83.6, 84.6)
-scale = Vector2(0.07, 0.07)
-texture = ExtResource("2_5hkf3")
-
-[node name="Test" type="Area2D" parent="ScrollContainer/VBoxContainer/Deagle7" unique_id=2088324216]
-position = Vector2(84, 28)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScrollContainer/VBoxContainer/Deagle7/Test" unique_id=1982297852]
-position = Vector2(84, 56)
-shape = SubResource("RectangleShape2D_5fwwm")
-debug_color = Color(0, 0.5721089, 0.669728, 0.41960785)
-
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Deagle7" unique_id=2046025112]
-layout_mode = 0
-offset_left = 164.0
-offset_top = 9.0
-offset_right = 324.0
-offset_bottom = 164.0
-text = "Name: DEagle
-Price: 35,000 Credits
-Hp Damage: 20"
+[node name="Suffecient or not label" type="Label" parent="." unique_id=1949815514]
+offset_left = -336.0
+offset_top = 272.0
+offset_right = 336.0
+offset_bottom = 320.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Secret Hack/Secret Hack buy btnton" to="." method="_on_secret_hack_buy_button_pressed"]
 [connection signal="pressed" from="Secret Hack/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Wall repair/Wall repair button" to="." method="_on_wall_repair_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle/Test" to="." method="_on_test_mouse_exited"]
-[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle2/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle2/Test" to="." method="_on_test_mouse_exited"]
-[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle3/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle3/Test" to="." method="_on_test_mouse_exited"]
-[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle4/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle4/Test" to="." method="_on_test_mouse_exited"]
-[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle5/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle5/Test" to="." method="_on_test_mouse_exited"]
-[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle6/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle6/Test" to="." method="_on_test_mouse_exited"]
-[connection signal="mouse_entered" from="ScrollContainer/VBoxContainer/Deagle7/Test" to="." method="_on_test_mouse_entered"]
-[connection signal="mouse_exited" from="ScrollContainer/VBoxContainer/Deagle7/Test" to="." method="_on_test_mouse_exited"]

@@ -8,7 +8,7 @@ var Puck_detec : bool = false
 var cup
 var puck
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if cup:
 		if is_filling == true:
 			cup.cup_fill()
@@ -43,7 +43,7 @@ func _on_start_button_pressed() -> void:
 
 func _on_stop_button_pressed() -> void:
 	print("stop button is pressed")
-	Cup_detection_value == 0
+	Cup_detection_value = 0
 	is_filling = false
 
 	text_to_be_displayed("Filling process has stopped")

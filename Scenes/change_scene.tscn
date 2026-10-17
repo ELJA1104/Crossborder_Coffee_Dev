@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://qqpnfwanee66" path="res://Scenes/base_scene.tscn" id="2_tt6oo"]
 [ext_resource type="PackedScene" uid="uid://d030l51eoqsom" path="res://Scenes/view.tscn" id="3_tsppp"]
 [ext_resource type="PackedScene" uid="uid://cdx08h2n6xqiv" path="res://Scenes/world.tscn" id="3_tt6oo"]
+[ext_resource type="PackedScene" uid="uid://pq22bk8wvxcl" path="res://Scenes/cursor.tscn" id="6_77q20"]
 
 [node name="change_scene" type="Node2D" unique_id=753283931]
 script = ExtResource("1_70pe2")
@@ -46,3 +47,6 @@ scale = Vector2(0.315, 0.315)
 
 [node name="view" parent="." unique_id=496351714 instance=ExtResource("3_tsppp")]
 position = Vector2(783, 3)
+
+[node name="Crosshair&Cursor" parent="." unique_id=989418816 instance=ExtResource("6_77q20")]
+position = Vector2(-8, -264)

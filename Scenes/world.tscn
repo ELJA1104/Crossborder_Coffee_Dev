@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cxfbeqipptrfa" path="res://Scenes/player.gd" id="1_8j60k"]
 [ext_resource type="PackedScene" uid="uid://dgfe306jyhme8" path="res://Scenes/GreatWall.tscn" id="2_8j60k"]
-[ext_resource type="PackedScene" uid="uid://pq22bk8wvxcl" path="res://Scenes/cursor.tscn" id="3_5a7ea"]
 [ext_resource type="Script" uid="uid://d2j3jcppm6bmh" path="res://Code/spawner.gd" id="3_fo5ed"]
 [ext_resource type="Script" uid="uid://irjo26r7yjtf" path="res://Scenes/start_button.gd" id="5_fo5ed"]
 
@@ -28,8 +27,6 @@ shape = SubResource("RectangleShape2D_01sja")
 position = Vector2(1, -4)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=739326023]
-
-[node name="Crosshair" parent="Area2D" unique_id=989418816 instance=ExtResource("3_5a7ea")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=368609563]
 shape = SubResource("CircleShape2D_01sja")
@@ -79,6 +76,5 @@ text = "Start
 script = ExtResource("5_fo5ed")
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
-[connection signal="area_entered" from="Area2D" to="Area2D/Crosshair" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="ColorRect/Control/StartButton" to="ColorRect/Control/StartButton" method="_on_pressed"]

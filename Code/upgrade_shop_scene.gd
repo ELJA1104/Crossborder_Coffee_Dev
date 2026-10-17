@@ -2,38 +2,32 @@ extends Node2D
 @export var anim_plyr : AnimationPlayer
 @export var ran_txt_label : Label
 @export var info_txt_label : Label
-var mouse_in_DEagle : bool = false
-var DEagle_price : int = 35000
+@export var cukup_atau_tak_label : Label
 var Wall_repair_box_price : int = 10000
 var Secret_hack_price : int = 10000
 var opened : bool = false
 
-func _on_test_mouse_entered() -> void:
-	mouse_in_DEagle = true
-func _on_test_mouse_exited() -> void:
-	mouse_in_DEagle = false
 func  _ready() -> void:
 	pass
 	
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("m1"):
-		if mouse_in_DEagle == true:
-			if DEagle_price > Noel_sEvent.current_credit_balance:
-				print("Not enough Credits")
-			elif DEagle_price <= Noel_sEvent.current_credit_balance:
-				print("Suffecient credits")
+func _physics_process(_delta: float) -> void:
+	pass
 
 func _on_wall_repair_button_pressed() -> void:
 	if Wall_repair_box_price > Noel_sEvent.current_credit_balance:
-		print("Not enough Credits")
+		purchase_text(false)
+
 	elif Wall_repair_box_price <= Noel_sEvent.current_credit_balance:
-		print("Suffecient Credits")
+		purchase_text(true)
+		Noel_sEvent.current_credit_balance -= Wall_repair_box_price
+		Noel_sEvent.Wall_repair_box_count += 1
 
 func _on_secret_hack_buy_button_pressed() -> void:
 	if Secret_hack_price > Noel_sEvent.current_credit_balance:
-		print("Not enough Credits")
-	#elif Secret_hack_price <= Noel_sEvent.current_credit_balance:
-		print("Suffecient Credits")
+		purchase_text(false)
+	elif Secret_hack_price <= Noel_sEvent.current_credit_balance:
+		purchase_text(true)
+		Noel_sEvent.current_credit_balance -= Secret_hack_price
 		if opened == false:
 			anim_plyr.play("door opening animation")
 		elif opened == true:
@@ -74,6 +68,7 @@ func num_def(selection_num):
 		ran_txt_label.text = "Sugar Buff"
 		info_txt_label.text = "When a Zombie dies, a bomb will be 
 		placed on it's area of death"
+		
 func _on_button_pressed() -> void:
 	if opened == false:
 		pass
@@ -86,7 +81,26 @@ func _on_button_pressed() -> void:
 			a = randi_range(1,8)
 		num_def(a)
 
-
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "door opening animation":
 		opened = true
+		
+func purchase_text(purchasable : bool):
+	if purchasable == false:
+		text_to_be_displayed("You do not have enough credits to buy this")
+		await get_tree().create_timer(3).timeout
+		text_to_be_displayed("")
+	elif purchasable == true:
+		text_to_be_displayed("Purchased")
+		await get_tree().create_timer(3).timeout
+		text_to_be_displayed("")
+		
+func displaying_text():
+	cukup_atau_tak_label.visible_characters= 0
+	for i in cukup_atau_tak_label.text.length():
+		cukup_atau_tak_label.visible_characters += 1
+		await get_tree().create_timer(0.03).timeout
+		
+func text_to_be_displayed(text : String):
+	cukup_atau_tak_label.text = text
+	displaying_text()

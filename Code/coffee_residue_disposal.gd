@@ -8,7 +8,7 @@ func _on_extract_area_body_entered(body: Node2D) -> void:
 		print(puck)
 	
 
-func _on_extract_area_body_exited(body: Node2D) -> void:
+func _on_extract_area_body_exited(_body: Node2D) -> void:
 	puck = null
 
 func _on_button_pressed() -> void:
