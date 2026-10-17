@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Milk_node
 var when_is_grab_milk : bool = false
-
+var can_be_dragged : bool = true
 func _ready():
 	input_pickable = true
 	input_event.connect(_on_input_event)
@@ -14,12 +14,15 @@ func _process(_delta):
 			_on_release_ingredient()
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			when_is_grab_milk = true
-			get_viewport().set_input_as_handled() 
-			piking = true
-
+	if can_be_dragged == true:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				when_is_grab_milk = true
+				get_viewport().set_input_as_handled() 
+				piking = true
+	elif can_be_dragged == false:
+		when_is_grab_milk = false
+		tp_to_spwaner()
 func _on_release_ingredient():
 	when_is_grab_milk = false
 	move_to_front() 

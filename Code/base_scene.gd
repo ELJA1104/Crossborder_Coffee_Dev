@@ -5,10 +5,17 @@ var matcha_powder_pressed : bool = false
 var cinnamon_powder_pressed : bool = false
 var if_anim_is_playing : bool = false
 var pressed_once : bool = false
+@onready var milk = $milk
+@onready var sugar = $sugar
+@onready var milk_foam = $"milk foam"
+@onready var cocoa_powder = $"cocoa powder"
+@onready var matcha_powder = $"matcha powder"
+@onready var cinnamon_powder = $"cinnamon powder"
+@onready var ice_cube = $"ice cube"
 #PLEASE READ!!!
 #THIS SCENE IS USED AS A BASIS FOR OTHER SCENES TO BE TESTED HERE!!! IMPORT YOUR SCENE INTO THIS SCENE TO RUN AND TEST IT FOR BUGS
 #这个Scene作为在此处测试其他Scene的基础！！！请将您的场景导入此场景，以便运行并测试是否存在错误。
-
+	
 func _on_cocoa_powder_pressed() -> void:
 	if if_anim_is_playing == false:
 		if cocoa_powder_pressed == false:
@@ -62,3 +69,10 @@ func _on_recipe_button_pressed() -> void:
 			if_anim_is_playing = true
 	if if_anim_is_playing == true:
 		pass
+
+
+func _on_change_scene_scene(value: Variant) -> void:
+	if value != 0:
+		milk.get_child(0).can_be_dragged = false
+	elif value == 0:
+		milk.get_child(0).can_be_dragged = true

@@ -43,6 +43,7 @@ position = Vector2(2240, 0)
 scale = Vector2(0.6, 0.6)
 
 [node name="Zombie world" parent="." unique_id=2130750133 instance=ExtResource("3_tt6oo")]
+position = Vector2(0, -79.99999)
 scale = Vector2(0.315, 0.315)
 
 [node name="view" parent="." unique_id=496351714 instance=ExtResource("3_tsppp")]
@@ -50,3 +51,5 @@ position = Vector2(783, 3)
 
 [node name="Crosshair&Cursor" parent="." unique_id=989418816 instance=ExtResource("6_77q20")]
 position = Vector2(-8, -264)
+
+[connection signal="scene" from="." to="Customer UI" method="_on_change_scene_scene"]
