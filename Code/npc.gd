@@ -1,4 +1,5 @@
 extends Node2D
+@onready var gm = $"../game muneee"
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var dialog_text: RichTextLabel = $text
 @onready var board: RichTextLabel = $ColorRect/board
@@ -71,4 +72,5 @@ func drop_board():
 	await display_line(" ", 0.1)
 	await get_tree().create_timer(2).timeout
 	anim_player.play("opening animation")
-	pass
+	await get_tree().create_timer(10).timeout
+	gm.game_menu_open()

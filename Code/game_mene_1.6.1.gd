@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var intro = $"../game menu point"
 @onready var menu = $menu
 @onready var loading = $loading
 @onready var game = $game
@@ -16,9 +16,12 @@ var play_anim : bool = false
 func _ready() -> void:
 	rickroll.modulate.a = 1
 	rickroll.stream = preload("res://Smartest Rick Roll but with a different link. ( 720 X 1280 ).ogv")
-	page = 1
+	page = 0
 	tp()
 
+func game_menu_open():
+	page = 1
+	tp()
 
 func _physics_process(_delta: float) -> void:
 	if play_anim:
@@ -74,6 +77,9 @@ func _on_back_pressed() -> void:
 	tp()
 
 func tp():
+	if page == 0:
+		dir = intro.global_position
+		view.global_position = dir
 	if page == 1:
 		dir = menu.global_position
 		view.global_position = dir

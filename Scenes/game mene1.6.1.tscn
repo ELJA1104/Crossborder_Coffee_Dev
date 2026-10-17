@@ -371,7 +371,7 @@ _data = {
 &"loading_animation": SubResource("Animation_6u563")
 }
 
-[node name="Node2D" type="Node2D" unique_id=1807869082]
+[node name="game muneee" type="Node2D" unique_id=1807869082]
 script = ExtResource("1_vwcxu")
 
 [node name="background" type="Sprite2D" parent="." unique_id=380315598]
