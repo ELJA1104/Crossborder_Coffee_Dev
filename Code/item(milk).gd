@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Milk_node
 var when_is_grab_milk : bool = false
 var can_be_dragged : bool = true
+
 func _ready():
 	input_pickable = true
 	input_event.connect(_on_input_event)

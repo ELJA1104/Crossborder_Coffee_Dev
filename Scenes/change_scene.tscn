@@ -39,7 +39,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-1648, 0)
 
 [node name="Customer UI" parent="." unique_id=800427921 instance=ExtResource("2_tt6oo")]
-position = Vector2(2240, 0)
+position = Vector2(2256, 0)
 scale = Vector2(0.6, 0.6)
 
 [node name="Zombie world" parent="." unique_id=2130750133 instance=ExtResource("3_tt6oo")]

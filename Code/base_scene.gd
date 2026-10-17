@@ -12,6 +12,7 @@ var pressed_once : bool = false
 @onready var matcha_powder = $"matcha powder"
 @onready var cinnamon_powder = $"cinnamon powder"
 @onready var ice_cube = $"ice cube"
+@onready var INgredients : Node2D
 #PLEASE READ!!!
 #THIS SCENE IS USED AS A BASIS FOR OTHER SCENES TO BE TESTED HERE!!! IMPORT YOUR SCENE INTO THIS SCENE TO RUN AND TEST IT FOR BUGS
 #这个Scene作为在此处测试其他Scene的基础！！！请将您的场景导入此场景，以便运行并测试是否存在错误。
@@ -74,5 +75,17 @@ func _on_recipe_button_pressed() -> void:
 func _on_change_scene_scene(value: Variant) -> void:
 	if value != 0:
 		milk.get_child(0).can_be_dragged = false
+		sugar.get_child(0).can_be_dragged = false
+		milk_foam.get_child(0).can_be_dragged = false
+		cocoa_powder.get_child(0).can_be_dragged = false
+		matcha_powder.get_child(0).can_be_dragged = false
+		cinnamon_powder.get_child(0).can_be_dragged = false
+		ice_cube.get_child(0).can_be_dragged = false
 	elif value == 0:
 		milk.get_child(0).can_be_dragged = true
+		sugar.get_child(0).can_be_dragged = true
+		milk_foam.get_child(0).can_be_dragged = true
+		cocoa_powder.get_child(0).can_be_dragged = true
+		matcha_powder.get_child(0).can_be_dragged = true
+		cinnamon_powder.get_child(0).can_be_dragged = true
+		ice_cube.get_child(0).can_be_dragged = true

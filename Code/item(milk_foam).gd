@@ -23,6 +23,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 				piking = true
 	elif can_be_dragged == false:
 		when_is_grab_milk_foam = false
+		tp_to_spwaner()
 
 func _on_release_ingredient():
 	when_is_grab_milk_foam = false
