@@ -165,7 +165,7 @@ _data = {
 &"Slide_out": SubResource("Animation_4trrr")
 }
 
-[node name="Node2D" type="Node2D" unique_id=800427921 node_paths=PackedStringArray("anim_plyr")]
+[node name="Customer UI" type="Node2D" unique_id=800427921 node_paths=PackedStringArray("anim_plyr")]
 script = ExtResource("1_5yig4")
 anim_plyr = NodePath("AnimationPlayer")
 
