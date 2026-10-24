@@ -1,12 +1,19 @@
 class_name cursor
 extends Node2D
-
 @onready var cursor = $Crosshair
+@export var crosshair_sprite : Node2D
+@export var cursor_sprite : Node2D
+var crosshair_mode : bool = false
 
 func _physics_process(delta: float) -> void:
 	self.global_position = get_global_mouse_position()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
+	if crosshair_mode == false:
+		crosshair_sprite.hide()
+		cursor_sprite.show()
+	elif crosshair_mode == true:
+		crosshair_sprite.show()
+		cursor_sprite.hide()
 	
 #func _input(event):
 	#if event.is_action_pressed("m1"):
