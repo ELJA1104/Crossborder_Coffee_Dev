@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxfbeqipptrfa" path="res://Scenes/player.gd" id="1_8j60k"]
 [ext_resource type="PackedScene" uid="uid://dgfe306jyhme8" path="res://Scenes/GreatWall.tscn" id="2_8j60k"]
+[ext_resource type="PackedScene" uid="uid://pq22bk8wvxcl" path="res://Scenes/cursor.tscn" id="3_5a7ea"]
 [ext_resource type="Script" uid="uid://d2j3jcppm6bmh" path="res://Code/spawner.gd" id="3_fo5ed"]
 [ext_resource type="Script" uid="uid://irjo26r7yjtf" path="res://Code/start_button.gd" id="5_fo5ed"]
 [ext_resource type="Script" uid="uid://cu38gix1xwrta" path="res://Code/paused_button.gd" id="6_5ukr8"]
@@ -11,6 +12,13 @@ size = Vector2(1200, 98)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01sja"]
 radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ibi"]
+size = Vector2(2592, 1252)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_01sja"]
+normal = Vector2(-0.0044247354, -0.9999902)
+distance = -237.0
 
 [node name="World" type="Node2D" unique_id=2130750133]
 
@@ -25,9 +33,10 @@ position = Vector2(0, -92)
 shape = SubResource("RectangleShape2D_01sja")
 
 [node name="GreatWall" parent="." unique_id=788673175 instance=ExtResource("2_8j60k")]
-position = Vector2(1, -4)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=739326023]
+
+[node name="Crosshair" parent="Area2D" unique_id=989418816 instance=ExtResource("3_5a7ea")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=368609563]
 shape = SubResource("CircleShape2D_01sja")
@@ -41,9 +50,9 @@ player = NodePath("../Player")
 wait_time = 3.8
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1341148731]
-offset_left = -735.0
+offset_left = -727.0
 offset_top = 906.0
-offset_right = 1857.0
+offset_right = 1865.0
 offset_bottom = 2159.0
 color = Color(0.35686275, 0.35686275, 0.35686275, 0.6862745)
 
@@ -86,6 +95,27 @@ theme_override_font_sizes/font_size = 60
 text = "Pause"
 script = ExtResource("6_5ukr8")
 
+[node name="Area2D2" type="Area2D" parent="ColorRect" unique_id=384620839]
+position = Vector2(705.57495, 11)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/Area2D2" unique_id=110544123]
+position = Vector2(597.42505, 626)
+shape = SubResource("RectangleShape2D_a2ibi")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=757630685]
+position = Vector2(562, 639)
+zoom = Vector2(0.45, 0.45)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1029171562]
+position = Vector2(1840.9998, 696.0001)
+rotation = -1.5533533
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=691263759]
+shape = SubResource("WorldBoundaryShape2D_01sja")
+
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="Area2D/Crosshair" method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="pressed" from="ColorRect/Control/StartButton" to="Spawner" method="_start_spawner"]
+[connection signal="mouse_entered" from="ColorRect/Area2D2" to="Area2D/Crosshair" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/Area2D2" to="Area2D/Crosshair" method="_on_area_2d_2_mouse_exited"]
