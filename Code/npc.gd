@@ -1,5 +1,5 @@
 extends Node2D
-
+signal open_menu_requested
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var dialog_text: RichTextLabel = $text
 @onready var board: RichTextLabel = $ColorRect/board
@@ -74,4 +74,4 @@ func drop_board():
 	await get_tree().create_timer(2).timeout
 	anim_player.play("opening animation")
 	await get_tree().create_timer(10).timeout
-	$"../..".game_menu_open()
+	open_menu_requested.emit()
