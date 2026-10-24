@@ -9,12 +9,10 @@ size = Vector2(224, 48)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(256, 56)
 
-[node name="Coffeebrewer" type="Node2D" unique_id=204845374 node_paths=PackedStringArray("Pug_detec", "Cup_detec", "cup_tp_pos", "puck_tp_pos", "Text_label")]
+[node name="Coffeebrewer" type="Node2D" unique_id=204845374 node_paths=PackedStringArray("Pug_detec", "Cup_detec", "Text_label")]
 script = ExtResource("1_wovsr")
 Pug_detec = NodePath("Puck detection")
 Cup_detec = NodePath("Cup detection")
-cup_tp_pos = NodePath("Cup detection/Cup_tp_destination")
-puck_tp_pos = NodePath("Puck detection/Puck_tp_destination")
 Text_label = NodePath("Label")
 
 [node name="CoffeeMachine2" type="Sprite2D" parent="." unique_id=1343945670]
@@ -58,11 +56,13 @@ theme_override_font_sizes/font_size = 10
 text = "Stop"
 
 [node name="Label" type="Label" parent="." unique_id=1508481027]
+self_modulate = Color(0, 0, 0, 1)
 offset_left = -192.0
-offset_top = 192.0
+offset_top = 176.0
 offset_right = 192.0
-offset_bottom = 240.0
-theme_override_font_sizes/font_size = 20
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 25
+text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 

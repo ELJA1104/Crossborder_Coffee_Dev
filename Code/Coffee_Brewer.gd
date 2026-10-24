@@ -2,24 +2,20 @@ extends Node2D
 @export var Pug_detec : Area2D
 @export var Cup_detec : Area2D
 @export var Cup_detection_value : int = 0
-@export var cup_tp_pos: Node2D
-@export var puck_tp_pos: Node2D
 @export var Text_label : Label
-var B : String
 var is_filling : bool = false
-var coffee_flavour
-var req_temp
 var Puck_detec : bool = false
 var cup
 var puck
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if cup:
 		if is_filling == true:
 			cup.cup_fill()
 			
 		elif is_filling == false:
 			cup.cup_stop_fill()
+			cup.cup_return_to_zero()
 			
 		if cup.Progress_Bar_cup.value >= 99:
 			cup.menu_in_coffe()
@@ -38,17 +34,16 @@ func _on_start_button_pressed() -> void:
 			text_to_be_displayed("You need  to fill the puck with coffee grounds")
 		elif puck.is_empty == false:
 			if Cup_detection_value == 1:
-				print("start button is pressed")
-				is_filling = true	
+				is_filling = true
+				print(is_filling)
 				text_to_be_displayed("Filling process has started")
 			elif Cup_detection_value== 0:
-				print("Something is missing!")
 				text_to_be_displayed("Cup has not been detected")
 
 
 func _on_stop_button_pressed() -> void:
 	print("stop button is pressed")
-	Cup_detection_value == 0
+	Cup_detection_value = 0
 	is_filling = false
 
 	text_to_be_displayed("Filling process has stopped")
@@ -57,8 +52,6 @@ func _on_cup_detection_body_entered(body) -> void:
 	print(body)
 	if body is Cup_node:
 		cup = body
-		coffee_flavour = body.flavour
-		req_temp = body.temp
 		print("Cup has been detected")
 		Cup_detection_value = 1
 		print(Cup_detection_value)
@@ -72,8 +65,6 @@ func _on_cup_detection_body_exited(body) -> void:
 	print(body)
 	if body is Cup_node:
 		cup = null
-		coffee_flavour = null
-		req_temp = null
 		print("Cup has left")
 		Cup_detection_value = 0
 		print(Cup_detection_value)

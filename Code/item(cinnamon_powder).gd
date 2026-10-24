@@ -1,6 +1,7 @@
 extends CharacterBody2D
 class_name Cinnamon_powder_node
 var when_is_grab_cinnamon_powder : bool = false
+var can_be_dragged : bool = true
 
 func _ready():
 	input_pickable = true
@@ -14,11 +15,15 @@ func _process(_delta):
 			_on_release_ingredient()
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			when_is_grab_cinnamon_powder = true
-			get_viewport().set_input_as_handled() 
-			piking = true
+	if can_be_dragged == true:
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				when_is_grab_cinnamon_powder = true
+				get_viewport().set_input_as_handled() 
+				piking = true
+	elif can_be_dragged == false:
+		when_is_grab_cinnamon_powder = false
+		tp_to_spwaner()
 
 func _on_release_ingredient():
 	when_is_grab_cinnamon_powder = false

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d2ck4um7l27gx"]
 
 [ext_resource type="Script" uid="uid://djr1rfm5rk87q" path="res://Code/item(sugar).gd" id="1_n4k3a"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_6lna5"]
+[ext_resource type="Texture2D" uid="uid://bshr8rpoxgh5o" path="res://Assets/PNG/Sugar sprite.png" id="2_n4k3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(38, 39)
@@ -20,8 +20,9 @@ input_pickable = true
 script = ExtResource("1_n4k3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="item(sugar)" unique_id=1164953062]
-scale = Vector2(0.375, 0.375)
-texture = ExtResource("2_6lna5")
+position = Vector2(1.5139578e-05, -1)
+scale = Vector2(0.029673608, 0.0345125)
+texture = ExtResource("2_n4k3a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item(sugar)" unique_id=250819]
 position = Vector2(0, -0.5)

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://5axfihyvbn41"]
+
+[ext_resource type="Texture2D" uid="uid://b8wfw8scnulex" path="res://Assets/PNG/Coffee_Ingredients_List.png" id="1_a5vii"]
+
+[node name="Test ingredients list" type="Node2D" unique_id=811308725]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=84180131]
+offset_left = -448.0
+offset_top = -240.0
+offset_right = 448.0
+offset_bottom = 240.0
+accessibility_region = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=840765215]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/VBoxContainer" unique_id=1369344944]
+layout_mode = 2
+texture = ExtResource("1_a5vii")

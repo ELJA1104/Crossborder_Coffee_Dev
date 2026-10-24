@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://jolhlj2togc7"]
+
+[ext_resource type="Script" uid="uid://b08ey5mhbr1ev" path="res://Code/label_control.gd" id="1_qkmst"]
+
+[node name="Label control" type="Node2D" unique_id=512349306 node_paths=PackedStringArray("Day_count_label", "customers_served_label", "credits_label", "zombies_killed_label", "Wall_repair_boxes_label")]
+script = ExtResource("1_qkmst")
+Day_count_label = NodePath("Day count")
+customers_served_label = NodePath("Customers served")
+credits_label = NodePath("Credit")
+zombies_killed_label = NodePath("Zombies killed")
+Wall_repair_boxes_label = NodePath("Wall repair boxes")
+
+[node name="Day count" type="Label" parent="." unique_id=219310153]
+offset_left = 192.0
+offset_top = -320.0
+offset_right = 384.0
+offset_bottom = -297.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Day: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Customers served" type="Label" parent="." unique_id=1875843884]
+offset_left = 192.0
+offset_top = -296.0
+offset_right = 384.0
+offset_bottom = -273.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Customers served: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credit" type="Label" parent="." unique_id=1182131428]
+offset_left = 192.0
+offset_top = -272.0
+offset_right = 384.0
+offset_bottom = -249.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Credit balance: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Zombies killed" type="Label" parent="." unique_id=1641054494]
+offset_left = 384.0
+offset_top = -320.0
+offset_right = 576.0
+offset_bottom = -297.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Zombies killed: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Wall repair boxes" type="Label" parent="." unique_id=1432053691]
+offset_left = 384.0
+offset_top = -296.0
+offset_right = 576.0
+offset_bottom = -273.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Wall repair boxes: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1440076789]
+process_callback = 0
+wait_time = 2500.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

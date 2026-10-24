@@ -1,4 +1,5 @@
 extends Node2D
+
 @onready var intro = $"game menu point"
 @onready var menu = $menu
 @onready var loading = $loading
@@ -97,3 +98,8 @@ func tp():
 		view.global_position = dir
 
 #page(1=menu),(2=loading),(3=game),(4=setting),(5=shop)
+
+
+func _on_npc_open_menu_requested() -> void:
+	page = 1
+	tp()

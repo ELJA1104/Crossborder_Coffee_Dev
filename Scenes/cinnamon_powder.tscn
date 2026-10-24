@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpmkcwcbx0c35"]
 
 [ext_resource type="Script" uid="uid://cxer2fye2s71r" path="res://Code/item(cinnamon_powder).gd" id="1_nso1s"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_aqiwt"]
+[ext_resource type="Texture2D" uid="uid://cpmbpcv7uau4t" path="res://Assets/PNG/Cinnamon powder sprite.png" id="2_nso1s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(120, 113)
@@ -19,7 +19,9 @@ input_pickable = true
 script = ExtResource("1_nso1s")
 
 [node name="Sprite2D" type="Sprite2D" parent="item(cinnamon powder)" unique_id=1491402978]
-texture = ExtResource("2_aqiwt")
+position = Vector2(1.335144e-05, 2.3841858e-06)
+scale = Vector2(0.08543099, 0.09341118)
+texture = ExtResource("2_nso1s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item(cinnamon powder)" unique_id=449007510]
 position = Vector2(0, 0.5)

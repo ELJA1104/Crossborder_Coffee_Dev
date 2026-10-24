@@ -1045,7 +1045,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_gp6nx")
 text = "ABANDON "
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=161512131]
-position = Vector2(-5698.7656, 52.06665)
+position = Vector2(610, 2090)
 
 [node name="menu" type="Node2D" parent="." unique_id=1552860402]
 position = Vector2(576.98395, 329.5271)
@@ -1152,14 +1152,22 @@ theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_kwagb")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_gp6nx")
 text = "BACK>"
 
-[node name="npc" parent="." unique_id=1145555013 instance=ExtResource("4_nsrwh")]
-position = Vector2(-6253, -251)
+[node name="game menu point" type="Node2D" parent="." unique_id=131847325]
+position = Vector2(-3826, 741)
 
-[node name="game menu point" type="Node2D" parent="." unique_id=397203355]
-position = Vector2(-5690.0977, 60.734375)
+[node name="ColorRect" type="ColorRect" parent="game menu point" unique_id=1172022302]
+offset_left = -585.0
+offset_top = -332.0
+offset_right = 562.0
+offset_bottom = 300.0
+color = Color(1, 1, 1, 0.20392157)
+
+[node name="npc" parent="." unique_id=1145555013 instance=ExtResource("4_nsrwh")]
+position = Vector2(-4419, 398)
 
 [connection signal="pressed" from="IDCard_Physical/shop" to="." method="_on_shop_pressed"]
 [connection signal="pressed" from="IDCard_Physical/Btn_Start" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="IDCard_Physical/Btn_Load" to="." method="_on_btn_load_pressed"]
 [connection signal="pressed" from="IDCard_Physical/Btn_Quit" to="." method="_on_btn_quit_pressed"]
 [connection signal="pressed" from="shop/back" to="." method="_on_back_pressed"]
+[connection signal="open_menu_requested" from="npc" to="." method="_on_npc_open_menu_requested"]
