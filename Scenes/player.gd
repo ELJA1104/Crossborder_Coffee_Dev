@@ -7,13 +7,11 @@ func _ready() -> void:
 	pass 
 
 func kill():
-	get_tree().get_parent().reload_current_scene()
+	get_tree().change_scene_to_file("res://Scenes/restart.tscn")
 	
-
 func _on_area_2d_area_entered(body):
-	if "Enemy" in body.name:
+	if "enemy" in body.name:
 		kill()
-
-
-func _on_start_button_pressed() -> void:
-	pass # Replace with function body.
+	
+func _on_area_2d_2_mouse_exited() -> void:
+	pass 

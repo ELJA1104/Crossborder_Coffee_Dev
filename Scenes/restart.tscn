@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://d4anxo0qnpkgh"]
+
+[ext_resource type="Script" uid="uid://bpsxvo6igff6r" path="res://Scenes/restart.gd" id="1_7g6v7"]
+
+[sub_resource type="Gradient" id="Gradient_a2ibi"]
+offsets = PackedFloat32Array(0, 0.58413464, 0.99759614)
+colors = PackedColorArray(1, 1, 1, 1, 0.15625, 0.15625, 0.15625, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_01sja"]
+gradient = SubResource("Gradient_a2ibi")
+fill = 1
+fill_from = Vector2(0.07118055, 0.21354167)
+
+[node name="Restart" type="Control" unique_id=1668360449]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7g6v7")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=611246994]
+layout_mode = 0
+offset_left = -28.0
+offset_top = -96.0
+offset_right = 1179.0
+offset_bottom = 749.0
+color = Color(0.06874165, 3.9563478e-05, 0.3496359, 1)
+
+[node name="Restart" type="Button" parent="." unique_id=2113732045]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 310.0
+offset_right = 667.0
+offset_bottom = 372.0
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="Label" type="Label" parent="." unique_id=459472915]
+layout_mode = 0
+offset_left = 3.0825348
+offset_top = 198.2327
+offset_right = 475.08252
+offset_bottom = 345.23273
+rotation = -0.4514528
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "You lost, how weak. HAHAHAAHAHAHAHA....
+
+"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=530497100]
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasModulate" unique_id=2066890705]
+position = Vector2(576, 328)
+scale = Vector2(18.000002, 10.171876)
+texture = SubResource("GradientTexture2D_01sja")
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
