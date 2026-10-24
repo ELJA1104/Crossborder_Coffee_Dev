@@ -10,4 +10,4 @@
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1581583787]
 
 [node name="FPS_gun" parent="." unique_id=1345789586 instance=ExtResource("2_8uh7m")]
-position = Vector2(0, 320)
+position = Vector2(-1, 320)

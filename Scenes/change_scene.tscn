@@ -1,13 +1,16 @@
 [gd_scene format=3 uid="uid://bc5ti7kx4vip1"]
 
 [ext_resource type="Script" uid="uid://bhydkbu8uyxgy" path="res://Code/tp_not_try.gd" id="1_70pe2"]
+[ext_resource type="PackedScene" uid="uid://d2kchrjtt1a64" path="res://Scenes/upgrade_shop_scene.tscn" id="2_5j5ic"]
+[ext_resource type="PackedScene" uid="uid://qqpnfwanee66" path="res://Scenes/base_scene.tscn" id="2_tt6oo"]
 [ext_resource type="PackedScene" uid="uid://d030l51eoqsom" path="res://Scenes/view.tscn" id="3_tsppp"]
+[ext_resource type="PackedScene" uid="uid://cdx08h2n6xqiv" path="res://Scenes/world.tscn" id="3_tt6oo"]
+[ext_resource type="PackedScene" uid="uid://pq22bk8wvxcl" path="res://Scenes/cursor.tscn" id="6_77q20"]
 
 [node name="change_scene" type="Node2D" unique_id=753283931]
 script = ExtResource("1_70pe2")
 
 [node name="pvz_alt" type="Node2D" parent="." unique_id=1290254239]
-position = Vector2(-858, 0)
 
 [node name="Label" type="Label" parent="pvz_alt" unique_id=1782168311]
 offset_right = 40.0
@@ -15,11 +18,38 @@ offset_bottom = 23.0
 text = "zombie"
 
 [node name="cus_alt" type="Node2D" parent="." unique_id=584802593]
+position = Vector2(2240, 0)
 
 [node name="Label" type="Label" parent="cus_alt" unique_id=940785562]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "cus"
+metadata/_edit_use_anchors_ = true
+
+[node name="Shop_alt" type="Node2D" parent="." unique_id=832836885]
+position = Vector2(-1624, 0)
+
+[node name="Label" type="Label" parent="Shop_alt" unique_id=421379207]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Shop"
+metadata/_edit_use_anchors_ = true
+
+[node name="Upgrade shop scene" parent="." unique_id=1535892368 instance=ExtResource("2_5j5ic")]
+position = Vector2(-1648, 0)
+
+[node name="Zombie world" parent="." unique_id=2130750133 instance=ExtResource("3_tt6oo")]
+position = Vector2(0, -79.99999)
+scale = Vector2(0.315, 0.315)
+
+[node name="Customer UI" parent="." unique_id=800427921 instance=ExtResource("2_tt6oo")]
+position = Vector2(2264, -8)
+scale = Vector2(0.6, 0.6)
 
 [node name="view" parent="." unique_id=496351714 instance=ExtResource("3_tsppp")]
 position = Vector2(783, 3)
+
+[node name="Crosshair&Cursor" parent="." unique_id=989418816 instance=ExtResource("6_77q20")]
+position = Vector2(-8, -264)
+
+[connection signal="scene" from="." to="Customer UI" method="_on_change_scene_scene"]

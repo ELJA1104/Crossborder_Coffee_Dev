@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmitv4ele86py"]
 
 [ext_resource type="Script" uid="uid://cmherv4kcu4uv" path="res://Code/item(milk).gd" id="1_fst1a"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="1_jsvp8"]
+[ext_resource type="Texture2D" uid="uid://c8ypllpfqxnrx" path="res://Assets/PNG/Milk sprite.png" id="2_4r4fw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(55, 87)
@@ -20,9 +20,9 @@ input_pickable = true
 script = ExtResource("1_fst1a")
 
 [node name="Sprite2D" type="Sprite2D" parent="item(milk)" unique_id=175419266]
-position = Vector2(1, 8)
-scale = Vector2(0.4375, 0.6796875)
-texture = ExtResource("1_jsvp8")
+position = Vector2(-1.5000091, 8.499998)
+scale = Vector2(0.07565336, 0.073047854)
+texture = ExtResource("2_4r4fw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item(milk)" unique_id=1809977494]
 light_mask = 17

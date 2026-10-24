@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b1fpa1ev0581y"]
 
 [ext_resource type="Script" uid="uid://c30wj0on668lm" path="res://Code/item(matcha_powder).gd" id="1_cu0ix"]
-[ext_resource type="Texture2D" uid="uid://or66im7dlwtu" path="res://icon.svg" id="2_alqoh"]
+[ext_resource type="Texture2D" uid="uid://by2ylrsvf2b8f" path="res://Assets/PNG/Matcha powder sprite.png" id="2_5x7so"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2m13f"]
 size = Vector2(124, 118)
@@ -19,7 +19,9 @@ input_pickable = true
 script = ExtResource("1_cu0ix")
 
 [node name="Sprite2D" type="Sprite2D" parent="item(matcha powder)" unique_id=1545712862]
-texture = ExtResource("2_alqoh")
+position = Vector2(0.99999964, -1.0000036)
+scale = Vector2(0.09458429, 0.090283096)
+texture = ExtResource("2_5x7so")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="item(matcha powder)" unique_id=960485426]
 position = Vector2(1, -1)
