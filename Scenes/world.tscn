@@ -16,6 +16,10 @@ radius = 3.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2ibi"]
 size = Vector2(2592, 1252)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_01sja"]
+normal = Vector2(-0.0044247354, -0.9999902)
+distance = -237.0
+
 [node name="World" type="Node2D" unique_id=2130750133]
 
 [node name="Player" type="Node2D" parent="." unique_id=1111474708]
@@ -101,6 +105,13 @@ shape = SubResource("RectangleShape2D_a2ibi")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=757630685]
 position = Vector2(562, 639)
 zoom = Vector2(0.45, 0.45)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1029171562]
+position = Vector2(1840.9998, 696.0001)
+rotation = -1.5533533
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=691263759]
+shape = SubResource("WorldBoundaryShape2D_01sja")
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Area2D" to="Area2D/Crosshair" method="_on_area_2d_area_entered"]

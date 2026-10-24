@@ -21,7 +21,7 @@ size = Vector2(5322, 104.5)
 size = Vector2(5222, 292)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxof0"]
-size = Vector2(5338, 295.5)
+size = Vector2(5338, 311.5)
 
 [node name="GreatWall" type="Area2D" unique_id=788673175]
 material = SubResource("ShaderMaterial_iovgh")
@@ -29,8 +29,8 @@ collision_layer = 3
 script = ExtResource("1_iovgh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1079106491]
-position = Vector2(552.00006, 845.78906)
-scale = Vector2(4.153125, 0.6954987)
+position = Vector2(552.00006, 706.5)
+scale = Vector2(4.153125, 1.3546236)
 texture = ExtResource("2_iovgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=301892188]
@@ -49,18 +49,20 @@ position = Vector2(548, 533)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox" unique_id=1173918974]
-position = Vector2(3, 461.75)
+position = Vector2(3, 453.75)
 shape = SubResource("RectangleShape2D_rxof0")
 
 [node name="atk_cooldown" type="Timer" parent="." unique_id=1801044459]
-wait_time = 4.0
+wait_time = 5.0
 
 [node name="HealthBar" parent="." unique_id=328116606 instance=ExtResource("3_iovgh")]
 anchors_preset = 15
-offset_left = 1559.0
-offset_top = 804.0
-offset_right = 1759.0
-offset_bottom = 838.0
+offset_left = 1529.0
+offset_top = 728.0
+offset_right = 1729.0
+offset_bottom = 762.0
+max_value = 1500.0
+value = 100.0
 script = null
 
 [node name="Timer" type="Timer" parent="." unique_id=1050362839]
