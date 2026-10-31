@@ -20,27 +20,17 @@ shader = SubResource("Shader_oxalv")
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_iovgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_16cnx")
+}, {
+"duration": 1.0,
 "texture": ExtResource("2_5xuvx")
 }],
 "loop": 1,
-"name": &"Full_damage",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_iovgh")
-}],
-"loop": 1,
-"name": &"Full_health",
-"speed": 1.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_16cnx")
-}],
-"loop": 1,
-"name": &"Semi_damage",
-"speed": 5.0
+"name": &"Status",
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01sja"]
@@ -61,7 +51,7 @@ script = ExtResource("1_iovgh")
 position = Vector2(600.49994, 699.00006)
 scale = Vector2(2.4039063, 1.4795043)
 sprite_frames = SubResource("SpriteFrames_01sja")
-animation = &"Full_health"
+animation = &"Status"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=301892188]
 modulate = Color(0, 0.5137255, 1, 1)

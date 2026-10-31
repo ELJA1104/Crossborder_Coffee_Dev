@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://d2j3jcppm6bmh" path="res://Code/spawner.gd" id="3_fo5ed"]
 [ext_resource type="Script" uid="uid://irjo26r7yjtf" path="res://Code/start_button.gd" id="5_fo5ed"]
 [ext_resource type="Script" uid="uid://cu38gix1xwrta" path="res://Code/paused_button.gd" id="6_5ukr8"]
-[ext_resource type="PackedScene" uid="uid://k4msfxevwocl" path="res://guide.tscn" id="7_o06y3"]
+[ext_resource type="PackedScene" uid="uid://k4msfxevwocl" path="res://Scenes/guide.tscn" id="7_o06y3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01sja"]
 size = Vector2(1200, 98)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bm0b4eilyvc1w" path="res://animate_guide.gd" id="2_4mqed"]
 
 [sub_resource type="Animation" id="Animation_4mqed"]
-length = 0.001
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,6 +64,30 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-1410, -127)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/RichTextLabel:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-737, 5), Vector2(-2168, 9)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/ColorRect:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-680, 19), Vector2(-2067, 27)]
 }
 
 [sub_resource type="Animation" id="Animation_feuw2"]
@@ -173,11 +197,11 @@ layout_mode = 0
 offset_left = -737.0
 offset_top = 5.0
 offset_right = 68.0
-offset_bottom = 125.0
+offset_bottom = 125.00005
 theme_override_colors/default_color = Color(0.70980394, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 31
 theme_override_font_sizes/bold_italics_font_size = 21
 bbcode_enabled = true
-text = "This is the war zone, you either [shake = 30]kill [/shake]or be kill."
+text = "This is the war zone, you either [shake = 400]kill [/shake]or be kill."
 horizontal_alignment = 1
 vertical_alignment = 1

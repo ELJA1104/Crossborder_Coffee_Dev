@@ -54,7 +54,7 @@ func _on_timer_timeout() -> void:
 			
 	if health <= 0:
 		health = 0
-		$AnimatedSprite2D.play("Full_damage")
+		$AnimatedSprite2D.play("Status")
 	
 func _on_atk_cooldown_timeout() -> void:
 	enemy_atk_cooldown = true
