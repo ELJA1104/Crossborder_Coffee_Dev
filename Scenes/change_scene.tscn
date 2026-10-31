@@ -49,7 +49,15 @@ scale = Vector2(0.6, 0.6)
 [node name="view" parent="." unique_id=496351714 instance=ExtResource("3_tsppp")]
 position = Vector2(783, 3)
 
+[node name="Button" type="Button" parent="view" unique_id=1702519253]
+offset_left = -560.0
+offset_top = 281.0
+offset_right = -432.0
+offset_bottom = 312.0
+text = "BACK TO MENU"
+
 [node name="Crosshair&Cursor" parent="." unique_id=989418816 instance=ExtResource("6_77q20")]
 position = Vector2(-8, -264)
 
 [connection signal="scene" from="." to="Customer UI" method="_on_change_scene_scene"]
+[connection signal="pressed" from="view/Button" to="." method="_on_button_back_to_menu_pressed"]

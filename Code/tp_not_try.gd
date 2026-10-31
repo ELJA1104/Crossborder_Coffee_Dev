@@ -46,3 +46,7 @@ func tp(delta):
 		
 	var wishvel = get_global_mouse_position()*delta
 	view.global_position = lerp(view.global_position, wishvel+dir, 0.4)
+
+
+func _on_button_back_to_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/game mene1.6.1.tscn")
