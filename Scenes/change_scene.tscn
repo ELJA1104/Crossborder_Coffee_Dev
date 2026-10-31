@@ -56,6 +56,12 @@ offset_right = -432.0
 offset_bottom = 312.0
 text = "BACK TO MENU"
 
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="view" unique_id=94059861]
+offset_left = -567.0
+offset_top = -317.0
+offset_right = 568.0
+offset_bottom = 317.0
+
 [node name="Crosshair&Cursor" parent="." unique_id=989418816 instance=ExtResource("6_77q20")]
 position = Vector2(-8, -264)
 

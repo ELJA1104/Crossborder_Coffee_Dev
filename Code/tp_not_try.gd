@@ -4,13 +4,14 @@ signal scene(value)
 @onready var cus_alt = $cus_alt
 @onready var shop_alt = $Shop_alt
 @onready var view = $view
+@onready var rickroll = $view/VideoStreamPlayer
 @onready var crosshair = $"Crosshair&Cursor"
 var dir
 var toggle : int = 0
 
 func _ready() -> void:
-	#Input.set_custom_mouse_cursor(cursor)
-	pass
+	rickroll.modulate.a = 1
+	rickroll.stream = preload("res://Smartest Rick Roll but with a different link. ( 720 X 1280 ).ogv")
 
 func _physics_process(delta: float) -> void:
 	tp(delta)
@@ -49,4 +50,7 @@ func tp(delta):
 
 
 func _on_button_back_to_menu_pressed() -> void:
+	rickroll.play()
+	await get_tree().create_timer(5).timeout
+	rickroll.stop()
 	get_tree().change_scene_to_file("res://Scenes/game mene1.6.1.tscn")
