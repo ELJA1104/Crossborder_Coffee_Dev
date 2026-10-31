@@ -10,6 +10,7 @@ var dir
 var toggle : int = 0
 
 func _ready() -> void:
+	rickroll.visible=false
 	rickroll.modulate.a = 1
 	rickroll.stream = preload("res://Smartest Rick Roll but with a different link. ( 720 X 1280 ).ogv")
 
@@ -50,6 +51,7 @@ func tp(delta):
 
 
 func _on_button_back_to_menu_pressed() -> void:
+	rickroll.visible=true
 	rickroll.play()
 	await get_tree().create_timer(5).timeout
 	rickroll.stop()
