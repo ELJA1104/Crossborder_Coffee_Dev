@@ -1,7 +1,7 @@
 class_name GreatWall
 extends Area2D
 
-var health = 1500
+var health = 7500
 var wall_intact = true
 var enemy_in_atk_range = false
 var enemy_atk_cooldown = true
@@ -16,9 +16,10 @@ func _physics_process(delta):
 		print("Wall has been destroyed!")
 		self.queue_free()
 		
+		
 func enemy_atk():
 	if enemy_in_atk_range and enemy_atk_cooldown == true:
-		health = health - 0.1
+		health = health - 50
 		enemy_atk_cooldown = true
 		$atk_cooldown.start()
 		print(health)
@@ -30,6 +31,7 @@ func update_health():
 	
 	if health >= 1500:
 		healthBar.visible = false
+		
 	else:
 		healthBar.visible = true
 	
@@ -44,12 +46,15 @@ func _on_hurt_box_body_exited(body: Node2D) -> void:
 	
 	
 func _on_timer_timeout() -> void:
-	if health < 1500:
+	if health < 6500:
 		health = health + 2
 		if health > 1500:
 			health = 1500
+			
+			
 	if health <= 0:
 		health = 0
+		$AnimatedSprite2D.play("Full_damage")
 	
 func _on_atk_cooldown_timeout() -> void:
 	enemy_atk_cooldown = true

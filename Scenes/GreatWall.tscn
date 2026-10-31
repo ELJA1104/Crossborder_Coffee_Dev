@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dgfe306jyhme8"]
 
 [ext_resource type="Script" uid="uid://dg6a7r1womey1" path="res://Code/great_wall.gd" id="1_iovgh"]
+[ext_resource type="Texture2D" uid="uid://dcml1uw3p63de" path="res://Assets/PNG/Wall_Full_Damaged_State.png" id="2_5xuvx"]
 [ext_resource type="Texture2D" uid="uid://bgjde0p2d2otj" path="res://Assets/PNG/Wall_Full_Health_State.png" id="2_iovgh"]
 [ext_resource type="PackedScene" uid="uid://cr02gya2rci4" path="res://Scenes/health_bar.tscn" id="3_iovgh"]
+[ext_resource type="Texture2D" uid="uid://ee4svrgedoaw" path="res://Assets/PNG/Wall_Semi_Damaged_State.png" id="4_16cnx"]
 
 [sub_resource type="Shader" id="Shader_oxalv"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.7.1.stable's CanvasItemMaterial.
@@ -13,6 +15,33 @@ render_mode blend_mix;
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iovgh"]
 shader = SubResource("Shader_oxalv")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_01sja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5xuvx")
+}],
+"loop": 1,
+"name": &"Full_damage",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iovgh")
+}],
+"loop": 1,
+"name": &"Full_health",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_16cnx")
+}],
+"loop": 1,
+"name": &"Semi_damage",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01sja"]
 size = Vector2(5322, 104.5)
@@ -28,10 +57,11 @@ material = SubResource("ShaderMaterial_iovgh")
 collision_layer = 3
 script = ExtResource("1_iovgh")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1079106491]
-position = Vector2(552.00006, 706.5)
-scale = Vector2(4.153125, 1.3546236)
-texture = ExtResource("2_iovgh")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1004988070]
+position = Vector2(600.49994, 699.00006)
+scale = Vector2(2.4039063, 1.4795043)
+sprite_frames = SubResource("SpriteFrames_01sja")
+animation = &"Full_health"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=301892188]
 modulate = Color(0, 0.5137255, 1, 1)
