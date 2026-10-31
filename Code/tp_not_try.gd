@@ -53,6 +53,6 @@ func tp(delta):
 func _on_button_back_to_menu_pressed() -> void:
 	rickroll.visible=true
 	rickroll.play()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(8).timeout
 	rickroll.stop()
 	get_tree().change_scene_to_file("res://Scenes/game mene1.6.1.tscn")

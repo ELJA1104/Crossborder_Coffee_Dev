@@ -32,7 +32,7 @@ func _on_btn_start_pressed() -> void:
 	tp()
 	play_anim = true
 	rickroll.play()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(8).timeout
 	play_anim = false
 	rickroll.stop()
 	get_tree().change_scene_to_file("res://Scenes/change_scene.tscn")
@@ -42,7 +42,7 @@ func _on_btn_load_pressed() -> void:
 	tp()
 	play_anim = true
 	rickroll.play()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(8).timeout
 	play_anim = false
 	rickroll.stop()
 	page = 3
@@ -53,7 +53,7 @@ func _on_shop_pressed() -> void:
 	tp()
 	play_anim = true
 	rickroll.play()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(8).timeout
 	play_anim = false
 	rickroll.stop()
 	page = 4
@@ -64,7 +64,7 @@ func _on_back_2_pressed() -> void:
 	tp()
 	play_anim = true
 	rickroll.play()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(8).timeout
 	play_anim = false
 	rickroll.stop()
 	page = 1
@@ -75,7 +75,7 @@ func _on_back_pressed() -> void:
 	tp()
 	play_anim = true
 	rickroll.play()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(8).timeout
 	play_anim = false
 	rickroll.stop()
 	page = 1
