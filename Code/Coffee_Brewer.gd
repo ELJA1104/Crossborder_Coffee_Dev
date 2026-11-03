@@ -27,18 +27,19 @@ func _physics_process(_delta: float) -> void:
 			pass
 
 func _on_start_button_pressed() -> void:
-	if puck.used_once == true:
-		text_to_be_displayed("You need to clean out the puck")
-	elif puck.used_once == false:
-		if puck.is_empty == true:
-			text_to_be_displayed("You need  to fill the puck with coffee grounds")
-		elif puck.is_empty == false:
-			if Cup_detection_value == 1:
-				is_filling = true
-				print(is_filling)
-				text_to_be_displayed("Filling process has started")
-			elif Cup_detection_value== 0:
-				text_to_be_displayed("Cup has not been detected")
+	if puck:
+		if puck.used_once == true:
+			text_to_be_displayed("You need to clean out the puck")
+		elif puck.used_once == false:
+			if puck.is_empty == true:
+				text_to_be_displayed("You need  to fill the puck with coffee grounds")
+			elif puck.is_empty == false:
+				if Cup_detection_value == 1:
+					is_filling = true
+					print(is_filling)
+					text_to_be_displayed("Filling process has started")
+				elif Cup_detection_value== 0:
+					text_to_be_displayed("Cup has not been detected")
 
 
 func _on_stop_button_pressed() -> void:

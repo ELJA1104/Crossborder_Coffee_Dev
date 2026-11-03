@@ -24,6 +24,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 				piking = true
 	elif can_be_dragged == false:
 		when_is_grab_ice_cube = false
+		_on_release_ingredient()
 		tp_to_spwaner()
 
 func _on_release_ingredient():
