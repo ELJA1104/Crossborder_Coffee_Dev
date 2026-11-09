@@ -74,7 +74,8 @@ func _on_recipe_button_pressed() -> void:
 
 func _on_change_scene_scene(value: Variant) -> void:
 	if value != 0:
-		milk.get_child(0).can_be_dragged = false
+		pass
+ 		milk.get_child(0).can_be_dragged = false
 		sugar.get_child(0).can_be_dragged = false
 		milk_foam.get_child(0).can_be_dragged = false
 		cocoa_powder.get_child(0).can_be_dragged = false
